@@ -1,0 +1,46 @@
+/* Gotham */
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('./GothamPro-Light.eot');
+  src: local('Gotham Pro Light'), local('GothamPro-Light'),
+    url('./GothamPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('./GothamPro-Light.woff') format('woff'),
+    url('./GothamPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('./GothamPro-Bold.eot');
+  src: local('Gotham Pro Bold'), local('GothamPro-Bold'),
+    url('./GothamPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./GothamPro-Bold.woff') format('woff'),
+    url('./GothamPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Verdana */
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('./Verdana.eot');
+  src: local('Verdana'), url('./Verdana.eot?#iefix') format('embedded-opentype'),
+    url('./Verdana.woff') format('woff'),
+    url('./Verdana.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('./Verdana-Bold.eot');
+  src: local('Verdana Bold'), local('Verdana-Bold'),
+    url('./Verdana-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./Verdana-Bold.woff') format('woff'),
+    url('./Verdana-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
