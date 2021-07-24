@@ -1,3 +1,5 @@
+@import '../../utils/variables.css';
+
 .button {
   min-width: 176px;
   border: none;
@@ -10,14 +12,14 @@
 
 .primary {
   color: #ffffff;
-  background-color: #fc842d;
+  background-color: var(--color-active);
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
 }
 
 .secondary {
-  color: #fc842d;
+  color: var(--color-active);
   background: #ffffff;
-  border: 2px solid #fc842d;
+  border: 2px solid var(--color-active);
   border-radius: 30px;
 }
