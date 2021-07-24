@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from './components/Modal';
 
 import './App.css';
+import Header from './components/Header';
 
 const App = () => {
   const [modal, setModal] = useState(false);
@@ -12,6 +13,7 @@ const App = () => {
 
   return (
     <div>
+      <Header></Header>
       {/* Привязать к другой кнопке в форме просчёта */}
       <button type="button" onClick={toggleModal}>
         Show modal

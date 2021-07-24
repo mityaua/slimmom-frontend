@@ -11,6 +11,17 @@ body {
   letter-spacing: 0.04em;
 }
 
+p,
+ul,
+li,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+
 img {
   display: block;
   max-width: 100%;
