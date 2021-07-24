@@ -1,2 +1,46 @@
+.link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .logo {
+  width: 47px;
+  height: 44px;
+}
+
+.logoTitle {
+  display: none;
+  margin-left: 10px;
+  font-family: 'Gotham Pro', sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.14;
+  letter-spacing: 0.08em;
+  color: #212121;
+}
+
+.activeColorLogo {
+  color: #fc842d;
+}
+
+@media (min-width: 768px) {
+  .logoTitle {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .logo {
+    width: 70px;
+    height: 66px;
+    position: absolute;
+    bottom: 0;
+  }
+  .logoTitle {
+    margin-left: 58px;
+    padding-right: 22px;
+    border-right: 2px solid #e0e0e0;
+  }
 }
