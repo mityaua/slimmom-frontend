@@ -1,2 +1,36 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(33, 33, 33, 0.12);
+}
+
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  padding: 40px 15px 80px 15px;
+
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    max-width: 594px;
+    padding: 64px 43px 68px 42px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .modal {
+    max-width: 690px;
+    padding: 64px 90px 68px 91px;
+  }
 }
