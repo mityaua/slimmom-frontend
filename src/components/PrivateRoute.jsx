@@ -2,12 +2,13 @@
 // - В противном случае рендерит Redirect на указанный роут
 
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authSelectors } from '../redux/auth';
+// import { useSelector } from 'react-redux';
+// import { authSelectors } from '../redux/auth';
 
 // Компонент приватного роута (перед внедрением подогнать под наш стейт!)
 const PrivateRoute = ({ redirectTo, children, ...routeProps }) => {
-  const isLoggedIn = useSelector(authSelectors.getIsAuthenticated); // Селектор статуса аутентификации
+  // const isLoggedIn = useSelector(authSelectors.getIsAuthenticated); // Селектор статуса аутентификации
+  const isLoggedIn = true; // имитация селектора, нужно убрать после реализации!
 
   return (
     <Route {...routeProps}>
