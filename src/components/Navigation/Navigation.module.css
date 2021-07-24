@@ -21,4 +21,7 @@
   .navigation {
     padding-left: 22px;
   }
+  .isHidden {
+    display: none;
+  }
 }
