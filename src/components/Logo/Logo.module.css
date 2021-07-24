@@ -11,7 +11,7 @@
 }
 
 .logoTitle {
-  display: none;
+  display: block;
   margin-left: 10px;
   font-family: 'Gotham Pro', sans-serif;
   font-weight: 300;
@@ -25,9 +25,9 @@
   color: #fc842d;
 }
 
-@media (min-width: 768px) {
-  .logoTitle {
-    display: block;
+@media (max-width: 767px) {
+  .isHidden {
+    display: none;
   }
 }
 
