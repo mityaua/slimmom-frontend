@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
+import LoginForm from './components/LoginForm/LoginForm';
 // import Loader from './components/Loader'; // Ожидаем спиннер
 
 import routes from './routes';
@@ -16,9 +17,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const MainPage = lazy(() =>
   import('./pages/MainPage' /* webpackChunkName: "main-page" */),
 );
-const LoginPage = lazy(() =>
-  import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
-);
+// const LoginPage = lazy(() =>
+//   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
+// );
+
 const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage' /* webpackChunkName: "reg-page" */),
 );
@@ -39,7 +41,7 @@ const App = () => {
   return (
     <div>
       {/* <Header></Header> */}
-
+      <LoginForm />
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <PublicRoute exact path={routes.home}>
@@ -58,15 +60,20 @@ const App = () => {
             <DiaryPage />
           </PrivateRoute>
 
-          <PublicRoute
+          {/* <PublicRoute
             exact
             path={routes.login}
             restricted
             redirectTo={routes.calculator}
           >
             <LoginPage />
-          </PublicRoute>
-
+          </PublicRoute> */}
+          {/* <PublicRoute
+            path={routes.register}
+            restricted
+            redirectTo={routes.calculator}
+            component={LoginForm}
+          /> */}
           <PublicRoute
             exact
             path={routes.register}
