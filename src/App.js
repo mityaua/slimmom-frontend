@@ -7,6 +7,8 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
 import LoginForm from './components/LoginForm/LoginForm';
+import RegistrationForm from './components/RegistrationForm/RegistrationForm';
+
 // import Loader from './components/Loader'; // Ожидаем спиннер
 
 import routes from './routes';
@@ -42,6 +44,7 @@ const App = () => {
     <div>
       {/* <Header></Header> */}
       <LoginForm />
+      <RegistrationForm />
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <PublicRoute exact path={routes.home}>

@@ -1,11 +1,14 @@
 import styles from './LoginForm.module.css';
 import React from 'react';
+// import { useState } from 'react';
 // import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 // import Button from '@material-ui/core/Button';
 import Button from '../Button/Button';
 import TextField from '@material-ui/core/TextField';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/auth_operation';
 
 const validationSchema = yup.object({
   email: yup
@@ -18,15 +21,22 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-const LoginForm = () => {
+const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: 'foobar@example.com',
       password: 'foobar',
     },
     validationSchema: validationSchema,
+
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      const payload = {
+        email: values.email,
+        password: values.password,
+      };
+
+      dispatch(login(payload));
     },
   });
 
@@ -54,7 +64,7 @@ const LoginForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        <Button text="Login" type="primary" />
+        <Button text="Login" type="submit" />
         <Button text="Registartion" type="secondary" />
         {/* <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
@@ -64,4 +74,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
