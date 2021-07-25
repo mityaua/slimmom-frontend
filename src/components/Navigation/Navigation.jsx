@@ -1,5 +1,7 @@
 import styles from './Navigation.module.css';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import routes from '../../routes';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -16,12 +18,20 @@ const Navigation = ({ isHidden, isLogged }) => {
     <nav className={`${styles.navigation} ${hidden}`}>
       {!isLogged && (
         <>
-          <a href="#" className={styles.link}>
+          <NavLink
+            to={routes.login}
+            className={styles.link}
+            activeClassName={styles.linkActive}
+          >
             Вход
-          </a>
-          <a href="#" className={styles.link}>
+          </NavLink>
+          <NavLink
+            to={routes.registration}
+            className={styles.link}
+            activeClassName={styles.linkActive}
+          >
             Регистрация
-          </a>
+          </NavLink>
         </>
       )}
       {isLogged && (
@@ -31,14 +41,22 @@ const Navigation = ({ isHidden, isLogged }) => {
               <CloseIcon onClick={handleMenuBtnClick} />
               <ul className={styles.mobileNavigation}>
                 <li className={styles.mobileNavigationItem}>
-                  <a href="#" className={styles.mobileNavigationLink}>
+                  <NavLink
+                    to={routes.diary}
+                    className={styles.mobileNavigationLink}
+                    activeClassName={styles.mobileNavigationLinkActive}
+                  >
                     Дневник
-                  </a>
+                  </NavLink>
                 </li>
                 <li className={styles.mobileNavigationItem}>
-                  <a href="#" className={styles.mobileNavigationLink}>
+                  <NavLink
+                    to={routes.calculator}
+                    className={styles.mobileNavigationLink}
+                    activeClassName={styles.mobileNavigationLinkActive}
+                  >
                     Калькулятор
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </>
@@ -49,12 +67,20 @@ const Navigation = ({ isHidden, isLogged }) => {
       )}
       {isLogged && (
         <div className={styles.toggleHidden}>
-          <a href="#" className={styles.link}>
+          <NavLink
+            to={routes.diary}
+            className={styles.link}
+            activeClassName={styles.linkActive}
+          >
             Дневник
-          </a>
-          <a href="#" className={styles.link}>
+          </NavLink>
+          <NavLink
+            to={routes.calculator}
+            className={styles.link}
+            activeClassName={styles.linkActive}
+          >
             Калькулятор
-          </a>
+          </NavLink>
         </div>
       )}
     </nav>
