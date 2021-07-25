@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.flexContainer2 {
+  display: flex;
+  align-items: center;
+}
+
 @media (min-width: 1280px) {
   .header {
     padding: 122px 0 0 0;
@@ -18,5 +23,10 @@
   .flexContainer {
     justify-content: start;
     align-items: baseline;
+  }
+
+  .flexContainer2 {
+    flex-direction: row-reverse;
+    flex-grow: 1;
   }
 }

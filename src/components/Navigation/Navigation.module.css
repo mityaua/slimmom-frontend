@@ -19,6 +19,7 @@
 
 .mobileNavigation {
   position: absolute;
+  z-index: 10;
   width: 100%;
   height: 100vh;
   top: 82px;
@@ -51,6 +52,7 @@
 @media (min-width: 1280px) {
   .navigation {
     padding-left: 22px;
+    flex-grow: 1;
   }
   .isHidden {
     display: none;
