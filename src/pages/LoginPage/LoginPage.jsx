@@ -7,8 +7,8 @@ import styles from './LoginPage.module.css';
 const LoginPage = () => {
   return (
     <Container>
+      <Header className={styles.loginPage__header} />
       <div className={styles.loginPage}>
-        <Header className={styles.loginPage__header} />
         <LoginForm className={styles.loginPage__form} />
       </div>
     </Container>

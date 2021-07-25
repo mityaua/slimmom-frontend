@@ -8,7 +8,7 @@ import { Route, Redirect } from 'react-router-dom';
 // Компонент приватного роута (перед внедрением подогнать под наш стейт!)
 const PrivateRoute = ({ redirectTo, children, ...routeProps }) => {
   // const isLoggedIn = useSelector(authSelectors.getIsAuthenticated); // Селектор статуса аутентификации
-  const isLoggedIn = true; // имитация селектора, нужно убрать после реализации!
+  const isLoggedIn = false; // имитация селектора, нужно убрать после реализации!
 
   return (
     <Route {...routeProps}>
