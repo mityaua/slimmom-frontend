@@ -1,15 +1,17 @@
 import styles from './Logo.module.css';
-import LogoImg from '../../images/logo/logo.png';
+import { ReactComponent as LogoImg } from '../../images/logo/logo.svg';
+import { Link } from 'react-router-dom';
+import routes from '../../routes';
 
 const Logo = ({ isLogged }) => {
   const hidden = isLogged ? null : styles.isHidden; // этот проп прячет нафигацию на LoginPage и RegistrationPage
   return (
-    <a href="#" className={styles.link}>
-      <img src={LogoImg} alt="slim mom logo" className={styles.logo} />
+    <Link exact to={routes.diary} className={styles.link}>
+      <LogoImg className={styles.logo} />
       <p className={`${styles.logoTitle} ${hidden}`}>
         Slim<span className={styles.activeColorLogo}>Mom</span>
       </p>
-    </a>
+    </Link>
   );
 };
 
