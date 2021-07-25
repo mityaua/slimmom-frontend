@@ -1,5 +1,5 @@
 import { Suspense, lazy, useState } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 // import Header from './components/Header';
@@ -36,27 +36,64 @@ const App = () => {
     setModal(!modal);
   };
 
+  const isAccess = false;
+
   return (
     <div>
       {/* <Header></Header> */}
 
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <PublicRoute exact path={routes.home}>
+          <Route exact path={routes.home} component={MainPage} />
+
+          <Route
+            path={routes.login}
+            exact
+            render={() => {
+              return isAccess ? (
+                <Redirect to={routes.calculator} />
+              ) : (
+                <LoginPage />
+              );
+            }}
+          />
+
+          <Route
+            path={routes.registration}
+            exact
+            render={() => {
+              return isAccess ? (
+                <Redirect to={routes.calculator} />
+              ) : (
+                <RegistrationPage />
+              );
+            }}
+          />
+
+          <Route
+            path={routes.diary}
+            exact
+            render={() => {
+              return isAccess ? <DiaryPage /> : <Redirect to={routes.login} />;
+            }}
+          />
+
+          <Route
+            path={routes.calculator}
+            exact
+            render={() => {
+              return isAccess ? (
+                <CalculatorPage />
+              ) : (
+                <Redirect to={routes.login} />
+              );
+            }}
+          />
+          <Redirect to={routes.home} />
+
+          {/* <PublicRoute exact path={routes.home}>
             <MainPage />
           </PublicRoute>
-
-          <PrivateRoute
-            exact
-            path={routes.calculator}
-            redirectTo={routes.login}
-          >
-            <CalculatorPage />
-          </PrivateRoute>
-
-          <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
-            <DiaryPage />
-          </PrivateRoute>
 
           <PublicRoute
             exact
@@ -75,6 +112,19 @@ const App = () => {
           >
             <RegistrationPage />
           </PublicRoute>
+
+          <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
+            <DiaryPage />
+          </PrivateRoute>
+
+          <PrivateRoute
+            exact
+            path={routes.calculator}
+            redirectTo={routes.login}
+          >
+            <CalculatorPage />
+          </PrivateRoute>
+          <Redirect to={routes.home} /> */}
         </Switch>
       </Suspense>
 
