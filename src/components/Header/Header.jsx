@@ -12,8 +12,10 @@ const Header = () => {
       <Container>
         <div className={styles.flexContainer}>
           <Logo isLogged={isLogged} />
-          <Navigation isLogged={isLogged} />
-          {/* {isLogged && <UserInfo />} */}
+          <div className={styles.flexContainer2}>
+            {isLogged && <UserInfo />}
+            <Navigation isLogged={isLogged} />
+          </div>
         </div>
       </Container>
     </header>

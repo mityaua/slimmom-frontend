@@ -6,12 +6,14 @@ import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
   return (
-    <Container>
+    <>
       <Header className={styles.loginPage__header} />
-      <div className={styles.loginPage}>
-        <LoginForm className={styles.loginPage__form} />
-      </div>
-    </Container>
+      <Container>
+        <div className={styles.loginPage}>
+          <LoginForm className={styles.loginPage__form} />
+        </div>
+      </Container>
+    </>
   );
 };
 
