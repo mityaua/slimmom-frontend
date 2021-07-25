@@ -3,8 +3,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 // import Header from './components/Header';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+// import PrivateRoute from './components/PrivateRoute';
+// import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
 // import Loader from './components/Loader'; // Ожидаем спиннер
 
@@ -91,6 +91,10 @@ const App = () => {
           />
           <Redirect to={routes.home} />
 
+          {/* <PublicRoute exact path={routes.home}>
+            <MainPage />
+          </PublicRoute>
+
           <PublicRoute exact path={routes.home}>
             <MainPage />
           </PublicRoute>
@@ -110,9 +114,11 @@ const App = () => {
           >
             <RegistrationPage />
           </PublicRoute>
+
           <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
             <DiaryPage />
           </PrivateRoute>
+
           <PrivateRoute
             exact
             path={routes.calculator}
@@ -120,7 +126,7 @@ const App = () => {
           >
             <CalculatorPage />
           </PrivateRoute>
-          <Redirect to={routes.home} />
+          <Redirect to={routes.home} /> */}
         </Switch>
       </Suspense>
 
