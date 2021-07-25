@@ -1,14 +1,11 @@
 import { Suspense, lazy, useState } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 // import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
-import LoginForm from './components/LoginForm/LoginForm';
-import RegistrationForm from './components/RegistrationForm/RegistrationForm';
-
 // import Loader from './components/Loader'; // Ожидаем спиннер
 
 import routes from './routes';
@@ -19,10 +16,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const MainPage = lazy(() =>
   import('./pages/MainPage' /* webpackChunkName: "main-page" */),
 );
-// const LoginPage = lazy(() =>
-//   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
-// );
-
+const LoginPage = lazy(() =>
+  import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
+);
 const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage' /* webpackChunkName: "reg-page" */),
 );
@@ -40,43 +36,72 @@ const App = () => {
     setModal(!modal);
   };
 
+  const isAccess = false;
+
   return (
     <div>
       {/* <Header></Header> */}
-      <LoginForm />
-      <RegistrationForm />
+
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
+          <Route exact path={routes.home} component={MainPage} />
+
+          <Route
+            path={routes.login}
+            exact
+            render={() => {
+              return isAccess ? (
+                <Redirect to={routes.calculator} />
+              ) : (
+                <LoginPage />
+              );
+            }}
+          />
+
+          <Route
+            path={routes.registration}
+            exact
+            render={() => {
+              return isAccess ? (
+                <Redirect to={routes.calculator} />
+              ) : (
+                <RegistrationPage />
+              );
+            }}
+          />
+
+          <Route
+            path={routes.diary}
+            exact
+            render={() => {
+              return isAccess ? <DiaryPage /> : <Redirect to={routes.login} />;
+            }}
+          />
+
+          <Route
+            path={routes.calculator}
+            exact
+            render={() => {
+              return isAccess ? (
+                <CalculatorPage />
+              ) : (
+                <Redirect to={routes.login} />
+              );
+            }}
+          />
+          <Redirect to={routes.home} />
+
           <PublicRoute exact path={routes.home}>
             <MainPage />
           </PublicRoute>
-
-          <PrivateRoute
-            exact
-            path={routes.calculator}
-            redirectTo={routes.login}
-          >
-            <CalculatorPage />
-          </PrivateRoute>
-
-          <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
-            <DiaryPage />
-          </PrivateRoute>
-
-          {/* <PublicRoute
+          <PublicRoute
             exact
             path={routes.login}
             restricted
             redirectTo={routes.calculator}
           >
             <LoginPage />
-          </PublicRoute> */}
-          {/* <PublicRoute
-            path={routes.register}
-            restricted
-            redirectTo={routes.calculator}
-            component={LoginForm}
-          /> */}
+          </PublicRoute>
           <PublicRoute
             exact
             path={routes.register}
@@ -85,6 +110,17 @@ const App = () => {
           >
             <RegistrationPage />
           </PublicRoute>
+          <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
+            <DiaryPage />
+          </PrivateRoute>
+          <PrivateRoute
+            exact
+            path={routes.calculator}
+            redirectTo={routes.login}
+          >
+            <CalculatorPage />
+          </PrivateRoute>
+          <Redirect to={routes.home} />
         </Switch>
       </Suspense>
 
