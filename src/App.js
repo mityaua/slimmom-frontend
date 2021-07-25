@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 
 // import Header from './components/Header';
 // import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+// import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
 // import Loader from './components/Loader'; // Ожидаем спиннер
 
@@ -94,25 +94,6 @@ const App = () => {
           {/* <PublicRoute exact path={routes.home}>
             <MainPage />
           </PublicRoute>
-
-          <PublicRoute exact path={routes.home}>
-            <MainPage />
-          </PublicRoute>
-       
-
-          <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
-            <DiaryPage />
-          </PrivateRoute>
-
-          <PrivateRoute
-            exact
-            path={routes.calculator}
-            redirectTo={routes.login}
-          >
-            <CalculatorPage />
-          </PrivateRoute>
-          <Redirect to={routes.home} /> */}
-
           <PublicRoute
             exact
             path={routes.login}
@@ -129,6 +110,17 @@ const App = () => {
           >
             <RegistrationPage />
           </PublicRoute>
+          <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
+            <DiaryPage />
+          </PrivateRoute>
+          <PrivateRoute
+            exact
+            path={routes.calculator}
+            redirectTo={routes.login}
+          >
+            <CalculatorPage />
+          </PrivateRoute>
+          <Redirect to={routes.home} /> */}
         </Switch>
       </Suspense>
 
