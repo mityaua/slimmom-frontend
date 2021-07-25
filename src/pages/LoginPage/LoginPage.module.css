@@ -21,7 +21,7 @@
       left 277px top 593px, left 794px top 461px;
     background: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)),
       drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)),
-      drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)),
+      drop-shadow(0px 140px 50px rgba(0, 0, 0, 0.3)),
       drop-shadow(10px 20px 50px rgba(0, 0, 0, 0.3));
   }
 
@@ -45,7 +45,7 @@
       left 412px top 340px, left 915px top 213px;
     background: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)),
       drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)),
-      drop-shadow(0px 0px 0px rgba(0, 0, 0, 0)),
+      drop-shadow(0px 140px 50px rgba(0, 0, 0, 0.3)),
       drop-shadow(10px 20px 50px rgba(0, 0, 0, 0.3));
   }
 
