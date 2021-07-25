@@ -52,6 +52,7 @@
 @media (min-width: 1280px) {
   .navigation {
     padding-left: 22px;
+    flex-grow: 1;
   }
   .isHidden {
     display: none;

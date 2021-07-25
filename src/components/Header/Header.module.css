@@ -12,7 +12,6 @@
 
 .flexContainer2 {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -28,5 +27,6 @@
 
   .flexContainer2 {
     flex-direction: row-reverse;
+    flex-grow: 1;
   }
 }
