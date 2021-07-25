@@ -26,9 +26,7 @@
 }
 
 .rightSideBar_list {
-  margin: 0 0 40px;
-  padding: 0;
-  list-style: none;
+  margin-bottom: 40px;
 }
 
 @media screen and (min-width: 768px) {

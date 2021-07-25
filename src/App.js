@@ -3,8 +3,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 // import Header from './components/Header';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+// import PrivateRoute from './components/PrivateRoute';
+// import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
 // import Loader from './components/Loader'; // Ожидаем спиннер
 
@@ -36,12 +36,10 @@ const App = () => {
     setModal(!modal);
   };
 
-  const isAccess = false;
+  const isAccess = true;
 
   return (
     <div>
-      {/* <Header></Header> */}
-
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route exact path={routes.home} component={MainPage} />
