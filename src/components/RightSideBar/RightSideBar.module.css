@@ -1,2 +1,66 @@
 .rightSideBar {
+  padding: 40px 15px;
+  background-color: #f0f1f3;
+}
+
+.rightSideBar_title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  margin: 0 0 20px;
+}
+
+.rightSideBar_text {
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+}
+
+.rightSideBar_el {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightSideBar_list {
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+  .rightSideBar {
+    padding: 91px 87px;
+    display: flex;
+    background-image: url('../../images/sideBarLeaf768_1x.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+
+  .rightSideBar_list {
+    width: 252px;
+    margin: 0 60px 0 0;
+  }
+
+  .rightSideBar_title {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .rightSideBar {
+    width: 535px;
+    display: block;
+    padding-left: 90px;
+    padding-right: 175px;
+    background-image: url('../../images/sideBarLeaf1280_1x.png');
+    background-size: contain;
+  }
+
+  .rightSideBar_list {
+    margin: 0 0 60px 0;
+  }
 }
