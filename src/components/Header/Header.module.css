@@ -1,2 +1,22 @@
 .header {
+  position: relative;
+  padding: 18px 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 1280px) {
+  .header {
+    padding: 122px 0 0 0;
+    border-bottom: none;
+  }
+  .flexContainer {
+    justify-content: start;
+    align-items: baseline;
+  }
 }
