@@ -12,9 +12,9 @@
     height: 1024px;
 
     background-image: url('../../images/bg-pictures/tablet/stain.svg'),
-      url('../../images/bg-pictures/tablet/leaves-2.svg'),
-      url('../../images/bg-pictures/tablet/banana.svg'),
-      url('../../images/bg-pictures/tablet/strawberry.svg');
+      url('../../images/bg-pictures/tablet/leaves-login.png'),
+      url('../../images/bg-pictures/tablet/banana.png'),
+      url('../../images/bg-pictures/tablet/strawberry.png');
 
     background-size: 553px 750px, 740px 842px, 740px 527px, 291px 284px;
     background-position: left 247px top 461px, left 16px top -97px,
@@ -31,14 +31,14 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   .loginPage {
     height: 850px;
 
     background-image: url('../../images/bg-pictures/desktop/stain.svg'),
-      url('../../images/bg-pictures/desktop/leaves-1.svg'),
-      url('../../images/bg-pictures/desktop/banana.svg'),
-      url('../../images/bg-pictures/desktop/strawberry.svg');
+      url('../../images/bg-pictures/desktop/leaves.png'),
+      url('../../images/bg-pictures/desktop/banana.png'),
+      url('../../images/bg-pictures/desktop/strawberry.png');
 
     background-size: 716.5px 849px, 756px 857px, 773px 552px, 286px 279px;
     background-position: left 565px top 0px, left -26px top -26px,
