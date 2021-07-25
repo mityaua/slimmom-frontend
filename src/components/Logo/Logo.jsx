@@ -6,7 +6,7 @@ import routes from '../../routes';
 const Logo = ({ isLogged }) => {
   const hidden = isLogged ? null : styles.isHidden; // этот проп прячет нафигацию на LoginPage и RegistrationPage
   return (
-    <Link exact to={routes.diary} className={styles.link}>
+    <Link to={routes.diary} className={styles.link}>
       <LogoImg className={styles.logo} />
       <p className={`${styles.logoTitle} ${hidden}`}>
         Slim<span className={styles.activeColorLogo}>Mom</span>
