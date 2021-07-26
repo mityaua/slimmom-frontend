@@ -3,3 +3,24 @@
   top: 24.17px;
   right: 24.17px;
 }
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #264061;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #7c8ca0;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f0f1f3;
+}
+
+.scroller {
+  scrollbar-color: #264061 #f0f1f3;
+  scrollbar-width: thin;
+}
