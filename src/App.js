@@ -12,6 +12,7 @@ import routes from './routes';
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import './loader.css';
 
 const MainPage = lazy(() =>
   import('./pages/MainPage' /* webpackChunkName: "main-page" */),
@@ -40,7 +41,14 @@ const App = () => {
 
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="ring">
+            SlimMom
+            <span className="point"></span>
+          </div>
+        }
+      >
         <Switch>
           <Route exact path={routes.home} component={MainPage} />
 
