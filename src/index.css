@@ -1,5 +1,7 @@
 html {
   scroll-behavior: smooth;
+  scrollbar-color: #264061 #f0f1f3;
+  scrollbar-width: thin;
 }
 
 body {
@@ -37,4 +39,20 @@ img {
 
 a {
   text-decoration: none;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #264061;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #7c8ca0;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f0f1f3;
 }

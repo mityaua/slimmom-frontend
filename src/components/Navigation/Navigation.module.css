@@ -10,11 +10,15 @@
 
 .link {
   text-decoration: none;
-  color: #212121;
+  color: #9b9faa;
 }
 
 .link:first-child {
   margin-right: 15px;
+}
+
+.linkActive {
+  color: #212121;
 }
 
 .mobileNavigation {
@@ -43,6 +47,10 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
+}
+
+.mobileNavigationLinkActive {
+  color: #fff;
 }
 
 .toggleHidden {
