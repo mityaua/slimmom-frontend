@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
-// import Loader from './components/Loader'; // Ожидаем спиннер
+import Loader from './components/Loader'; // Ожидаем спиннер
 
 import routes from './routes';
 
@@ -41,14 +41,7 @@ const App = () => {
 
   return (
     <div>
-      <Suspense
-        fallback={
-          <div className="ring">
-            SlimMom
-            <span className="point"></span>
-          </div>
-        }
-      >
+      <Suspense fallback={<Loader />}>
         <Switch>
           <Route exact path={routes.home} component={MainPage} />
 
