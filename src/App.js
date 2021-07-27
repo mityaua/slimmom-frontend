@@ -29,7 +29,7 @@ const CalculatorPage = lazy(() =>
 );
 
 const App = () => {
-  const isAccess = true;
+  const isAccess = false;
 
   return (
     <div>
