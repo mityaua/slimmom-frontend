@@ -24,7 +24,6 @@ const RightSideBar = () => {
           </li>
         </ul>
       </div>
-
       <div>
         <h4 className={styles.rightSideBar_title}>Нерекомендуемые продукты</h4>
         <span className={styles.rightSideBar_text}>

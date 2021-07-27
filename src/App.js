@@ -93,7 +93,6 @@ const App = () => {
           {/* <PublicRoute exact path={routes.home}>
             <MainPage />
           </PublicRoute>
-
           <PublicRoute
             exact
             path={routes.login}
@@ -102,7 +101,6 @@ const App = () => {
           >
             <LoginPage />
           </PublicRoute>
-
           <PublicRoute
             exact
             path={routes.register}
@@ -111,11 +109,9 @@ const App = () => {
           >
             <RegistrationPage />
           </PublicRoute>
-
           <PrivateRoute exact path={routes.diary} redirectTo={routes.login}>
             <DiaryPage />
           </PrivateRoute>
-
           <PrivateRoute
             exact
             path={routes.calculator}
