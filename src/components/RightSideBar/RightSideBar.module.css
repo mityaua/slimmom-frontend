@@ -1,6 +1,8 @@
+@import '../../utils/variables.css';
+
 .rightSideBar {
-  padding: 40px 15px;
-  background-color: #f0f1f3;
+  padding: 40px 0 40px;
+  background-color: var(--sideBarBackground);
 }
 
 .rightSideBar_title {
@@ -8,7 +10,7 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #212121;
+  color: var(--mainText);
   margin: 0 0 20px;
 }
 
@@ -16,7 +18,7 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  color: var(--subText);
 }
 
 .rightSideBar_el {
@@ -30,10 +32,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .flexBox {
+    display: flex;
+    justify-content: space-between;
+  }
   .rightSideBar {
     padding: 91px 87px;
-    display: flex;
-    background-image: url('../../images/sideBarLeaf768_1x.png');
+    background-image: url('../../images/bg-pictures/tablet/sideBarLeaves768_1x.png');
     background-repeat: no-repeat;
     background-position: right bottom;
   }
@@ -52,13 +57,17 @@
   .rightSideBar {
     width: 535px;
     display: block;
-    padding-left: 90px;
-    padding-right: 175px;
-    background-image: url('../../images/sideBarLeaf1280_1x.png');
-    background-size: contain;
+    padding: 137px 175px 162px 90px;
+    background-image: url('../../images/bg-pictures/desktop/side-bar-leaves.png');
+    background-size: 535px;
+    background-position: right -120px;
   }
 
   .rightSideBar_list {
     margin: 0 0 60px 0;
+  }
+
+  .flexBox {
+    display: block;
   }
 }

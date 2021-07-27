@@ -15,12 +15,19 @@
   align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+  .flexContainer {
+    padding: 17px 87px 19px 69px;
+  }
+}
+
 @media (min-width: 1280px) {
   .header {
-    padding: 122px 0 0 0;
     border-bottom: none;
   }
+
   .flexContainer {
+    padding: 122px 115px 0 90px;
     justify-content: start;
     align-items: baseline;
   }
