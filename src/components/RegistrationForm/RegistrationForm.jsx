@@ -52,7 +52,7 @@ const RegistrationForm = () => {
             <TextField
               fullWidth
               id="name"
-              name=" "
+              name="name"
               label="Имя *"
               value={formik.values.name}
               placeholder="Логин *"
