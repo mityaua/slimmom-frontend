@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 // import Button from '@material-ui/core/Button';
 import Button from '../Button/Button';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/auth_operation';
 
@@ -41,12 +41,12 @@ const LoginForm = () => {
   });
 
   return (
-    // <section className={styles.container}>
-    <div className={styles.loginWrapper}>
-      <h2 className={styles.loginTitle}>Вход</h2>
-      <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
+    <div className={styles.loginPage}>
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
+        <h2 className={styles.formTitle}>Вход</h2>
+
         <label className={styles.formLabel}>
-          <TextField
+          <input
             className={styles.login}
             id="email"
             name="email"
@@ -54,13 +54,13 @@ const LoginForm = () => {
             placeholder="Логин *"
             value={formik.values.email}
             onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
+            // error={formik.touched.email && Boolean(formik.errors.email)}
+            // helperText={formik.touched.email && formik.errors.email}
           />
         </label>
 
         <label className={styles.formLabel}>
-          <TextField
+          <input
             className={styles.password}
             id="password"
             name="password"
@@ -69,16 +69,17 @@ const LoginForm = () => {
             type="password"
             value={formik.values.password}
             onChange={formik.handleChange}
-            error={formik.touched.password && Boolean(formik.errors.password)}
-            helperText={formik.touched.password && formik.errors.password}
+            // error={formik.touched.password && Boolean(formik.errors.password)}
+            // helperText={formik.touched.password && formik.errors.password}
           />
         </label>
-        <div className="styles.buttons">
-          <Button text="Login" type="submit" className="styles.button" />
+
+        <div className={styles.buttons}>
+          <Button text="Login" type="submit" className={styles.button} />
           <Button
             text="Registartion"
             type="secondary"
-            className="styles.button"
+            className={styles.button}
           />
           {/* <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
@@ -86,7 +87,6 @@ const LoginForm = () => {
         </div>
       </form>
     </div>
-    // </section>
   );
 };
 

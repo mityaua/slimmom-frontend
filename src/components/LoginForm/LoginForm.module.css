@@ -1,4 +1,6 @@
-.loginWrapper {
+@import '../../utils/variables.css';
+
+.loginPage {
   padding-top: 40px;
   align-items: center;
   @media screen and (min-width: 768px) {
@@ -10,24 +12,24 @@
   }
 }
 
-.loginForm {
+.form {
   display: flex;
   flex-direction: column;
 
   align-items: center;
-
   @media screen and (min-width: 768px) {
     align-items: flex-start;
   }
 }
-.loginTitle {
+.formTitle {
   margin-bottom: 60px;
 
-  color: orange;
+  color: #fc842d;
   text-align: center;
   font-family: 'GothamPro-Bold';
+  font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 0.91;
   letter-spacing: 0.04em;
 }
 
@@ -47,7 +49,7 @@
 }
 .password {
   font-family: 'Verdana';
-  margin-bottom: 73px;
+  margin-bottom: 60px;
   height: 36px;
   width: 289px;
   font-weight: bold;
@@ -61,15 +63,18 @@
 }
 
 .buttons {
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   @media screen and (min-width: 768px) {
-    align-items: flex-start;
     flex-direction: row;
+    & button {
+      margin-bottom: 0;
+    }
   }
+}
+.button {
+  margin-bottom: 20px;
 }
 .buttons > button:last-child {
   margin-bottom: 0;
