@@ -21,12 +21,12 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: 'foobar@example.com',
-      password: 'foobar',
+      email: '',
+      password: '',
     },
     validationSchema: validationSchema,
 
@@ -41,37 +41,53 @@ const RegistrationForm = () => {
   });
 
   return (
-    <div className={styles.loginForm}>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <TextField
-          fullWidth
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
-        <Button text="Login" type="submit" />
-        <Button text="Registartion" type="secondary" />
-        {/* <Button color="primary" variant="contained" fullWidth type="submit">
+    // <section className={styles.container}>
+    <div className={styles.loginWrapper}>
+      <h2 className={styles.loginTitle}>Вход</h2>
+      <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
+        <label className={styles.formLabel}>
+          <TextField
+            className={styles.login}
+            id="email"
+            name="email"
+            // label="Логин *"
+            placeholder="Логин *"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
+        </label>
+
+        <label className={styles.formLabel}>
+          <TextField
+            className={styles.password}
+            id="password"
+            name="password"
+            // label="Пароль *"
+            placeholder="Пароль *"
+            type="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+          />
+        </label>
+        <div className="styles.buttons">
+          <Button text="Login" type="submit" className="styles.button" />
+          <Button
+            text="Registartion"
+            type="secondary"
+            className="styles.button"
+          />
+          {/* <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
         </Button> */}
+        </div>
       </form>
     </div>
+    // </section>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
