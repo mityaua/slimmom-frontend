@@ -16,7 +16,7 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^1.1.5",
     "react-toastify": "^7.0.4",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
@@ -24,6 +24,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
+    "pre-commit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,7 +52,7 @@
   },
   "devDependencies": {
     "husky": "^4.3.8",
-    "lint-staged": "^11.1.0",
+    "lint-staged": "^11.1.1",
     "prettier": "^2.3.2"
   }
 }
