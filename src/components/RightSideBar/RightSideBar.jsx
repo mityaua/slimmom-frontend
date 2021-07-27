@@ -1,8 +1,11 @@
 import styles from './RightSideBar.module.css';
+import Container from '../Container'
 
 const RightSideBar = () => {
   return (
     <aside className={styles.rightSideBar}>
+      <Container>
+        <div className={styles.flexBox}>
       <div>
         <h4 className={styles.rightSideBar_title}>сводка за DATE</h4>
         <ul className={styles.rightSideBar_list}>
@@ -24,13 +27,14 @@ const RightSideBar = () => {
           </li>
         </ul>
       </div>
-
       <div>
         <h4 className={styles.rightSideBar_title}>Нерекомендуемые продукты</h4>
         <span className={styles.rightSideBar_text}>
           Здесь будет отображаться Ваш рацион
         </span>
-      </div>
+          </div>
+          </div>
+        </Container>
     </aside>
   );
 };

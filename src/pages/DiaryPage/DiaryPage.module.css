@@ -1,2 +1,16 @@
-.diaryPage {
+/* .diaryPage {
+} */
+
+@media screen and (min-width: 1280px) {
+  .flexBox {
+    display: flex;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .exampleBox {
+    width: 745px;
+    height: 850px;
+    background-color: bisque;
+  }
 }
