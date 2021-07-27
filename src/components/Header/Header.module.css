@@ -15,9 +15,15 @@
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .header {
+    margin-bottom: 40px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .flexContainer {
-    padding: 17px 87px 19px 69px;
+    padding: 0 87px 0 69px;
   }
 }
 

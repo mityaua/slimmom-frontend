@@ -176,7 +176,7 @@ const DailyCaloriesForm = () => {
         </Formik>
       </div>
 
-      <button onClick={toggleModal}>Модалка</button>
+      {/* <button onClick={toggleModal}>Модалка</button> */}
 
       {modal && (
         <Modal onClose={toggleModal}>

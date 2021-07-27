@@ -86,8 +86,8 @@ const RegistrationForm = () => {
               helperText={formik.touched.password && formik.errors.password}
             />
           </label>
-          <Button text="Login" type="submit" />
-          <Button text="Registartion" type="submit" />
+          <Button text="Login" type="submit" customType="primary" />
+          <Button text="Registartion" type="submit" customType="secondary" />
           {/* <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
         </Button> */}
