@@ -1,2 +1,82 @@
-.dailyCaloriesForm {
-}
+.caloriesForm {
+    width: 100%;
+    margin: 50px auto 0;
+    padding: 40px 65px 60px 15px;
+    font-family: Verdana, Arial, sans-serif;
+ }
+ 
+ .caloriesForm h2 {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #212121;
+    margin-bottom: 40px;
+ }
+ 
+ .caloriesForm label {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #9B9FAA;
+ }
+ .caloriesForm input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    background-color: rgba(0,0,0,0);
+    outline: 0;  
+ }
+ 
+ .formContainerF{
+   margin-bottom: 30px;
+ }
+ .formContainerS{
+   margin-bottom: 30px;
+ }
+ .radioContainer {
+   margin-bottom: 40px;
+ }
+ 
+ @media (min-width: 768px) {
+   .caloriesForm {
+      width: 100%;
+      padding: 100px 70px 60px 80px;
+   }
+ 
+   .formContainerMain {
+     display: flex;
+     width: 100%;
+     margin-bottom: 60px;
+   }
+ 
+   .formContainerLeft, .formContainerRight {
+     width: 50%;
+   }
+ 
+   .caloriesForm input {
+      width: 90%;
+   }
+ 
+   .caloriesForm h2 {
+      font-size: 30px;
+      line-height: 1.2;
+   }
+ 
+ }
+ 
+ @media (min-width: 1024px) {
+   .caloriesForm {
+      width: 100%;
+      padding: 140px 25px 110px 115px;
+   }
+   .formContainerMain{
+      max-width: 800px;
+   }
+   .caloriesForm h2 {
+     font-size: 34px;
+   }
+ }
