@@ -22,13 +22,13 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-const LoginForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      name: 'Jone',
-      email: 'foobar@example.com',
-      password: 'foobar',
+      name: ' ',
+      email: '',
+      password: '',
     },
     validationSchema: validationSchema,
 
@@ -44,47 +44,57 @@ const LoginForm = () => {
   });
 
   return (
-    <div className={styles.loginForm}>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="name"
-          name="name"
-          label="name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
-        />
-        <TextField
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <TextField
-          fullWidth
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
-        <Button text="Login" type="submit" />
-        <Button text="Registartion" type="submit" />
-        {/* <Button color="primary" variant="contained" fullWidth type="submit">
+    <section className={styles.container}>
+      <div className={styles.registrationForm}>
+        <h2 className={styles.loginTitle}>Регистрация</h2>
+        <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
+          <label>
+            <TextField
+              fullWidth
+              id="name"
+              name=" "
+              label="Имя *"
+              value={formik.values.name}
+              placeholder="Логин *"
+              onChange={formik.handleChange}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
+            />
+          </label>
+          <label>
+            <TextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Логин *"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+          </label>
+          <label>
+            <TextField
+              fullWidth
+              id="password"
+              name="password"
+              label="Пароль *"
+              type="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+            />
+          </label>
+          <Button text="Login" type="submit" />
+          <Button text="Registartion" type="submit" />
+          {/* <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
         </Button> */}
-      </form>
-    </div>
+        </form>
+      </div>
+    </section>
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
