@@ -9,6 +9,7 @@ const authConfig = {
   storage,
   whitelist: ['token'],
 };
+
 // const middleware = [
 //   ...getDefaultMiddleware({
 //     serializableCheck: {
@@ -17,8 +18,8 @@ const authConfig = {
 //   }),
 //   logger,
 // ];
-// const rootReducer = combineReducers({ contacts: contactsReducer });
 
+// const rootReducer = combineReducers({ contacts: contactsReducer });
 // const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
@@ -26,7 +27,8 @@ const store = configureStore({
     auth: persistReducer(authConfig, authReducer),
   },
 
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({ serializableCheck: false }).concat(logger), // serializableCheck - костылёк от ошибки
 });
 
 const persistor = persistStore(store);

@@ -25,6 +25,7 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
 export const register = payload => async dispatch => {
   console.log('register payload', payload);
   dispatch(registerRequest());
@@ -36,6 +37,7 @@ export const register = payload => async dispatch => {
     dispatch(registerError(err.message));
   }
 };
+
 export const login = payload => async dispatch => {
   console.log('login payload', payload);
   dispatch(loginRequest());
@@ -59,6 +61,7 @@ export const logOut = () => async dispatch => {
     dispatch(logoutError(error.message));
   }
 };
+
 export const getUser = () => async (dispatch, getState) => {
   const {
     auth: { token: persistedToken },
