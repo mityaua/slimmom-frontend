@@ -1,11 +1,10 @@
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 // import Header from './components/Header';
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
-import Modal from './components/Modal';
 import Loader from './components/Loader';
 
 import routes from './routes';
@@ -30,12 +29,6 @@ const CalculatorPage = lazy(() =>
 );
 
 const App = () => {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
   const isAccess = true;
 
   return (
@@ -121,21 +114,6 @@ const App = () => {
           <Redirect to={routes.home} /> */}
         </Switch>
       </Suspense>
-
-      {/* Привязать к другой кнопке в форме просчёта */}
-      <button type="button" onClick={toggleModal}>
-        Show modal
-      </button>
-
-      {modal && (
-        <Modal onClose={toggleModal}>
-          <h1>Ваша рекомендуемая суточная норма калорий составляет</h1>
-          <p>2800 ккал</p>
-          <button type="button" className="close-btn" onClick={toggleModal}>
-            Close modal
-          </button>
-        </Modal>
-      )}
 
       <ToastContainer autoClose={2500} />
     </div>
