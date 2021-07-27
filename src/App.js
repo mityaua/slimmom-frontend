@@ -6,13 +6,12 @@ import { ToastContainer } from 'react-toastify';
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
 import Modal from './components/Modal';
-import Loader from './components/Loader'; // Ожидаем спиннер
+import Loader from './components/Loader';
 
 import routes from './routes';
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
-import './loader.css';
 
 const MainPage = lazy(() =>
   import('./pages/MainPage' /* webpackChunkName: "main-page" */),
