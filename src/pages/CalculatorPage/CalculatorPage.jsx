@@ -11,7 +11,6 @@ const CalculatorPage = () => {
       <Header />
       <div className={styles.flexBox}>
         <DailyCaloriesForm />
-        <div className={styles.exampleBox}></div>
         <RightSideBar />
       </div>
     </>
