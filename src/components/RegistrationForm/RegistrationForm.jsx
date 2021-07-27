@@ -26,9 +26,9 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      name: ' ',
-      email: '',
-      password: '',
+      name: 'vita',
+      email: 'fgfhg@gmail.com',
+      password: '123456789',
     },
     validationSchema: validationSchema,
 

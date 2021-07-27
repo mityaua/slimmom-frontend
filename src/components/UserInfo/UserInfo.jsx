@@ -1,15 +1,17 @@
 import styles from './UserInfo.module.css';
-// import { logOut } from '../../redux/auth/auth_operation';
-// import { useDispatch } from 'react-redux';
+import { getUserNickName } from '../../redux/auth/auth_selector';
+import { logOut } from '../../redux/auth/auth_operation';
+import { useDispatch, useSelector } from 'react-redux';
 
 const UserInfo = () => {
-  // const dispatch = useDispatch();
-  // const onLogout = () => dispatch(logOut()); функция для логоута
-  const onLogout = () => null;
+  const dispatch = useDispatch();
+  const onLogout = () => dispatch(logOut());
+  const Nickname = useSelector(state => getUserNickName(state));
+  // const onLogout = () => null;
 
   return (
     <div className={styles.userInfo}>
-      <span className={styles.userNickname}>Nickname</span>
+      <span className={styles.userNickname}>{Nickname}</span>
       <button className={styles.button} type="button" onClick={onLogout}>
         Выйти
       </button>

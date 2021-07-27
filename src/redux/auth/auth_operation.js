@@ -32,6 +32,7 @@ export const register = payload => async dispatch => {
   try {
     const response = await axios.post('/users/signup', payload);
     token.set(response.data.token);
+    console.log('response.data', response.data);
     dispatch(registerSuccess(response.data));
   } catch (err) {
     dispatch(registerError(err.message));

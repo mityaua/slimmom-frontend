@@ -25,8 +25,8 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: 'fgfhg@gmail.com',
+      password: '123456789',
     },
     validationSchema: validationSchema,
 
