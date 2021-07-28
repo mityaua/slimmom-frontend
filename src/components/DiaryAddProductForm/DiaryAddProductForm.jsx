@@ -64,44 +64,41 @@ const DiaryAddProductForm = () => {
   });
   return (
     <div className={styles.diaryAddProductForm}>
-      <Container>
-        <form className={styles.form} onSubmit={formik.handleSubmit}>
-          <TextField
-            styles={{ color: 'blue' }}
-            className={`${classes.input} ${classes.nameInput}`}
-            id="productName"
-            name="productName"
-            value={formik.values.productName}
-            placeholder="Введите название продукта"
-            onChange={formik.handleChange}
-            error={
-              formik.touched.productName && Boolean(formik.errors.productName)
-            }
-            helperText={formik.touched.productName && formik.errors.productName}
-          />
-          <TextField
-            className={`${classes.input} ${classes.weightInput}`}
-            id="productWeight"
-            name="productWeight"
-            value={formik.values.productWeight}
-            placeholder="Граммы"
-            onChange={formik.handleChange}
-            error={
-              formik.touched.productWeight &&
-              Boolean(formik.errors.productWeight)
-            }
-            helperText={
-              formik.touched.productWeight && formik.errors.productWeight
-            }
-          />
-          <Button customType="primary" type="submit" className="small">
-            <span className={styles.hiddenIcon}>
-              <AddIcon />
-            </span>
-            <span className={styles.hiddenText}>Добавить</span>
-          </Button>
-        </form>
-      </Container>
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
+        <TextField
+          styles={{ color: 'blue' }}
+          className={`${classes.input} ${classes.nameInput}`}
+          id="productName"
+          name="productName"
+          value={formik.values.productName}
+          placeholder="Введите название продукта"
+          onChange={formik.handleChange}
+          error={
+            formik.touched.productName && Boolean(formik.errors.productName)
+          }
+          helperText={formik.touched.productName && formik.errors.productName}
+        />
+        <TextField
+          className={`${classes.input} ${classes.weightInput}`}
+          id="productWeight"
+          name="productWeight"
+          value={formik.values.productWeight}
+          placeholder="Граммы"
+          onChange={formik.handleChange}
+          error={
+            formik.touched.productWeight && Boolean(formik.errors.productWeight)
+          }
+          helperText={
+            formik.touched.productWeight && formik.errors.productWeight
+          }
+        />
+        <Button customType="primary" type="submit" className="small">
+          <span className={styles.hiddenIcon}>
+            <AddIcon />
+          </span>
+          <span className={styles.hiddenText}>Добавить</span>
+        </Button>
+      </form>
     </div>
   );
 };
