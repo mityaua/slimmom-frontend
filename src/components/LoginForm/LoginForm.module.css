@@ -1,42 +1,28 @@
 @import '../../utils/variables.css';
 
-.loginPage {
-  padding-top: 40px;
-  align-items: center;
-  @media screen and (min-width: 768px) {
-    align-items: flex-start;
-    padding-top: 191px;
-    @media screen and (min-width: 1280px) {
-      padding-top: 217px;
-    }
-  }
-}
-
-.form {
+/* .loginForm {
+ 
+} */
+.formAuth {
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  @media screen and (min-width: 768px) {
-    align-items: flex-start;
-  }
 }
+
 .formTitle {
   margin-bottom: 60px;
-
   color: #fc842d;
-  text-align: center;
-  font-family: 'GothamPro-Bold';
-  font-weight: 700;
+  font-weight: bold;
   text-transform: uppercase;
-  line-height: 0.91;
+  line-height: 0.95;
+  font-size: 14px;
   letter-spacing: 0.04em;
 }
 
-.login {
+.formInput {
   font-family: 'Verdana';
   margin-bottom: 40px;
-  height: 36px;
+  height: 35.5px;
   width: 289px;
   font-weight: bold;
   font-size: 14px;
@@ -46,20 +32,6 @@
   color: #9b9faa;
   border: none;
   border-bottom: 1px solid #e0e0e0;
-}
-.password {
-  font-family: 'Verdana';
-  margin-bottom: 60px;
-  height: 36px;
-  width: 289px;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.04em;
-  outline: none;
-  color: #9b9faa;
-  border: none;
-  border-bottom: 1px solid;
 }
 
 .buttons {
@@ -78,7 +50,25 @@
 }
 .buttons > button:last-child {
   margin-bottom: 0;
-  @media screen and (min-width: 768px) {
-    margin-left: 30px;
+}
+@media screen and (min-width: 768px) {
+  .formAuth {
+    padding-top: 191px;
+    align-items: flex-start;
+  }
+
+  .formInput {
+    width: 240px;
+  }
+  .buttons {
+    flex-direction: row;
+  }
+  .button {
+    margin-right: 30px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .formTitle {
+    margin-bottom: 71px;
   }
 }

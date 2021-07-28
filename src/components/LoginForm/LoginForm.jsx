@@ -41,42 +41,36 @@ const LoginForm = () => {
   });
 
   return (
-    <div className={styles.loginPage}>
-      <form className={styles.form} onSubmit={formik.handleSubmit}>
+    <div className={styles.loginForm}>
+      <form className={styles.formAuth} onSubmit={formik.handleSubmit}>
         <h2 className={styles.formTitle}>Вход</h2>
 
-        <label className={styles.formLabel}>
-          <input
-            className={styles.login}
-            id="email"
-            name="email"
-            // label="Логин *"
-            placeholder="Логин *"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            // error={formik.touched.email && Boolean(formik.errors.email)}
-            // helperText={formik.touched.email && formik.errors.email}
-          />
-        </label>
-
-        <label className={styles.formLabel}>
-          <input
-            className={styles.password}
-            id="password"
-            name="password"
-            // label="Пароль *"
-            placeholder="Пароль *"
-            type="password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            // error={formik.touched.password && Boolean(formik.errors.password)}
-            // helperText={formik.touched.password && formik.errors.password}
-          />
-        </label>
+        <input
+          className={styles.formInput}
+          id="email"
+          name="email"
+          // label="Логин *"
+          placeholder="Логин *"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        <input
+          className={styles.formInput}
+          id="password"
+          name="password"
+          placeholder="Пароль *"
+          type="password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          // error={formik.touched.password && Boolean(formik.errors.password)}
+          // helperText={formik.touched.password && formik.errors.password}
+        />
 
         <div className={styles.buttons}>
           <div className={styles.button}>
-            <Button text="Login" type="submit" />
+            <Button text="Login" type="submit" customType="primary" />
           </div>
           <div className={styles.button}>
             <Button text="Registartion" type="secondary" />

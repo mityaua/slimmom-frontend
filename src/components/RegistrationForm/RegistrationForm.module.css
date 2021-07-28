@@ -1,2 +1,76 @@
-.registrationForm {
+/* .registrationForm {
+} */
+@import '../../utils/variables.css';
+
+/* .loginForm {
+ 
+} */
+.formAuth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formTitle {
+  margin-bottom: 60px;
+  color: #fc842d;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 0.95;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.formInput {
+  font-family: 'Verdana';
+  margin-bottom: 40px;
+  height: 35.5px;
+  width: 289px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+  outline: none;
+  color: #9b9faa;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    & button {
+      margin-bottom: 0;
+    }
+  }
+}
+.button {
+  margin-bottom: 20px;
+}
+.buttons > button:last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .formAuth {
+    padding-top: 191px;
+    align-items: flex-start;
+  }
+
+  .formInput {
+    width: 240px;
+  }
+  .buttons {
+    flex-direction: row;
+  }
+  .button {
+    margin-right: 30px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .formTitle {
+    margin-bottom: 71px;
+  }
 }
