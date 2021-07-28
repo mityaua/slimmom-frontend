@@ -95,7 +95,9 @@ const DiaryAddProductForm = () => {
             }
           />
           <Button customType="primary" type="submit" className="small">
-            <AddIcon className={styles.hiddenIcon} />
+            <span className={styles.hiddenIcon}>
+              <AddIcon />
+            </span>
             <span className={styles.hiddenText}>Добавить</span>
           </Button>
         </form>
