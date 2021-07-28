@@ -2,8 +2,6 @@ import { useState, forwardRef, useEffect } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ruRU from 'date-fns/locale/ru';
 
-import ErrorBoundary from '../ErrorBoundary';
-
 import styles from './DateForm.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -25,28 +23,26 @@ const DateForm = () => {
 
   // Кастомный инпут библиотеки (содержит дату и иконку)
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <ErrorBoundary>
-      <div className={styles.wrapper}>
-        <span
-          className={styles.date}
-          onClick={onClick}
-          ref={ref}
-          title="Нажмите для выбора даты"
-        >
-          {startDate.toLocaleDateString('ru-RU')}
-        </span>
+    <div className={styles.wrapper}>
+      <span
+        className={styles.date}
+        onClick={onClick}
+        ref={ref}
+        title="Нажмите для выбора даты"
+      >
+        {startDate.toLocaleDateString('ru-RU')}
+      </span>
 
-        <div>
-          <CalendarIcon
-            alt="Выбор даты на календаре"
-            width="18px"
-            height="20px"
-            className={styles.icon}
-            onClick={onClick}
-          />
-        </div>
+      <div>
+        <CalendarIcon
+          alt="Выбор даты на календаре"
+          width="18px"
+          height="20px"
+          className={styles.icon}
+          onClick={onClick}
+        />
       </div>
-    </ErrorBoundary>
+    </div>
   ));
 
   // Возвращает кастомный инпут
