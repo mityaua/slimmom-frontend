@@ -23,37 +23,43 @@ const DateForm = () => {
 
   registerLocale('ru-RU', ruRU);
 
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-    <CalendarIcon
-      title="Выберете дату"
-      alt="Выбор даты на календаре"
-      width="18px"
-      height="20px"
-      onClick={onClick}
-      ref={ref}
-      className={styles.icon}
-    />
-  ));
-
-  return (
+  // Кастомный инпут библиотеки (содержит дату и иконку)
+  const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <ErrorBoundary>
       <div className={styles.wrapper}>
-        <span className={styles.date}>
+        <span
+          className={styles.date}
+          onClick={onClick}
+          ref={ref}
+          title="Нажмите для выбора даты"
+        >
           {startDate.toLocaleDateString('ru-RU')}
         </span>
 
         <div>
-          <DatePicker
-            selected={startDate}
-            onChange={date => setStartDate(date)}
-            customInput={<ExampleCustomInput />}
-            maxDate={new Date()}
-            todayButton="Сегодня"
-            locale="ru-RU"
+          <CalendarIcon
+            alt="Выбор даты на календаре"
+            width="18px"
+            height="20px"
+            className={styles.icon}
+            onClick={onClick}
           />
         </div>
       </div>
     </ErrorBoundary>
+  ));
+
+  // Возвращает кастомный инпут
+  return (
+    <DatePicker
+      selected={startDate}
+      onChange={date => setStartDate(date)}
+      customInput={<CustomInput />}
+      maxDate={new Date()}
+      todayButton="Сегодня"
+      locale="ru-RU"
+      calendarClassName="rasta-stripes"
+    />
   );
 };
 
