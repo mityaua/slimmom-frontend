@@ -61,6 +61,9 @@ const RegistrationForm = () => {
           // error={formik.touched.name && Boolean(formik.errors.name)}
           // helperText={formik.touched.name && formik.errors.name}
         />
+        {formik.touched.name && formik.errors.name ? (
+          <div>{formik.errors.name}</div>
+        ) : null}
         <input
           className={styles.formInput}
           id="email"
@@ -72,6 +75,9 @@ const RegistrationForm = () => {
           // error={formik.touched.email && Boolean(formik.errors.email)}
           // helperText={formik.touched.email && formik.errors.email}
         />
+        {formik.touched.email && formik.errors.email ? (
+          <div>{formik.errors.email}</div>
+        ) : null}
         <input
           className={styles.formInput}
           id="password"
@@ -83,6 +89,9 @@ const RegistrationForm = () => {
           // error={formik.touched.password && Boolean(formik.errors.password)}
           // helperText={formik.touched.password && formik.errors.password}
         />
+        {formik.touched.password && Boolean(formik.errors.password) ? (
+          <div>{formik.errors.password}</div>
+        ) : null}
         <div className={styles.buttons}>
           <NavLink
             to={routes.login}

@@ -54,9 +54,12 @@ const LoginForm = () => {
           placeholder="Логин *"
           value={formik.values.email}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
         />
+        {/* {formik.touched.email && Boolean(formik.errors.email)}
+        {formik.touched.email && formik.errors.email} */}
+        {formik.touched.email && formik.errors.email ? (
+          <div>{formik.errors.email}</div>
+        ) : null}
         <input
           className={styles.formInput}
           id="password"
@@ -65,9 +68,12 @@ const LoginForm = () => {
           type="password"
           value={formik.values.password}
           onChange={formik.handleChange}
-          // error={formik.touched.password && Boolean(formik.errors.password)}
-          // helperText={formik.touched.password && formik.errors.password}
         />
+        {formik.touched.password && Boolean(formik.errors.password) ? (
+          <div>{formik.errors.password}</div>
+        ) : null}
+        {/* {formik.touched.password && Boolean(formik.errors.password)}
+        {formik.touched.password && formik.errors.password} */}
         <div className={styles.buttons}>
           <div className={styles.button}>
             <Button text="Вход" type="submit" customType="primary" />
