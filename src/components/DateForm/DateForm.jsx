@@ -15,9 +15,9 @@ const DateForm = () => {
 
   useEffect(() => {
     console.log(
-      `useEffect и зависимость от даты: ${startDate.toLocaleDateString(
-        'ru-RU',
-      )}`,
+      `useEffect и зависимость от даты: ${
+        startDate.toISOString().split('T')[0]
+      }`,
     );
   }, [startDate]);
 
