@@ -45,7 +45,7 @@ const DateForm = () => {
     </div>
   ));
 
-  // Возвращает кастомный инпут  asdsa
+  // Возвращает кастомный инпут
   return (
     <DatePicker
       selected={startDate}
@@ -54,7 +54,6 @@ const DateForm = () => {
       maxDate={new Date()}
       todayButton="Сегодня"
       locale="ru-RU"
-      calendarClassName="rasta-stripes"
     />
   );
 };
