@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 // import Header from './components/Header';
 // import PrivateRoute from './components/PrivateRoute';
 // import PublicRoute from './components/PublicRoute';
+
 import Loader from './components/Loader';
 
 import routes from './routes';

@@ -29,11 +29,17 @@
 
 @media (min-width: 1280px) {
   .header {
-    border-bottom: none;
+    background-image: linear-gradient(
+      to right,
+      #ffffff 58.203%,
+      #f0f1f3 41.797%
+    );
+    border-bottom: 0;
+    padding: 0;
   }
 
   .flexContainer {
-    padding: 122px 115px 0 90px;
+    padding: 123px 115px 0 90px;
     justify-content: start;
     align-items: baseline;
   }

@@ -11,11 +11,9 @@
 
 .modal {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 100%;
+  margin-top: 120px;
   padding: 40px 15px 80px 15px;
 
   background-color: #fff;
@@ -23,8 +21,12 @@
 
 @media (min-width: 768px) {
   .modal {
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 594px;
-    padding: 64px 43px 68px 42px;
+    padding: 64px 42px 68px 43px;
   }
 }
 

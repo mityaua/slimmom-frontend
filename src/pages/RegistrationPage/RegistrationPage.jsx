@@ -7,9 +7,9 @@ import styles from './RegistrationPage.module.css';
 const RegistrationPage = () => {
   return (
     <>
-      <Header className={styles.registrationPage__header} />
       <Container>
         <div className={styles.registrationPage}>
+          <Header className={styles.registrationPage__header} />
           <RegistrationForm className={styles.registrationPage__form} />
         </div>
       </Container>

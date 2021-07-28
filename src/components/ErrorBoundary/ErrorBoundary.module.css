@@ -1,0 +1,55 @@
+.details {
+  padding: 0.5em 0.5em 0;
+  border: 1px solid #9b9faa;
+  border-radius: 4px;
+  font-weight: 400;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.details[open] {
+  padding: 0.5em;
+}
+
+.details[open] summary {
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #9b9faa;
+}
+
+.summary {
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+  outline: 1px solid transparent;
+  font-weight: bold;
+  list-style-type: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::before {
+  content: '▶️';
+  margin-right: 5px;
+}
+
+.details[open] > .summary::before {
+  content: '🔽';
+}
+
+.summary ~ * {
+  animation: sweep 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-top: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
