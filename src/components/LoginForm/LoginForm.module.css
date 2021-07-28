@@ -38,22 +38,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    & button {
-      margin-bottom: 0;
-    }
-  }
 }
 .button {
   margin-bottom: 20px;
 }
+
 .buttons > button:last-child {
   margin-bottom: 0;
 }
+
 @media screen and (min-width: 768px) {
   .formAuth {
     padding-top: 191px;
+    margin-left: 90px;
     align-items: flex-start;
   }
 
@@ -67,7 +64,10 @@
     margin-right: 30px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1240px) {
+  .formAuth {
+    margin-left: 115px;
+  }
   .formTitle {
     margin-bottom: 71px;
   }

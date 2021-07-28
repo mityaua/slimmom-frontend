@@ -9,6 +9,8 @@ import Button from '../Button/Button';
 // import TextField from '@material-ui/core/TextField';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/auth_operation';
+import routes from '../../routes';
+import { NavLink } from 'react-router-dom';
 
 const validationSchema = yup.object({
   email: yup
@@ -44,7 +46,6 @@ const LoginForm = () => {
     <div className={styles.loginForm}>
       <form className={styles.formAuth} onSubmit={formik.handleSubmit}>
         <h2 className={styles.formTitle}>Вход</h2>
-
         <input
           className={styles.formInput}
           id="email"
@@ -67,19 +68,22 @@ const LoginForm = () => {
           // error={formik.touched.password && Boolean(formik.errors.password)}
           // helperText={formik.touched.password && formik.errors.password}
         />
-
         <div className={styles.buttons}>
           <div className={styles.button}>
-            <Button text="Login" type="submit" customType="primary" />
-          </div>
-          <div className={styles.button}>
-            <Button text="Registartion" type="secondary" />
+            <Button text="Вход" type="submit" customType="primary" />
           </div>
 
-          {/* <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
-        </Button> */}
+          <NavLink
+            to={routes.registration}
+            className={styles.link}
+            activeClassName={styles.linkActive}
+          >
+            <div className={styles.button}>
+              <Button text="Registartion" type="secondary" />
+            </div>
+          </NavLink>
         </div>
+        ;
       </form>
     </div>
   );
