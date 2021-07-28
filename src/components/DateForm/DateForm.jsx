@@ -23,7 +23,7 @@ const DateForm = () => {
 
   // Кастомный инпут библиотеки (содержит дату и иконку)
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <div className={styles.wrapper}>
+    <>
       <span
         className={styles.date}
         onClick={onClick}
@@ -33,7 +33,7 @@ const DateForm = () => {
         {startDate.toLocaleDateString('ru-RU')}
       </span>
 
-      <div>
+      <span>
         <CalendarIcon
           alt="Выбор даты на календаре"
           width="18px"
@@ -41,20 +41,22 @@ const DateForm = () => {
           className={styles.icon}
           onClick={onClick}
         />
-      </div>
-    </div>
+      </span>
+    </>
   ));
 
   // Возвращает кастомный инпут
   return (
-    <DatePicker
-      selected={startDate}
-      onChange={date => setStartDate(date)}
-      customInput={<CustomInput />}
-      maxDate={new Date()}
-      todayButton="Сегодня"
-      locale="ru-RU"
-    />
+    <div className={styles.wrapper}>
+      <DatePicker
+        selected={startDate}
+        onChange={date => setStartDate(date)}
+        customInput={<CustomInput />}
+        maxDate={new Date()}
+        todayButton="Сегодня"
+        locale="ru-RU"
+      />
+    </div>
   );
 };
 
