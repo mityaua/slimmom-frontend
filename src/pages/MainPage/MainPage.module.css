@@ -1,2 +1,76 @@
-.mainPage {
+/* .mainPage {
+} */
+@import '../../utils/variables.css';
+
+/* Modal */
+
+.modal_title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--mainText);
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.modal_caloriesNumber {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #264061;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 19px;
+}
+
+.modal_calories {
+  font-size: 16px;
+}
+
+.modal_subTitle {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: var(--mainText);
+  margin-bottom: 22px;
+}
+
+.modal_el {
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: var(--subText);
+  margin-bottom: 10px;
+}
+
+.modal_list {
+  margin-bottom: 40px;
+}
+
+.modal_button {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal_title {
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .modal_caloriesNumber {
+    margin-bottom: 12px;
+  }
+
+  .modal_closeBtn {
+    position: absolute;
+    top: 24.17px;
+    right: 24.17px;
+    border: none;
+    background-color: white;
+  }
 }
