@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 
 import Loader from './components/Loader';
 
-
 import routes from './routes';
 
 import './App.css';
@@ -117,9 +116,7 @@ const App = () => {
           </PrivateRoute>
           <Redirect to={routes.home} /> */}
         </Switch>
-      </Suspense>
-
-      
+      </Suspense>      
 
       <ToastContainer autoClose={2500} />
     </div>
