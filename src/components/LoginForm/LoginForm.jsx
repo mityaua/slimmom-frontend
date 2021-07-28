@@ -6,11 +6,29 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 // import Button from '@material-ui/core/Button';
 import Button from '../Button/Button';
-// import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/auth_operation';
 import routes from '../../routes';
 import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  input: {
+    width: 289,
+    height: 35.5,
+    '@media (min-width: 768px)': {
+      width: 240,
+    },
+  },
+  emailInput: {
+    marginBottom: 40,
+    '@media (min-width: 768px)': {},
+  },
+  passwordInput: {
+    marginBottom: 40,
+  },
+});
 
 const validationSchema = yup.object({
   email: yup
@@ -24,6 +42,7 @@ const validationSchema = yup.object({
 });
 
 const LoginForm = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -46,34 +65,39 @@ const LoginForm = () => {
     <div className={styles.loginForm}>
       <form className={styles.formAuth} onSubmit={formik.handleSubmit}>
         <h2 className={styles.formTitle}>Вход</h2>
-        <input
-          className={styles.formInput}
+        <TextField
+          // className={styles.formInput}
+          styles={{ color: 'blue' }}
+          className={`${classes.input} ${classes.emailInput}`}
           id="email"
           name="email"
           // label="Логин *"
           placeholder="Логин *"
           value={formik.values.email}
           onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
         />
-        {/* {formik.touched.email && Boolean(formik.errors.email)}
-        {formik.touched.email && formik.errors.email} */}
-        {formik.touched.email && formik.errors.email ? (
+        {/* {formik.touched.email && formik.errors.email ? (
           <div>{formik.errors.email}</div>
-        ) : null}
-        <input
-          className={styles.formInput}
+        ) : null} */}
+        <TextField
+          // className={styles.formInput}
+          className={`${classes.input} ${classes.passwordInput}`}
+          styles={{ color: 'blue' }}
           id="password"
           name="password"
           placeholder="Пароль *"
           type="password"
           value={formik.values.password}
           onChange={formik.handleChange}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
         />
-        {formik.touched.password && Boolean(formik.errors.password) ? (
+        {/* {formik.touched.password && Boolean(formik.errors.password) ? (
           <div>{formik.errors.password}</div>
-        ) : null}
-        {/* {formik.touched.password && Boolean(formik.errors.password)}
-        {formik.touched.password && formik.errors.password} */}
+        ) : null} */}
+
         <div className={styles.buttons}>
           <div className={styles.button}>
             <Button text="Вход" type="submit" customType="primary" />
@@ -89,7 +113,6 @@ const LoginForm = () => {
             </div>
           </NavLink>
         </div>
-        ;
       </form>
     </div>
   );
