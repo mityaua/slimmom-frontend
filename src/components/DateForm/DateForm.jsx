@@ -45,7 +45,7 @@ const DateForm = () => {
     </div>
   ));
 
-  // Возвращает кастомный инпут
+  // Возвращает кастомный инпут  asdsa
   return (
     <DatePicker
       selected={startDate}
