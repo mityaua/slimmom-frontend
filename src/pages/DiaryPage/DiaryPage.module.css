@@ -1,6 +1,12 @@
 /* .diaryPage {
 } */
 
+@media screen and (min-width: 768px) {
+  .exampleBox {
+    padding: 100px 87px 61px 92px;
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .flexBox {
     display: flex;
@@ -9,8 +15,8 @@
     margin: 0 auto;
   }
   .exampleBox {
+    padding: 137px 30px 60px 115px;
     width: 745px;
-    height: 850px;
-    background-color: bisque;
+    height: 695px;
   }
 }
