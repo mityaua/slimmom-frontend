@@ -1,2 +1,24 @@
 .diaryAddProductForm {
 }
+
+.form {
+  display: flex;
+  align-items: baseline;
+}
+
+.hiddenText {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hiddenText {
+    display: block;
+  }
+  .hiddenIcon {
+    display: none;
+  }
+}

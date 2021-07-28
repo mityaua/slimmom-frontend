@@ -30,8 +30,6 @@ const CalculatorPage = lazy(() =>
 );
 
 const App = () => {
-  
-
   const isAccess = true;
 
   return (
@@ -116,7 +114,7 @@ const App = () => {
           </PrivateRoute>
           <Redirect to={routes.home} /> */}
         </Switch>
-      </Suspense>      
+      </Suspense>
 
       <ToastContainer autoClose={2500} />
     </div>

@@ -21,7 +21,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-### VisualStudioCode ###
+# VisualStudioCode #
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -32,7 +32,10 @@ yarn-error.log*
 # Local History for Visual Studio Code
 .history/
 
-### VisualStudioCode Patch ###
+# VisualStudioCode Patch
 # Ignore all local history of files
 .history
 .ionide
+
+# siteID
+.netlify/state.json

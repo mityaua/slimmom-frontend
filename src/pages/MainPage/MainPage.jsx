@@ -1,10 +1,11 @@
 import { useState } from 'react';
-
-import styles from './MainPage.module.css';
-// import './MainPage.module.css';
-
+  
+import Header from '../../components/Header';
+import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import Modal from '../../components/Modal';
 import Button from '../../components/Button';
+
+import styles from './MainPage.module.css';
 
 const MainPage = () => {
   const [modal, setModal] = useState(false);
@@ -12,9 +13,12 @@ const MainPage = () => {
   const toggleModal = () => {
     setModal(!modal);
   };
-
-  return <div className={styles.mainPage}>
-    {/* Привязать к другой кнопке в форме просчёта */}
+  
+  return (
+    <>
+      <Header />
+      <DailyCaloriesForm />
+      {/* Привязать к другой кнопке в форме просчёта */}
       <button type="button" onClick={toggleModal}>
         Show modal
       </button>
@@ -38,7 +42,8 @@ const MainPage = () => {
           </button>
         </Modal>
       )}
-  </div>;
+    </>
+  );
 };
 
 export default MainPage;

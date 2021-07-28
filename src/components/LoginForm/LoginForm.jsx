@@ -74,12 +74,8 @@ const LoginForm = () => {
           />
         </label>
         <div className="styles.buttons">
-          <Button text="Login" type="submit" className="styles.button" />
-          <Button
-            text="Registartion"
-            type="secondary"
-            className="styles.button"
-          />
+          <Button text="Login" type="submit" customType="primary" />
+          <Button text="Registartion" customType="secondary" />
           {/* <Button color="primary" variant="contained" fullWidth type="submit">
           Submit
         </Button> */}
