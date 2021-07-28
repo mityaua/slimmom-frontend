@@ -49,7 +49,7 @@ const DateForm = () => {
     </ErrorBoundary>
   ));
 
-  // Возвращает кастомный инпут
+  // Возвращает кастомный инпут  asdsa
   return (
     <DatePicker
       selected={startDate}
