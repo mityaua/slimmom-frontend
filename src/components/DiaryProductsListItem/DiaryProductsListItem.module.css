@@ -1,2 +1,80 @@
-.diaryProductsListItem {
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  font-weight: normal;
+}
+
+.name {
+  width: 45%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.weight {
+  width: 20%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.calories {
+  width: 20%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: right;
+}
+
+.btn {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  .calories span {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .calories {
+    width: 23%;
+  }
+
+  .weight {
+    width: 22%;
+  }
+
+  .btn {
+    margin: 0;
+  }
+
+  .btn svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .name,
+  .calories,
+  .weight {
+    padding-bottom: 5px;
+  }
+
+  .item {
+    margin-bottom: 22px;
+  }
 }
