@@ -1,9 +1,11 @@
-/* .diaryPage {
-} */
+.exampleBox {
+  padding: 40px 15px 60px;
+}
 
 @media screen and (min-width: 768px) {
   .exampleBox {
     padding: 100px 87px 61px 92px;
+    margin-bottom: 0;
   }
 }
 
@@ -17,6 +19,5 @@
   .exampleBox {
     padding: 137px 30px 60px 115px;
     width: 745px;
-    height: 695px;
   }
 }
