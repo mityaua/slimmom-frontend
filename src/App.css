@@ -8,3 +8,19 @@
   color: #9b9faa;
   padding-bottom: 10px;
 }
+
+/* Херобора для календаря */
+.react-datepicker__day.react-datepicker__day--selected,
+.react-datepicker__day.react-datepicker__day--keyboard-selected {
+  background-color: var(--color-active);
+  color: white;
+  opacity: 1;
+  transition: opacity 250ms linear;
+}
+
+.react-datepicker__day.react-datepicker__day--selected:hover,
+.react-datepicker__day.react-datepicker__day--keyboard-selected:hover {
+  background-color: var(--color-active);
+  opacity: 0.8;
+  transition: opacity 250ms linear;
+}
