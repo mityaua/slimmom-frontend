@@ -13,17 +13,16 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   input: {
     width: 289,
-    height: 35.5,
+    // height: 35.5,
     '@media (min-width: 768px)': {
       width: 240,
     },
   },
   emailInput: {
     marginBottom: 40,
-    '@media (min-width: 768px)': {},
   },
   passwordInput: {
-    marginBottom: 40,
+    marginBottom: 60,
   },
 });
 
@@ -43,7 +42,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: 'fgfhg@gmail.com',
+      email: 'abc@gmail.com',
       password: '123456789',
     },
     validationSchema: validationSchema,

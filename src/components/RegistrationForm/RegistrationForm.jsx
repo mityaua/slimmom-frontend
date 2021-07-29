@@ -23,10 +23,10 @@ const useStyles = makeStyles({
   },
   emailInput: {
     marginBottom: 40,
-    '@media (min-width: 768px)': {},
+    // '@media (min-width: 768px)': {},
   },
   passwordInput: {
-    marginBottom: 40,
+    marginBottom: 60,
   },
 });
 
@@ -49,7 +49,7 @@ const RegistrationForm = () => {
   const formik = useFormik({
     initialValues: {
       name: 'name',
-      email: 'fgfhg@gmail.com',
+      email: 'abc@gmail.com',
       password: '123456789',
     },
     validationSchema: validationSchema,
