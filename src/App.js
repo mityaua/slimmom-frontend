@@ -1,12 +1,11 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-// import Header from './components/Header';
-// import PrivateRoute from './components/PrivateRoute';
-// import PublicRoute from './components/PublicRoute';
-
 import Loader from './components/Loader';
+import { getUser } from './redux/auth/auth_operation';
+import { getIsAuthenticated } from './redux/auth/auth_selector';
 
 import routes from './routes';
 
@@ -30,7 +29,13 @@ const CalculatorPage = lazy(() =>
 );
 
 const App = () => {
-  const isAccess = true;
+  const dispatch = useDispatch();
+  const isAccess = useSelector(getIsAuthenticated); // Селектор состояния аутентификации
+
+  // Получение текущего юзера при маунте приложения
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   return (
     <div>
