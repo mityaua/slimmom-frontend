@@ -1,4 +1,5 @@
-// import Container from '../../components/Container';
+import { useEffect } from 'react';
+
 import Header from '../../components/Header';
 import DateForm from '../../components/DateForm';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm';
@@ -8,6 +9,10 @@ import DiaryProductsList from '../../components/DiaryProductsList';
 import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
+  useEffect(() => {
+    document.title = 'Дневник | SlimMom';
+  }, []);
+
   return (
     <>
       <Header />
