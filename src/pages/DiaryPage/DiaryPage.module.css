@@ -33,12 +33,9 @@
 @media screen and (min-width: 1280px) {
   .flexBox {
     display: flex;
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
   }
   .exampleBox {
     padding: 137px 30px 60px 115px;
-    width: 745px;
+    width: 58%;
   }
 }
