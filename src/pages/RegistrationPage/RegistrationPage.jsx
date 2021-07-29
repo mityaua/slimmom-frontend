@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import RegistrationForm from '../../components/RegistrationForm';
@@ -5,6 +7,10 @@ import RegistrationForm from '../../components/RegistrationForm';
 import styles from './RegistrationPage.module.css';
 
 const RegistrationPage = () => {
+  useEffect(() => {
+    document.title = 'Регистрация | SlimMom';
+  }, []);
+
   return (
     <>
       <Container>

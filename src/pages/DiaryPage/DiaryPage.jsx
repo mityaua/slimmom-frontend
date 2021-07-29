@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Header from '../../components/Header';
 import DateForm from '../../components/DateForm';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm';
@@ -12,10 +13,12 @@ import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
   const [mobileFormIsVisible, setMobileFormIsVisible] = useState(false);
-
   const handleClick = () => {
     setMobileFormIsVisible(prev => !prev);
   };
+  useEffect(() => {
+    document.title = 'Дневник | SlimMom';
+  }, []);
   return (
     <>
       <Header />

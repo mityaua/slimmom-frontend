@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
@@ -13,6 +13,10 @@ const MainPage = () => {
   const toggleModal = () => {
     setModal(!modal);
   };
+
+  useEffect(() => {
+    document.title = 'SlimMom | Худей эффективно!';
+  }, []);
 
   return (
     <>
