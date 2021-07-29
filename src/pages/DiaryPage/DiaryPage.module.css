@@ -1,9 +1,32 @@
-/* .diaryPage {
-} */
+.exampleBox {
+  position: relative;
+  padding: 40px 15px 60px;
+}
+.isHidddenTablet {
+  display: flex;
+  justify-content: center;
+}
+.isHidddenMobile {
+  display: none;
+}
+
+.backButton {
+  position: absolute;
+  z-index: 10;
+  top: -30px;
+  left: 15px;
+}
 
 @media screen and (min-width: 768px) {
   .exampleBox {
     padding: 100px 87px 61px 92px;
+    margin-bottom: 0;
+  }
+  .isHidddenTablet {
+    display: none;
+  }
+  .isHidddenMobile {
+    display: block;
   }
 }
 
@@ -17,6 +40,5 @@
   .exampleBox {
     padding: 137px 30px 60px 115px;
     width: 745px;
-    height: 695px;
   }
 }

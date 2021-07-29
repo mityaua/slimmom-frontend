@@ -23,8 +23,14 @@
   border: 2px solid var(--color-active);
 }
 
+.small {
+  min-width: 1px;
+  width: 50px;
+  height: 50px;
+}
+
 @media screen and (min-width: 768px) {
-  .small {
+  .smallFromTablet {
     min-width: 1px;
     width: 50px;
     height: 50px;

@@ -1,17 +1,14 @@
-.diaryProductsList {
-  padding: 40px 15px;
-}
-
 .wrapper {
   width: 100%;
   position: relative;
+  height: auto;
+  margin-bottom: 60px;
 }
 
 .container {
   position: relative;
   max-height: 240px;
   overflow-y: scroll;
-  padding-right: 40px;
 }
 
 .wrapper:after {
@@ -48,11 +45,6 @@
   background: #264061;
 }
 @media screen and (min-width: 768px) {
-  .diaryProductsList {
-    padding: 91px 87px;
-    display: flex;
-  }
-
   .diaryProductsList_list {
     width: 252px;
     margin: 0 60px 0 0;
@@ -61,10 +53,18 @@
   .diaryProductsList_title {
     margin-bottom: 22px;
   }
+
+  .container {
+    padding-right: 40px;
+  }
+
+  .wrapper {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-  .diaryProductsList {
+  /* .diaryProductsList {
     width: 535px;
     display: block;
     padding-left: 90px;
@@ -73,5 +73,5 @@
 
   .diaryProductsList {
     margin: 0 0 60px 0;
-  }
+  } */
 }
