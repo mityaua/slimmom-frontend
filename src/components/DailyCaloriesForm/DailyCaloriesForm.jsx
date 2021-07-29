@@ -170,6 +170,7 @@ const DailyCaloriesForm = () => {
                 onClick={handleSubmit}
                 type="submit"
                 text="Похудеть"
+                customType="primary"
               />
             </form>
           )}

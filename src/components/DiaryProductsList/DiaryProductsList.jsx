@@ -37,7 +37,6 @@ const DiaryProductsList = () => {
         {eatenProducts.map(product => (
           <DiaryProductsListItem key={product.title} product={product} />
         ))}
-        {/*  */}
       </ul>
     </div>
   );

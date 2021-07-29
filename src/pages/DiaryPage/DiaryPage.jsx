@@ -21,7 +21,7 @@ const DiaryPage = () => {
   }, []);
   return (
     <>
-      <Header />
+      <Header coloredBg />
       <div className={styles.flexBox}>
         {!mobileFormIsVisible ? (
           <>

@@ -9,6 +9,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .primary {
