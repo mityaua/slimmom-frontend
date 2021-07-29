@@ -1,6 +1,6 @@
 import styles from './DiaryAddProductForm.module.css';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '../Container';
+// import Container from '../Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '../Button';
 import { useFormik } from 'formik';
@@ -67,7 +67,7 @@ const DiaryAddProductForm = () => {
       <form
         className={styles.form}
         onSubmit={formik.handleSubmit}
-        autocomplete="off"
+        autoСomplete="off"
       >
         <TextField
           styles={{ color: 'blue' }}
