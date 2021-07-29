@@ -19,21 +19,6 @@
   letter-spacing: 0.04em;
 }
 
-/* .formInput {
-  font-family: 'Verdana';
-  margin-bottom: 40px;
-  height: 35.5px;
-  width: 289px;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.04em;
-  outline: none;
-  color: #9b9faa;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
-} */
-
 .buttons {
   display: flex;
   flex-direction: column;

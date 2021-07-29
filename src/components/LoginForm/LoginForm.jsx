@@ -1,10 +1,7 @@
 import styles from './LoginForm.module.css';
 import React from 'react';
-// import { useState } from 'react';
-// import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-// import Button from '@material-ui/core/Button';
 import Button from '../Button/Button';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch } from 'react-redux';
@@ -66,12 +63,10 @@ const LoginForm = () => {
       <form className={styles.formAuth} onSubmit={formik.handleSubmit}>
         <h2 className={styles.formTitle}>Вход</h2>
         <TextField
-          // className={styles.formInput}
           styles={{ color: 'blue' }}
           className={`${classes.input} ${classes.emailInput}`}
           id="email"
           name="email"
-          // label="Логин *"
           placeholder="Логин *"
           value={formik.values.email}
           onChange={formik.handleChange}

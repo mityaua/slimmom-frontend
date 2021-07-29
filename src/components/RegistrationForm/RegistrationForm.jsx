@@ -1,10 +1,7 @@
 import styles from './RegistrationForm.module.css';
 import React from 'react';
-// import { useState } from 'react';
-// import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-// import Button from '@material-ui/core/Button';
 import Button from '../Button/Button';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch } from 'react-redux';
@@ -128,9 +125,6 @@ const RegistrationForm = () => {
           <div className={styles.button}>
             <Button text="Registartion" type="submit" customType="primary" />
           </div>
-          {/* <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
-        </Button> */}
         </div>
       </form>
     </div>
