@@ -36,8 +36,7 @@ const error = createReducer(null, {
   [logoutError]: (_, { payload }) => payload,
   [getCurrentUserError]: (_, { payload }) => payload,
 });
-
-const isLoginOn = createReducer(false, {
+const isLogged = createReducer(false, {
   [registerSuccess]: () => true,
   [loginSuccess]: () => true,
   [getCurrentUserSuccess]: () => true,
@@ -71,7 +70,7 @@ const isLoading = createReducer(false, {
 export default combineReducers({
   user,
   token,
-  isLoginOn,
+  isLogged,
   error,
   isLoading,
 });
