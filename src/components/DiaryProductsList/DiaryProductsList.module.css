@@ -1,2 +1,77 @@
 .diaryProductsList {
+  padding: 40px 15px;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  max-height: 240px;
+  overflow-y: scroll;
+  padding-right: 40px;
+}
+
+.wrapper:after {
+  content: '';
+  width: calc(100% - 6px);
+  height: 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* width */
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.container::-webkit-scrollbar-track {
+  background: #f0f1f3;
+}
+
+/* Handle */
+.container::-webkit-scrollbar-thumb {
+  background: #264061;
+}
+
+/* Handle on hover */
+.container::-webkit-scrollbar-thumb:hover {
+  background: #264061;
+}
+@media screen and (min-width: 768px) {
+  .diaryProductsList {
+    padding: 91px 87px;
+    display: flex;
+  }
+
+  .diaryProductsList_list {
+    width: 252px;
+    margin: 0 60px 0 0;
+  }
+
+  .diaryProductsList_title {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .diaryProductsList {
+    width: 535px;
+    display: block;
+    padding-left: 90px;
+    padding-right: 175px;
+  }
+
+  .diaryProductsList {
+    margin: 0 0 60px 0;
+  }
 }
