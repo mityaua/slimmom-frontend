@@ -15,7 +15,7 @@ const LoginPage = () => {
     <>
       <Container>
         <div className={styles.loginPage}>
-          <Header className={styles.loginPage__header} />
+          <Header className={styles.loginPage__header} isHidden />
           <LoginForm className={styles.loginPage__form} />
         </div>
       </Container>

@@ -13,7 +13,7 @@ const CalculatorPage = () => {
 
   return (
     <>
-      <Header />
+      <Header coloredBg />
       <div className={styles.flexBox}>
         <DailyCaloriesForm />
         <RightSideBar />

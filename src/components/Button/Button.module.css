@@ -9,6 +9,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .primary {
@@ -23,8 +24,14 @@
   border: 2px solid var(--color-active);
 }
 
+.small {
+  min-width: 1px;
+  width: 50px;
+  height: 50px;
+}
+
 @media screen and (min-width: 768px) {
-  .small {
+  .smallFromTablet {
     min-width: 1px;
     width: 50px;
     height: 50px;

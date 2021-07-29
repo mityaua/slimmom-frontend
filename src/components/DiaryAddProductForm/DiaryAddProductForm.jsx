@@ -32,15 +32,15 @@ const useStyles = makeStyles({
 });
 
 const validationSchema = yup.object({
-  productName: yup.string('Enter product').required('Product is required'),
+  productName: yup.string('Enter product').required('Продукт обязателен!'),
   productWeight: yup
-    .number('Enter number')
-    .typeError('Enter number')
+    .number('Введите число')
+    .typeError('Введите число')
     .positive()
     .integer()
-    .min(10, 'Enter more gramms')
-    .max(1000, 'Enter less gramms')
-    .required('Weight is required'),
+    .min(10, 'Введите больший вес')
+    .max(1000, 'Введите меньший вес')
+    .required('Вес обязателен!'),
 });
 
 const DiaryAddProductForm = () => {
@@ -64,7 +64,11 @@ const DiaryAddProductForm = () => {
   });
   return (
     <div className={styles.diaryAddProductForm}>
-      <form className={styles.form} onSubmit={formik.handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={formik.handleSubmit}
+        autocomplete="off"
+      >
         <TextField
           styles={{ color: 'blue' }}
           className={`${classes.input} ${classes.nameInput}`}
@@ -92,7 +96,7 @@ const DiaryAddProductForm = () => {
             formik.touched.productWeight && formik.errors.productWeight
           }
         />
-        <Button customType="primary" type="submit" className="small">
+        <Button customType="primary" type="submit" className="smallFromTablet">
           <span className={styles.hiddenIcon}>
             <AddIcon />
           </span>
