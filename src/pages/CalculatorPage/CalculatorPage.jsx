@@ -15,7 +15,10 @@ const CalculatorPage = () => {
     <>
       <Header coloredBg />
       <div className={styles.flexBox}>
-        <DailyCaloriesForm />
+        <div className={styles.formContainer}>
+          <DailyCaloriesForm />
+        </div>
+
         <RightSideBar />
       </div>
     </>
