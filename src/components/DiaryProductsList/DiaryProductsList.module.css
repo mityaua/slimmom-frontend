@@ -2,6 +2,7 @@
   width: 100%;
   position: relative;
   height: auto;
+  margin-bottom: 60px;
 }
 
 .container {
@@ -56,10 +57,14 @@
   .container {
     padding-right: 40px;
   }
+
+  .wrapper {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-  .diaryProductsList {
+  /* .diaryProductsList {
     width: 535px;
     display: block;
     padding-left: 90px;
@@ -68,5 +73,5 @@
 
   .diaryProductsList {
     margin: 0 0 60px 0;
-  }
+  } */
 }
