@@ -36,6 +36,12 @@
 
 .icon {
   color: #9b9faa;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #000;
+  transform: scale(1.1);
 }
 
 @media (max-width: 767px) {

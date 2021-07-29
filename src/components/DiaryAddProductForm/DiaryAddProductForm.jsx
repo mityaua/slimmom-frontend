@@ -64,7 +64,11 @@ const DiaryAddProductForm = () => {
   });
   return (
     <div className={styles.diaryAddProductForm}>
-      <form className={styles.form} onSubmit={formik.handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={formik.handleSubmit}
+        autocomplete="off"
+      >
         <TextField
           styles={{ color: 'blue' }}
           className={`${classes.input} ${classes.nameInput}`}

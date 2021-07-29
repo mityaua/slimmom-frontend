@@ -15,7 +15,7 @@ const RegistrationPage = () => {
     <>
       <Container>
         <div className={styles.registrationPage}>
-          <Header className={styles.registrationPage__header} />
+          <Header className={styles.registrationPage__header} isHidden />
           <RegistrationForm className={styles.registrationPage__form} />
         </div>
       </Container>

@@ -5,16 +5,17 @@ import Logo from '../Logo';
 import UserInfo from '../UserInfo';
 import Navigation from '../Navigation';
 
-const Header = () => {
+const Header = ({ isHidden, coloredBg }) => {
   const [isLogged, setIsLogged] = useState(true); // имитация залогиненого юзера
+  const addBg = coloredBg ? styles.coloredBg : null;
   return (
     <header className={styles.header}>
       <Container>
-        <div className={styles.flexContainer}>
+        <div className={`${styles.flexContainer} ${addBg}`}>
           <Logo isLogged={isLogged} />
           <div className={styles.flexContainer2}>
             {isLogged && <UserInfo />}
-            <Navigation isLogged={isLogged} />
+            <Navigation isLogged={isLogged} isHidden={isHidden} />
           </div>
         </div>
       </Container>
