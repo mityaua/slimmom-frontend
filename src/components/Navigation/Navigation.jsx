@@ -4,9 +4,12 @@ import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { useSelector } from 'react-redux';
+import { getIsAuthenticated } from '../../redux/auth/auth_selector';
 
-const Navigation = ({ isHidden, isLogged }) => {
+const Navigation = ({ isHidden }) => {
   const hidden = isHidden ? styles.isHidden : null; // этот проп прячет нафигацию на LoginPage и RegistrationPage
+  const isLogged = useSelector(state => getIsAuthenticated(state));
 
   const [visibleMenu, setVisibleMenu] = useState(false);
 

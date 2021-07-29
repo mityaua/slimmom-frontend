@@ -97,11 +97,7 @@ const LoginForm = () => {
             <Button text="Вход" type="submit" customType="primary" />
           </div>
 
-          <NavLink
-            to={routes.registration}
-            className={styles.link}
-            activeClassName={styles.linkActive}
-          >
+          <NavLink to={routes.registration}>
             <div className={styles.button}>
               <Button text="Registartion" type="secondary" />
             </div>
