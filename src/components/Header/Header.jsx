@@ -1,16 +1,12 @@
 import styles from './Header.module.css';
-// import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import Container from '../Container';
 import Logo from '../Logo';
 import UserInfo from '../UserInfo';
 import Navigation from '../Navigation';
-import { getIsAuthenticated } from '../../redux/auth/auth_selector';
 
 const Header = ({ isHidden, coloredBg }) => {
-  // const [isLogged, setIsLogged] = useState(true); // имитация залогиненого юзера
-  const isLogged = useSelector(state => getIsAuthenticated(state));
-
+  const [isLogged, setIsLogged] = useState(true); // имитация залогиненого юзера
   const addBg = coloredBg ? styles.coloredBg : null;
   return (
     <header className={styles.header}>
@@ -18,7 +14,7 @@ const Header = ({ isHidden, coloredBg }) => {
         <div className={`${styles.flexContainer} ${addBg}`}>
           <Logo isLogged={isLogged} />
           <div className={styles.flexContainer2}>
-            {!isLogged && <UserInfo />}
+            {isLogged && <UserInfo />}
             <Navigation isLogged={isLogged} isHidden={isHidden} />
           </div>
         </div>
