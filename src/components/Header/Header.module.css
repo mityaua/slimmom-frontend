@@ -45,10 +45,6 @@
   }
 
   .coloredBg {
-    background-image: linear-gradient(
-      to right,
-      #ffffff 58.203%,
-      #f0f1f3 41.797%
-    );
+    background-image: linear-gradient(to right, #ffffff 58%, #f0f1f3 42%);
   }
 }
