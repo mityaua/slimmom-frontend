@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { Formik } from 'formik';
+import {fetchDailyCalories} from '../../redux/dailyCalories/dailyCalories_operation';
 
 import {
   FormControl,
@@ -17,10 +19,17 @@ import styles from './DailyCaloriesForm.module.css';
 import { withStyles } from '@material-ui/core/styles';
 
 const DailyCaloriesForm = () => {
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
+  };
+
+  const handleSubmit = (values) => {
+    values.bloodType = Number(values.bloodType)
+    dispatch(fetchDailyCalories(values));
+    console.log(values)
   };
 
   const validationsSchema = yup.object().shape({
@@ -29,28 +38,29 @@ const DailyCaloriesForm = () => {
       .typeError('Должно быть числом')
       .min(100, 'Минимальное значение 120 см')
       .max(260, 'Максимальное значение 260 см')
-      .required('Обязательно'),
+      .required('Обязательное поле'),
     age: yup
       .number()
       .typeError('Должно быть числом')
       .min(18, 'Минимальное значение 18 лет')
       .max(120, 'Максимальное значение 120 лет')
-      .required('Обязательно'),
-    cWeight: yup
+      .required('Обязательное поле'),
+    currentWeight: yup
       .number()
       .typeError('Должно быть числом')
       .min(50, 'Минимальное значение 50 кг')
       .max(250, 'Максимальное значение 250 кг')
-      .required('Обязательно'),
-    dWeight: yup
+      .required('Обязательное поле'),
+    desiredWeight: yup
       .number()
       .typeError('Должно быть числом')
       .min(50, 'Минимальное значение 45 кг')
       .max(
-        yup.ref('cWeight'),
+        yup.ref('currentWeight'),
         'Максимальное значение не может быть больше текущего',
       )
-      .required('Обязательно'),
+      .required('Обязательное поле'),
+      bloodType: yup.number().required('Обязательное поле'),
   });
 
   return (
@@ -60,13 +70,13 @@ const DailyCaloriesForm = () => {
           initialValues={{
             height: '',
             age: '',
-            cWeight: '',
-            dWeight: '',
+            currentWeight: '',
+            desiredWeight: '',
             bloodType: '',
           }}
           validateOnBlur
           onSubmit={values => {
-            console.log(values);
+            handleSubmit(values);
           }}
           validationSchema={validationsSchema}
         >
@@ -81,7 +91,7 @@ const DailyCaloriesForm = () => {
             dirty,
           }) => (
             <form className={styles.caloriesForm} onSubmit={handleSubmit}>
-              <h2>Узнай свою суточную норму калорий</h2>
+              <h2>Просчитай свою суточную норму калорий</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
                   <InputField
@@ -92,7 +102,7 @@ const DailyCaloriesForm = () => {
                     onBlur={handleBlur}
                     value={values.height}
                   />
-                  {touched.height && errors.height && <p>{errors.height}</p>}
+                  {touched.height && errors.height && <p className={styles.caloriesFormError}>{errors.height}</p>}
                   <InputField
                     label="Возраст *"
                     type="number"
@@ -101,27 +111,27 @@ const DailyCaloriesForm = () => {
                     onBlur={handleBlur}
                     value={values.age}
                   />
-                  {touched.age && errors.age && <p>{errors.age}</p>}
+                  {touched.age && errors.age && <p className={styles.caloriesFormError}>{errors.age}</p>}
                   <InputField
                     label="Текущий вес *"
                     type="number"
-                    name={'cWeight'}
+                    name={'currentWeight'}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.cWeight}
+                    value={values.currentWeight}
                   />
-                  {touched.cWeight && errors.cWeight && <p>{errors.cWeight}</p>}
+                  {touched.currentWeight && errors.currentWeight && <p className={styles.caloriesFormError}>{errors.currentWeight}</p>}
                 </div>
                 <div className={styles.formContainerRight}>
                   <InputField
                     label="Желаемый вес *"
                     type="number"
-                    name={'dWeight'}
+                    name={'desiredWeight'}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.dWeight}
+                    value={values.desiredWeight}
                   />
-                  {touched.dWeight && errors.dWeight && <p>{errors.dWeight}</p>}
+                  {touched.desiredWeight && errors.desiredWeight && <p className={styles.caloriesFormError}>{errors.desiredWeight}</p>}
                   <FormControl component="fieldset">
                     <StyleFormLabel component="legend">
                       Группа крови *
@@ -160,6 +170,10 @@ const DailyCaloriesForm = () => {
                         control={<StyleRadio />}
                         label="4"
                       />
+                      {touched.bloodType &&
+                      errors.bloodType &&
+                      <p className={styles.caloriesFormError}>
+                      {errors.bloodType}</p>}
                     </RadioGroup>
                   </FormControl>
                 </div>
@@ -203,18 +217,20 @@ const StyleRadio = withStyles({
 const StyleFormLabel = withStyles({
   root: {
     fontFamily: 'Verdana',
-    fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: '14px',
     lineHeight: '1.2',
     color: '#9B9FAA',
-  },
+    '&$focused': {
+      color: '#9B9FAA',
+    },
+  }, focused: {},
 })(props => <FormLabel {...props} />);
 
-const InputField = ({ label, type, value, name, onChange }) => (
+const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
     {label}
-    <input type={type} value={value} name={name} onChange={onChange} />
+    <input type={type} value={value} name={name} onChange={onChange} onBlur={onBlur}/>
   </label>
 );
 

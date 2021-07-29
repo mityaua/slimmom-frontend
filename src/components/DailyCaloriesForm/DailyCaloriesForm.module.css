@@ -7,7 +7,6 @@
 
 .caloriesForm h2 {
   font-family: Verdana;
-  font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 1.4;
@@ -17,7 +16,6 @@
 
 .caloriesForm label {
   font-family: Verdana;
-  font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 1.2;
@@ -30,7 +28,16 @@
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
 }
-
+.caloriesForm input[type=number]::-webkit-inner-spin-button,
+.caloriesForm input[type=number]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   margin: 0;
+}
+.caloriesForm input[type=number]{
+ -moz-appearance: textfield;
+}
 .formContainerF {
   margin-bottom: 30px;
 }
@@ -40,7 +47,12 @@
 .radioContainer {
   margin-bottom: 40px;
 }
-
+.caloriesFormError{
+  font-family: Verdana;
+  font-size: 10px;
+  line-height: 1.2;
+  color: red;
+}
 @media (min-width: 768px) {
   .caloriesForm {
     width: 100%;
