@@ -31,13 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "netlify deploy -p",
-    "format-staged": "pretty-quick --staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format-staged"
-    }
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
@@ -59,7 +53,7 @@
   },
   "devDependencies": {
     "husky": "^4.3.8",
-    "lint-staged": "^11.1.0",
+    "lint-staged": "^11.1.1",
     "prettier": "^2.3.2"
   }
 }
