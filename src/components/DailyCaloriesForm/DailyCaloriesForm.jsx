@@ -65,9 +65,9 @@ const DailyCaloriesForm = () => {
   });
   const heading = () =>{
   if(getIsAuthenticated){
-    return "Узнай"
+    return "Узнай свою суточную норму калорий"
   }
-  return "Просчитай"
+  return "Просчитай свою суточную норму калорий прямо сейчас"
   }
   return (
     <>
@@ -97,7 +97,7 @@ const DailyCaloriesForm = () => {
             dirty,
           }) => (
             <form className={styles.caloriesForm} onSubmit={handleSubmit}>
-              <h2>{heading()} свою суточную норму калорий</h2>
+              <h2>{heading()}</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
                   <InputField
