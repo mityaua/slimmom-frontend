@@ -7,11 +7,13 @@ import {
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
-export const fetchDailyCalories = () => dispatch => {
+export const fetchDailyCalories = payload => async dispatch => {
   dispatch(fetchDailyCaloriesRequest);
-
-  axios
-    .post('/daily-rate')
-    .then(({ data }) => dispatch(fetchDailyCaloriesSuccess(data)))
-    .catch(error => dispatch(fetchDailyCaloriesError(error.message)));
+  try {
+    const response = await axios.post('/daily-rate', payload);
+    console.log('response.data', response.data);
+    dispatch(fetchDailyCaloriesSuccess(response.data));
+  } catch (err) {
+    dispatch(fetchDailyCaloriesError(err.message));
+  }
 };
