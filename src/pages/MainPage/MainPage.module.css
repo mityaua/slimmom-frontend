@@ -29,12 +29,12 @@
     height: 850px;
 
     background-image: url('../../images/bg-pictures/desktop/leaves_main.png'),
-      url('../../images/bg-pictures/desktop/banana.svg'),
+      url('../../images/bg-pictures/desktop/banana.png'),
       url('../../images/bg-pictures/desktop/strawberry.png'),
       url('../../images/bg-pictures/desktop/stain.svg');
 
-    background-size: 746px 820px, 568px 510px, 386px 379px, 715px 849px;
-    background-position: right 195px bottom 30px, right -70px bottom 442px,
+    background-size: 746px 820px, 715px 510px, 386px 379px, 715px 849px;
+    background-position: right 195px bottom 30px, right -247px bottom 442px,
       right -27px bottom 5px, right -113px bottom -33px;
 
     background-repeat: no-repeat;
