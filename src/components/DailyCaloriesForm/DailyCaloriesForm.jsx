@@ -17,6 +17,7 @@ import Modal from '../Modal';
 
 import styles from './DailyCaloriesForm.module.css';
 import { withStyles } from '@material-ui/core/styles';
+import { getIsAuthenticated } from '../../redux/auth/auth_selector';
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
@@ -62,7 +63,10 @@ const DailyCaloriesForm = () => {
       .required('Обязательное поле'),
       bloodType: yup.number().required('Обязательное поле'),
   });
-
+  let headering="Просчитай" 
+  if(getIsAuthenticated){
+    headering="Узнай"
+  }
   return (
     <>
       <div>
@@ -91,7 +95,7 @@ const DailyCaloriesForm = () => {
             dirty,
           }) => (
             <form className={styles.caloriesForm} onSubmit={handleSubmit}>
-              <h2>Просчитай свою суточную норму калорий</h2>
+              <h2>{headering} свою суточную норму калорий</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
                   <InputField
@@ -142,6 +146,7 @@ const DailyCaloriesForm = () => {
                       name="bloodType"
                       defaultValue="top"
                     >
+                      <div className={styles.radioButton}>
                       <FormControlLabel
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -149,6 +154,8 @@ const DailyCaloriesForm = () => {
                         control={<StyleRadio />}
                         label="1"
                       />
+                      </div>
+                      <div className={styles.radioButton}>
                       <FormControlLabel
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -156,6 +163,8 @@ const DailyCaloriesForm = () => {
                         control={<StyleRadio />}
                         label="2"
                       />
+                      </div>
+                      <div className={styles.radioButton}>
                       <FormControlLabel
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -163,6 +172,8 @@ const DailyCaloriesForm = () => {
                         control={<StyleRadio />}
                         label="3"
                       />
+                      </div>
+                      <div className={styles.radioButton}>
                       <FormControlLabel
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -170,6 +181,7 @@ const DailyCaloriesForm = () => {
                         control={<StyleRadio />}
                         label="4"
                       />
+                      </div>
                       {touched.bloodType &&
                       errors.bloodType &&
                       <p className={styles.caloriesFormError}>
