@@ -2,8 +2,10 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
+
 import authReducer from './auth/auth_reducer';
 import userCalories from './dailyCalories/dailyCalories_reducer';
+import dayReducer from './day/day-reducer';
 
 const authConfig = {
   key: 'auth',
@@ -27,6 +29,7 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(authConfig, authReducer),
     dailyCalories: userCalories,
+    day: dayReducer,
   },
 
   middleware: getDefaultMiddleware =>
