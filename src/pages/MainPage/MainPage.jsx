@@ -6,6 +6,7 @@ import Modal from '../../components/Modal';
 import Button from '../../components/Button';
 
 import styles from './MainPage.module.css';
+import Container from '../../components/Container';
 
 const MainPage = () => {
   const [modal, setModal] = useState(false);
@@ -20,8 +21,12 @@ const MainPage = () => {
 
   return (
     <>
-      <Header />
-      <DailyCaloriesForm />
+      <div className={styles.mainPage}>
+        <Container>
+          <Header />
+          <DailyCaloriesForm />
+        </Container>
+      </div>
 
       {/* Привязать к другой кнопке в форме просчёта */}
       <button type="button" onClick={toggleModal}>
