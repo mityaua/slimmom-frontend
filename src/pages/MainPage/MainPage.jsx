@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 
+import Container from '../../components/Container';
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
+
+import styles from './MainPage.module.css';
 
 const MainPage = () => {
   useEffect(() => {
@@ -10,8 +13,12 @@ const MainPage = () => {
 
   return (
     <>
-      <Header />
-      <DailyCaloriesForm />
+      <div className={styles.mainPage}>
+        <Container>
+          <Header />
+          <DailyCaloriesForm />
+        </Container>
+      </div>
     </>
   );
 };

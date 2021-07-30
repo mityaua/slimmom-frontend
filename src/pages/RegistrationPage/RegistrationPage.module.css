@@ -21,7 +21,7 @@
       url('../../images/bg-pictures/tablet/stain.svg');
 
     background-size: 426px 420px, 491px 431px, 740px 745px, 521px 563px;
-    background-position: right -100px top 413px, right -12px top 593px,
+    background-position: right -110px top 421px, right -12px top 593px,
       right 0px top 0px, right 0px top 461px;
 
     background-repeat: no-repeat;
@@ -30,8 +30,8 @@
   .registrationPage__form {
     width: 382px;
 
-    margin-top: 157px;
-    margin-left: 87px;
+    margin-top: 112px;
+    margin-left: 92px;
   }
 }
 
@@ -45,8 +45,8 @@
       url('../../images/bg-pictures/desktop/stain.svg');
 
     background-size: 386px 379px, 568px 510px, 756px 857px, 716.5px 849px;
-    background-position: right 0 top 173px, right 0 top 340px, right 0 top -26px,
-      right 0 top 0px;
+    background-position: right 0 top 183px, right 0 top 340px,
+      right 274зч top -26px, right 0 top 0px;
 
     background-repeat: no-repeat;
   }
