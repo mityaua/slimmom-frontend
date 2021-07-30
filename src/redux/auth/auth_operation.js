@@ -15,6 +15,7 @@ import {
   getCurrentUserSuccess,
   getCurrentUserError,
 } from './auth_action';
+
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 const token = {
