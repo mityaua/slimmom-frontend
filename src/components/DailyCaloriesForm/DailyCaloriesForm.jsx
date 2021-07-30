@@ -63,9 +63,11 @@ const DailyCaloriesForm = () => {
       .required('Обязательное поле'),
       bloodType: yup.number().required('Обязательное поле'),
   });
-  let headering="Просчитай" 
+  const heading = () =>{
   if(getIsAuthenticated){
-    headering="Узнай"
+    return "Узнай"
+  }
+  return "Просчитай"
   }
   return (
     <>
@@ -95,7 +97,7 @@ const DailyCaloriesForm = () => {
             dirty,
           }) => (
             <form className={styles.caloriesForm} onSubmit={handleSubmit}>
-              <h2>{headering} свою суточную норму калорий</h2>
+              <h2>{heading()} свою суточную норму калорий</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
                   <InputField
