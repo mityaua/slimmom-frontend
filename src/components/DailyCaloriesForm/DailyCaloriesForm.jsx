@@ -1,10 +1,7 @@
-import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import {fetchDailyCalories} from '../../redux/dailyCalories/dailyCalories_operation';
-
 import {
   FormControl,
   FormControlLabel,
@@ -12,24 +9,31 @@ import {
   Radio,
   RadioGroup,
 } from '@material-ui/core';
+
 import Button from '../Button';
 import Modal from '../Modal';
+import routes from '../../routes';
+
+import { fetchDailyCalories } from '../../redux/dailyCalories/dailyCalories_operation';
+import { getIsAuthenticated } from '../../redux/auth/auth_selector';
 
 import styles from './DailyCaloriesForm.module.css';
 import { withStyles } from '@material-ui/core/styles';
+import { NavLink } from 'react-router-dom';
 
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const IsAuthenticated = useSelector(getIsAuthenticated);
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
-  const handleSubmit = (values) => {
-    values.bloodType = Number(values.bloodType)
+  const handleSubmit = values => {
+    values.bloodType = Number(values.bloodType);
     dispatch(fetchDailyCalories(values));
-    console.log(values)
+    console.log(values);
   };
 
   const validationsSchema = yup.object().shape({
@@ -60,8 +64,15 @@ const DailyCaloriesForm = () => {
         'Максимальное значение не может быть больше текущего',
       )
       .required('Обязательное поле'),
-      bloodType: yup.number().required('Обязательное поле'),
+    bloodType: yup.number().required('Обязательное поле'),
   });
+
+  const heading = () => {
+    if (IsAuthenticated) {
+      return 'Узнай свою суточную норму калорий';
+    }
+    return 'Просчитай свою суточную норму калорий прямо сейчас';
+  };
 
   return (
     <>
@@ -77,6 +88,7 @@ const DailyCaloriesForm = () => {
           validateOnBlur
           onSubmit={values => {
             handleSubmit(values);
+            toggleModal();
           }}
           validationSchema={validationsSchema}
         >
@@ -91,7 +103,7 @@ const DailyCaloriesForm = () => {
             dirty,
           }) => (
             <form className={styles.caloriesForm} onSubmit={handleSubmit}>
-              <h2>Просчитай свою суточную норму калорий</h2>
+              <h2>{heading()}</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
                   <InputField
@@ -102,7 +114,9 @@ const DailyCaloriesForm = () => {
                     onBlur={handleBlur}
                     value={values.height}
                   />
-                  {touched.height && errors.height && <p className={styles.caloriesFormError}>{errors.height}</p>}
+                  {touched.height && errors.height && (
+                    <p className={styles.caloriesFormError}>{errors.height}</p>
+                  )}
                   <InputField
                     label="Возраст *"
                     type="number"
@@ -111,7 +125,9 @@ const DailyCaloriesForm = () => {
                     onBlur={handleBlur}
                     value={values.age}
                   />
-                  {touched.age && errors.age && <p className={styles.caloriesFormError}>{errors.age}</p>}
+                  {touched.age && errors.age && (
+                    <p className={styles.caloriesFormError}>{errors.age}</p>
+                  )}
                   <InputField
                     label="Текущий вес *"
                     type="number"
@@ -120,7 +136,11 @@ const DailyCaloriesForm = () => {
                     onBlur={handleBlur}
                     value={values.currentWeight}
                   />
-                  {touched.currentWeight && errors.currentWeight && <p className={styles.caloriesFormError}>{errors.currentWeight}</p>}
+                  {touched.currentWeight && errors.currentWeight && (
+                    <p className={styles.caloriesFormError}>
+                      {errors.currentWeight}
+                    </p>
+                  )}
                 </div>
                 <div className={styles.formContainerRight}>
                   <InputField
@@ -131,7 +151,11 @@ const DailyCaloriesForm = () => {
                     onBlur={handleBlur}
                     value={values.desiredWeight}
                   />
-                  {touched.desiredWeight && errors.desiredWeight && <p className={styles.caloriesFormError}>{errors.desiredWeight}</p>}
+                  {touched.desiredWeight && errors.desiredWeight && (
+                    <p className={styles.caloriesFormError}>
+                      {errors.desiredWeight}
+                    </p>
+                  )}
                   <FormControl component="fieldset">
                     <StyleFormLabel component="legend">
                       Группа крови *
@@ -142,38 +166,47 @@ const DailyCaloriesForm = () => {
                       name="bloodType"
                       defaultValue="top"
                     >
-                      <FormControlLabel
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value="1"
-                        control={<StyleRadio />}
-                        label="1"
-                      />
-                      <FormControlLabel
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value="2"
-                        control={<StyleRadio />}
-                        label="2"
-                      />
-                      <FormControlLabel
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value="3"
-                        control={<StyleRadio />}
-                        label="3"
-                      />
-                      <FormControlLabel
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value="4"
-                        control={<StyleRadio />}
-                        label="4"
-                      />
-                      {touched.bloodType &&
-                      errors.bloodType &&
-                      <p className={styles.caloriesFormError}>
-                      {errors.bloodType}</p>}
+                      <div className={styles.radioButton}>
+                        <FormControlLabel
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value="1"
+                          control={<StyleRadio />}
+                          label="1"
+                        />
+                      </div>
+                      <div className={styles.radioButton}>
+                        <FormControlLabel
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value="2"
+                          control={<StyleRadio />}
+                          label="2"
+                        />
+                      </div>
+                      <div className={styles.radioButton}>
+                        <FormControlLabel
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value="3"
+                          control={<StyleRadio />}
+                          label="3"
+                        />
+                      </div>
+                      <div className={styles.radioButton}>
+                        <FormControlLabel
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value="4"
+                          control={<StyleRadio />}
+                          label="4"
+                        />
+                      </div>
+                      {touched.bloodType && errors.bloodType && (
+                        <p className={styles.caloriesFormError}>
+                          {errors.bloodType}
+                        </p>
+                      )}
                     </RadioGroup>
                   </FormControl>
                 </div>
@@ -191,15 +224,33 @@ const DailyCaloriesForm = () => {
         </Formik>
       </div>
 
-      {/* <button onClick={toggleModal}>Модалка</button> */}
-
       {modal && (
         <Modal onClose={toggleModal}>
-          <h1>Ваша рекомендуемая суточная норма калорий составляет</h1>
-          <p>2800 ккал</p>
-          <button type="button" className="close-btn" onClick={toggleModal}>
-            Close modal
-          </button>
+          <h1 className={styles.modal_title}>
+            Ваша рекомендуемая суточная норма калорий составляет
+          </h1>
+          <p className={styles.modal_caloriesNumber}>
+            2800 <span className={styles.modal_calories}>ккал</span>
+          </p>
+          <h2 className={styles.modal_subTitle}>
+            Продукты, которые вам не рекомендуется употреблять
+          </h2>
+          <ul className={styles.modal_list}>
+            <li className={styles.modal_el}>1. Мучные продукты</li>
+            <li className={styles.modal_el}>2. Молоко</li>
+            <li className={styles.modal_el}>3. Красное мясо</li>
+            <li className={styles.modal_el}>4. Копчености</li>
+          </ul>
+          <div className={styles.modal_button}>
+            <NavLink to={routes.registration}>
+              <Button text="Начать худеть" customType="primary" type="button" />
+            </NavLink>
+          </div>
+          <button
+            type="button"
+            className={styles.modal_closeBtn}
+            onClick={toggleModal}
+          ></button>
         </Modal>
       )}
     </>
@@ -225,13 +276,20 @@ const StyleFormLabel = withStyles({
     '&$focused': {
       color: '#9B9FAA',
     },
-  }, focused: {},
+  },
+  focused: {},
 })(props => <FormLabel {...props} />);
 
 const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
     {label}
-    <input type={type} value={value} name={name} onChange={onChange} onBlur={onBlur}/>
+    <input
+      type={type}
+      value={value}
+      name={name}
+      onChange={onChange}
+      onBlur={onBlur}
+    />
   </label>
 );
 

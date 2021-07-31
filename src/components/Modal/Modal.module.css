@@ -1,25 +1,30 @@
 .backdrop {
   position: fixed;
-  top: 0;
+  top: 80px;
   left: 0;
 
   width: 100vw;
   height: 100vh;
 
-  background: rgba(33, 33, 33, 0.12);
+  background: #eff1f3;
 }
 
 .modal {
   position: absolute;
 
   width: 100%;
-  margin-top: 120px;
+  margin-top: 40px;
   padding: 40px 15px 80px 15px;
 
   background-color: #fff;
 }
 
 @media (min-width: 768px) {
+  .backdrop {
+    top: 0;
+    background: rgba(33, 33, 33, 0.12);
+  }
+
   .modal {
     margin: 0;
     top: 50%;

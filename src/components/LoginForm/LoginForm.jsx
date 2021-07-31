@@ -13,7 +13,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   input: {
     width: 289,
-
     '@media (min-width: 768px)': {
       width: 240,
     },
