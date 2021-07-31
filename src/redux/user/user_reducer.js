@@ -7,13 +7,12 @@ import {
   getUserInfoError,
 } from './user_action';
 
-const initial = {
-  userId: '',
-};
-
-const userInfo = createReducer(initial, {
-  [getUserInfoSuccess]: (_, { payload }) => payload,
-});
+const userInfo = createReducer(
+  {},
+  {
+    [getUserInfoSuccess]: (_, { payload }) => payload,
+  },
+);
 
 const error = createReducer(null, {
   [getUserInfoRequest]: () => null,

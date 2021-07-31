@@ -4,14 +4,14 @@ export const dayInfoRequest = createAction('day/dayInfoRequest');
 export const dayInfoSuccess = createAction('day/dayInfoError');
 export const dayInfoError = createAction('day/dayInfoError');
 
-export const addProductRequest = createAction('contacts/addProductRequest');
-export const addProductSuccess = createAction('contacts/addProductSuccess');
-export const addProductError = createAction('contacts/addProductError');
+export const addProductRequest = createAction('products/addProductRequest');
+export const addProductSuccess = createAction('products/addProductSuccess');
+export const addProductError = createAction('products/addProductError');
 
 export const deleteProductRequest = createAction(
-  'contacts/deleteProductRequest',
+  'products/deleteProductRequest',
 );
 export const deleteProductSuccess = createAction(
-  'contacts/deleteProductSuccess',
+  'products/deleteProductSuccess',
 );
-export const deleteProductError = createAction('contacts/deleteProductError');
+export const deleteProductError = createAction('products/deleteProductError');
