@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 // import { PersistGate } from 'redux-persist/integration/react';
 
 import {
@@ -36,6 +37,7 @@ export const register = payload => async dispatch => {
     dispatch(registerSuccess(response.data));
   } catch (err) {
     dispatch(registerError(err.message));
+    toast.error(err.message);
   }
 };
 
@@ -49,6 +51,7 @@ export const login = payload => async dispatch => {
     dispatch(loginSuccess(response.data));
   } catch (error) {
     dispatch(loginError(error.message));
+    toast.error(error.message);
   }
 };
 
@@ -60,6 +63,7 @@ export const logOut = () => async dispatch => {
     dispatch(logoutSuccess());
   } catch (error) {
     dispatch(logoutError(error.message));
+    toast.error(error.message);
   }
 };
 
@@ -81,5 +85,6 @@ export const getUser = () => async (dispatch, getState) => {
     dispatch(getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(getCurrentUserError(error.message));
+    toast.error(error.message);
   }
 };
