@@ -83,6 +83,7 @@ const DiaryAddProductForm = () => {
           value={formik.values.productName}
           placeholder="Введите название продукта"
           onChange={formik.handleChange}
+          autoComplete="off"
           error={
             formik.touched.productName && Boolean(formik.errors.productName)
           }
@@ -95,6 +96,7 @@ const DiaryAddProductForm = () => {
           value={formik.values.productWeight}
           placeholder="Граммы"
           onChange={formik.handleChange}
+          autoComplete="off"
           error={
             formik.touched.productWeight && Boolean(formik.errors.productWeight)
           }
