@@ -16,12 +16,11 @@ axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com/';
 // Операция получения информации по определённому дню
 export const getDay = (id, date) => async dispatch => {
   const info = { id, date };
-  console.log('day payload', id, date);
   dispatch(dayInfoRequest());
 
   try {
-    const response = await axios.post('​/day​/info', info);
-    dispatch(dayInfoSuccess(response));
+    const response = await axios.post('day/info', info);
+    dispatch(dayInfoSuccess(response.data));
   } catch (error) {
     dispatch(dayInfoError(error.message));
   }
