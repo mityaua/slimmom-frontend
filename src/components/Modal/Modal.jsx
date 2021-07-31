@@ -8,10 +8,10 @@ const modalRoot = document.querySelector('#modal-root');
 // Компонент модального окна
 const Modal = ({ children, onClose }) => {
   const handleKeyDown = event => {
-    if (event.code === 'Escape') {
+    if (event.code === 'Escape') {      
       onClose();
     }
-  };
+  };  
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {

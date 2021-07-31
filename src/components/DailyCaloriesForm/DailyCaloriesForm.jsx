@@ -26,8 +26,13 @@ const DailyCaloriesForm = () => {
   const [modal, setModal] = useState(false);
   const IsAuthenticated = useSelector(getIsAuthenticated);
 
-  const toggleModal = () => {
-    setModal(!modal);
+  const body = document.querySelector('body')  
+
+  const toggleModal = () => {    
+    if (body.classList.contains(styles.hidden)) {
+      body.classList.remove(styles.hidden)
+    } else { body.classList.add(styles.hidden) }
+    setModal(!modal)
   };
 
   const handleSubmit = values => {
