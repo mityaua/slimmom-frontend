@@ -15,8 +15,9 @@ const userInfo = createReducer(
 );
 
 const error = createReducer(null, {
-  [getUserInfoRequest]: () => null,
-  [getUserInfoError]: (_, { payload }) => payload,
+  [getUserInfoRequest]: () => false,
+  [getUserInfoSuccess]: () => false,
+  [getUserInfoError]: () => true,
 });
 
 const isLoading = createReducer(false, {

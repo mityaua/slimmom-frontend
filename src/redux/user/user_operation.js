@@ -12,8 +12,8 @@ export const getUserInfo = () => async dispatch => {
   dispatch(getUserInfoRequest());
 
   try {
-    const response = await axios.get('​/user');
-    dispatch(getUserInfoSuccess(response));
+    const { data } = await axios.get('/user');
+    dispatch(getUserInfoSuccess(data));
   } catch (error) {
     dispatch(getUserInfoError(error.message));
   }
