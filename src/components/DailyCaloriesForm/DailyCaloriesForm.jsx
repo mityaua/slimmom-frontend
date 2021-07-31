@@ -242,10 +242,10 @@ const DailyCaloriesForm = () => {
             <li className={styles.modal_el}>4. Копчености</li>
           </ul>
           <div className={styles.modal_button}>
-            <NavLink to={routes.registration} >
-              <Button text="Начать худеть" customType="primary" type='button'/>
+            <NavLink to={routes.registration}>
+              <Button text="Начать худеть" customType="primary" type="button" />
             </NavLink>
-          </div>                    
+          </div>
           <button
             type="button"
             className={styles.modal_closeBtn}
