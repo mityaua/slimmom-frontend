@@ -4,8 +4,8 @@ export const fetchDailyCaloriesRequest = createAction(
   'dailyCalories/fetchDailyCaloriesRequest',
 );
 export const fetchDailyCaloriesSuccess = createAction(
-  'dailyCalories/fetchDailyCaloriesRequest',
+  'dailyCalories/fetchDailyCaloriesSuccess',
 );
 export const fetchDailyCaloriesError = createAction(
-  'dailyCalories/fetchDailyCaloriesRequest',
+  'dailyCalories/fetchDailyCaloriesError',
 );

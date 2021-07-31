@@ -16,7 +16,7 @@ import routes from '../../routes';
 
 import { fetchDailyCalories } from '../../redux/dailyCalories/dailyCalories_operation';
 import { getIsAuthenticated } from '../../redux/auth/auth_selector';
-
+import { getDailyCalories } from '../../redux/dailyCalories/dailyCalories_selector';
 import styles from './DailyCaloriesForm.module.css';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
@@ -38,7 +38,9 @@ const DailyCaloriesForm = () => {
   const handleSubmit = values => {
     values.bloodType = Number(values.bloodType);
     dispatch(fetchDailyCalories(values));
-    console.log(values);
+    setTimeout(() => {
+      toggleModal();
+    }, 1000);
   };
 
   const validationsSchema = yup.object().shape({
@@ -93,7 +95,6 @@ const DailyCaloriesForm = () => {
           validateOnBlur
           onSubmit={values => {
             handleSubmit(values);
-            toggleModal();
           }}
           validationSchema={validationsSchema}
         >
@@ -216,7 +217,7 @@ const DailyCaloriesForm = () => {
                   </FormControl>
                 </div>
               </div>
-
+              <div className={styles.form_button}>
               <Button
                 disabled={!isValid || !dirty}
                 onClick={handleSubmit}
@@ -224,6 +225,7 @@ const DailyCaloriesForm = () => {
                 text="Похудеть"
                 customType="primary"
               />
+              </div>
             </form>
           )}
         </Formik>
@@ -235,7 +237,7 @@ const DailyCaloriesForm = () => {
             Ваша рекомендуемая суточная норма калорий составляет
           </h1>
           <p className={styles.modal_caloriesNumber}>
-            2800 <span className={styles.modal_calories}>ккал</span>
+          2800<span className={styles.modal_calories}> ккал</span>
           </p>
           <h2 className={styles.modal_subTitle}>
             Продукты, которые вам не рекомендуется употреблять
