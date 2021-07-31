@@ -41,7 +41,18 @@ const App = () => {
     <div>
       <Suspense fallback={<Loader />}>
         <Switch>
-          <Route exact path={routes.home} component={MainPage} />
+          {/* <Route exact path={routes.home} component={MainPage} /> */}
+          <Route
+            path={routes.home}
+            exact
+            render={() => {
+              return isAccess ? (
+                <Redirect to={routes.calculator} />
+              ) : (
+                <MainPage />
+              );
+            }}
+          />
 
           <Route
             path={routes.login}
