@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
 export const dayInfoRequest = createAction('day/dayInfoRequest');
-export const dayInfoSuccess = createAction('day/dayInfoError');
+export const dayInfoSuccess = createAction('day/dayInfoSuccess');
 export const dayInfoError = createAction('day/dayInfoError');
 
 export const addProductRequest = createAction('products/addProductRequest');

@@ -38,7 +38,7 @@ const DiaryProductsList = () => {
     <div className={styles.wrapper}>
       <ul className={styles.container}>
         {products.map(product => (
-          <DiaryProductsListItem key={product.title} product={product} />
+          <DiaryProductsListItem key={product._id} product={product} />
         ))}
       </ul>
     </div>
