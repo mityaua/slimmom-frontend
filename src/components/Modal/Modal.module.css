@@ -2,6 +2,7 @@
   position: fixed;
   top: 80px;
   left: 0;
+  overflow-y: scroll;
 
   width: 100vw;
   height: 100vh;
@@ -10,13 +11,19 @@
 }
 
 .modal {
-  position: absolute;
+  position: relative;
 
   width: 100%;
   margin-top: 40px;
+  margin-bottom: 80px;
   padding: 40px 15px 80px 15px;
-
   background-color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    height: 598px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -26,6 +33,7 @@
   }
 
   .modal {
+    position: absolute;
     margin: 0;
     top: 50%;
     left: 50%;
