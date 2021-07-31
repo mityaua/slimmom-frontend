@@ -1,8 +1,18 @@
 import React from 'react';
 import styles from './DiaryProductsListItem.module.css';
 import CloseIcon from '@material-ui/icons/Close';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from '../../redux/day/day_operation';
+import { dateId } from '../../redux/day/day_selector';
 
-const DiaryProductsListItem = ({ product: { title, weight, kcal } }) => {
+const DiaryProductsListItem = ({ product: { _id, title, weight, kcal } }) => {
+  const dispatch = useDispatch();
+  const dayId = useSelector(dateId);
+
+  const handleClick = () => {
+    dispatch(deleteContact(dayId, _id));
+  };
+
   return (
     <>
       <li className={styles.item}>
@@ -11,7 +21,7 @@ const DiaryProductsListItem = ({ product: { title, weight, kcal } }) => {
         <div className={styles.calories}>
           {kcal} <span>ккал</span>
         </div>
-        <CloseIcon className={styles.icon} />
+        <CloseIcon className={styles.icon} onClick={handleClick} />
       </li>
     </>
   );

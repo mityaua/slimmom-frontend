@@ -1,23 +1,30 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import Header from '../../components/Header';
 import DateForm from '../../components/DateForm';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm';
 import RightSideBar from '../../components/RightSideBar';
 import DiaryProductsList from '../../components/DiaryProductsList';
 import Button from '../../components/Button';
+
+import { getUserInfo } from '../../redux/user/user_operation';
+
 import AddIcon from '@material-ui/icons/Add';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
 import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
+  const dispatch = useDispatch();
   const [mobileFormIsVisible, setMobileFormIsVisible] = useState(false);
   const handleClick = () => {
     setMobileFormIsVisible(prev => !prev);
   };
   useEffect(() => {
     document.title = 'Дневник | SlimMom';
+    dispatch(getUserInfo());
   }, []);
   return (
     <>

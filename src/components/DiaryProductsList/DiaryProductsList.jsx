@@ -1,8 +1,11 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import DiaryProductsListItem from '../DiaryProductsListItem';
 import styles from './DiaryProductsList.module.css';
+import { eatenProducts } from '../../redux/day/day_selector';
+import { getDay } from '../../redux/day/day_operation';
 
-const eatenProducts = [
+const mockProducts = [
   {
     title: 'Баклажан',
     weight: 100,
@@ -31,10 +34,16 @@ const eatenProducts = [
 ];
 
 const DiaryProductsList = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(eatenProducts);
+
+  useEffect(() => {
+    // dispatch(getDay(userId, date));   //где хранятся userId и date
+  }, [products]);
   return (
     <div className={styles.wrapper}>
       <ul className={styles.container}>
-        {eatenProducts.map(product => (
+        {mockProducts.map(product => (
           <DiaryProductsListItem key={product.title} product={product} />
         ))}
       </ul>
