@@ -45,7 +45,7 @@ export const login = payload => async dispatch => {
 
   try {
     const response = await axios.post('/auth/login', payload);
-    token.set(response.data.token);
+    token.set(response.data.accessToken);
     dispatch(loginSuccess(response.data));
   } catch (error) {
     dispatch(loginError(error.message));

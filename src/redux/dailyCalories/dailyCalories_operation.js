@@ -5,7 +5,7 @@ import {
   fetchDailyCaloriesError,
 } from './dailyCalories_action';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com/';
 
 export const fetchDailyCalories = payload => async dispatch => {
   dispatch(fetchDailyCaloriesRequest);
