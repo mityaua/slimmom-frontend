@@ -15,7 +15,7 @@ import {
   getCurrentUserError,
 } from '../auth/auth_action';
 
-const initial = { name: null, email: null };
+const initial = { name: null, login: null };
 
 const user = createReducer(initial, {
   [registerSuccess]: (_, { payload }) => payload.user,

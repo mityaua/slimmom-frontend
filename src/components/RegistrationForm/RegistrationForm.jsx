@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   nameInput: {
     marginBottom: 40,
   },
-  emailInput: {
+  loginInput: {
     marginBottom: 40,
     // '@media (min-width: 768px)': {},
   },
@@ -32,10 +32,7 @@ const useStyles = makeStyles({
 
 const validationSchema = yup.object({
   name: yup.string('Введите ваше Имя').required('Имя обязательное'),
-  email: yup
-    .string('Введите ваш email')
-    .email('Введите правильный email')
-    .required('Email обязательный'),
+  login: yup.string('Введите ваш login').required('login обязательный'),
   password: yup
     .string('Введите пароль')
     .min(8, 'Пароль должен быть длинее 8 символов')
@@ -49,18 +46,18 @@ const RegistrationForm = () => {
   const formik = useFormik({
     initialValues: {
       name: '',
-      email: '',
+      login: '',
       password: '',
     },
     validationSchema: validationSchema,
 
-    onSubmit: values => {
+    onSubmit: (values, { resetForm }) => {
       const payload = {
         name: values.name,
-        email: values.email,
+        login: values.login,
         password: values.password,
       };
-
+      resetForm();
       dispatch(register(payload));
     },
   });
@@ -87,18 +84,18 @@ const RegistrationForm = () => {
         <TextField
           // className={styles.formInput}
           styles={{ color: 'blue' }}
-          className={`${classes.input} ${classes.emailInput}`}
-          id="email"
-          name="email"
+          className={`${classes.input} ${classes.loginInput}`}
+          id="login"
+          name="login"
           // label="Логин *"
           placeholder="Логин *"
-          value={formik.values.email}
+          value={formik.values.login}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
+          error={formik.touched.login && Boolean(formik.errors.login)}
+          helperText={formik.touched.login && formik.errors.login}
         />
-        {/* {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+        {/* {formik.touched.login && formik.errors.login ? (
+          <div>{formik.errors.login}</div>
         ) : null} */}
         <TextField
           // className={styles.formInput}

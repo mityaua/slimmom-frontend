@@ -18,7 +18,7 @@ const useStyles = makeStyles({
       width: 240,
     },
   },
-  emailInput: {
+  loginInput: {
     marginBottom: 40,
   },
   passwordInput: {
@@ -27,10 +27,7 @@ const useStyles = makeStyles({
 });
 
 const validationSchema = yup.object({
-  email: yup
-    .string('Введите ваш email')
-    .email('Введите правильный email')
-    .required('Email обязательный'),
+  login: yup.string('Введите ваш login').required('login обязательный'),
   password: yup
     .string('Введите пароль')
     .min(8, 'Пароль должен быть длинее 8 символов')
@@ -42,14 +39,14 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: '',
+      login: '',
       password: '',
     },
     validationSchema: validationSchema,
 
     onSubmit: (values, { resetForm }) => {
       const payload = {
-        email: values.email,
+        login: values.login,
         password: values.password,
       };
       resetForm();
@@ -63,20 +60,16 @@ const LoginForm = () => {
         <h2 className={styles.formTitle}>Вход</h2>
         <TextField
           styles={{ color: 'blue' }}
-          className={`${classes.input} ${classes.emailInput}`}
-          id="email"
-          name="email"
+          className={`${classes.input} ${classes.loginInput}`}
+          id="login"
+          name="login"
           placeholder="Логин *"
-          value={formik.values.email}
+          value={formik.values.login}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
+          error={formik.touched.login && Boolean(formik.errors.login)}
+          helperText={formik.touched.login && formik.errors.login}
         />
-        {/* {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null} */}
         <TextField
-          // className={styles.formInput}
           className={`${classes.input} ${classes.passwordInput}`}
           styles={{ color: 'blue' }}
           id="password"
@@ -89,9 +82,6 @@ const LoginForm = () => {
           helperText={formik.touched.password && formik.errors.password}
         />
 
-        {/* {formik.touched.password && Boolean(formik.errors.password) ? (
-          <div>{formik.errors.password}</div>
-        ) : null} */}
         <div className={styles.buttons}>
           <div className={styles.button}>
             <Button

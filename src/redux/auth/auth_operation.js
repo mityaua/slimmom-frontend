@@ -15,7 +15,7 @@ import {
   getCurrentUserSuccess,
   getCurrentUserError,
 } from './auth_action';
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com/';
 
 const token = {
   set(token) {
@@ -30,7 +30,7 @@ export const register = payload => async dispatch => {
   console.log('register payload', payload);
   dispatch(registerRequest());
   try {
-    const response = await axios.post('/users/signup', payload);
+    const response = await axios.post('/auth/signup', payload);
     token.set(response.data.token);
     console.log('response.data', response.data);
     dispatch(registerSuccess(response.data));
@@ -44,7 +44,7 @@ export const login = payload => async dispatch => {
   dispatch(loginRequest());
 
   try {
-    const response = await axios.post('/users/login', payload);
+    const response = await axios.post('/auth/login', payload);
     token.set(response.data.token);
     dispatch(loginSuccess(response.data));
   } catch (error) {
@@ -55,7 +55,7 @@ export const login = payload => async dispatch => {
 export const logOut = () => async dispatch => {
   dispatch(logoutRequest());
   try {
-    await axios.post('/users/logout');
+    await axios.post('/auth/logout');
     token.unset();
     dispatch(logoutSuccess());
   } catch (error) {
@@ -76,7 +76,7 @@ export const getUser = () => async (dispatch, getState) => {
   dispatch(getCurrentUserRequest());
 
   try {
-    const response = await axios.get('/users/current');
+    const response = await axios.get('/user');
 
     dispatch(getCurrentUserSuccess(response.data));
   } catch (error) {
