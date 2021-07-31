@@ -73,7 +73,7 @@ const DiaryAddProductForm = () => {
       <form
         className={styles.form}
         onSubmit={formik.handleSubmit}
-        autoСomplete="off"
+        autoсomplete="off"
       >
         <TextField
           styles={{ color: 'blue' }}

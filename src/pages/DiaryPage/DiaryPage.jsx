@@ -25,7 +25,7 @@ const DiaryPage = () => {
   useEffect(() => {
     document.title = 'Дневник | SlimMom';
     dispatch(getUserInfo());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <Header coloredBg />

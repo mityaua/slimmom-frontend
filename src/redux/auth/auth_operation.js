@@ -85,6 +85,5 @@ export const getUser = () => async (dispatch, getState) => {
     dispatch(getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(getCurrentUserError(error.message));
-    toast.error(error.message);
   }
 };

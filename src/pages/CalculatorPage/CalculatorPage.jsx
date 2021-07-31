@@ -14,7 +14,7 @@ const CalculatorPage = () => {
   useEffect(() => {
     document.title = 'Калькулятор | SlimMom';
     dispatch(getUserInfo());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
