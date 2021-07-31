@@ -39,10 +39,13 @@ export const addContact = (date, productId, weight) => async dispatch => {
   }
 };
 
-export const deleteContact = contactId => dispatch => {
+export const deleteContact = (dayId, productId) => async dispatch => {
+  const product = { dayId, productId };
   dispatch(deleteProductRequest());
-  axios
-    .delete(`/contacts/${contactId}`)
-    .then(() => dispatch(deleteProductSuccess(contactId)))
-    .catch(error => dispatch(deleteProductError(error.message)));
+  try {
+    const response = await axios.delete(`/day`, product);
+    dispatch(deleteProductSuccess(response));
+  } catch (error) {
+    dispatch(deleteProductError(error.message));
+  }
 };

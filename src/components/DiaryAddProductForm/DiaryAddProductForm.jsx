@@ -6,6 +6,9 @@ import Button from '../Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import AddIcon from '@material-ui/icons/Add';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/day/day_operation';
+import { date } from '../../redux/day/day_selector';
 
 const useStyles = makeStyles({
   input: {
@@ -45,6 +48,8 @@ const validationSchema = yup.object({
 
 const DiaryAddProductForm = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const currentDate = useSelector(date);
 
   const formik = useFormik({
     initialValues: {
@@ -60,6 +65,7 @@ const DiaryAddProductForm = () => {
       };
 
       console.log(payload);
+      // dispatch(addContact(currentDate, productId, values.productWeight)); // productId ???
     },
   });
   return (
