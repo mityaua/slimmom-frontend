@@ -148,7 +148,22 @@
 }
 
 .modal_button {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.modal_closeBtn {
+  padding: 0;
+  position: absolute;
+  width: 18px;
+  height: 12px;
+  top: -22px;
+  left: 15px;
+  border: none;
+  background-color: #eff1f3;
+  background-image: url('../../images/bg-pictures/mobile/arrow.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -164,11 +179,11 @@
   }
 
   .modal_closeBtn {
-    position: absolute;
-    top: 24.17px;
+    width: 12px;
+    left: auto;
     right: 24.17px;
-    border: none;
+    top: 24.17px;
+    background-image: url('../../images/bg-pictures/mobile/close.svg');
     background-color: white;
-    cursor: pointer;
   }
 }
