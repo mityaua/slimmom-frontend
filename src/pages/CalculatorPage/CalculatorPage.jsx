@@ -1,14 +1,19 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import RightSideBar from '../../components/RightSideBar';
+import { getUserInfo } from '../../redux/user/user_operation';
 
 import styles from './CalculatorPage.module.css';
 
 const CalculatorPage = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     document.title = 'Калькулятор | SlimMom';
+    dispatch(getUserInfo());
   }, []);
 
   return (
