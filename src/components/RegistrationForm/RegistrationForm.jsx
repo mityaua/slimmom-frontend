@@ -31,15 +31,15 @@ const useStyles = makeStyles({
 });
 
 const validationSchema = yup.object({
-  name: yup.string('Enter your name').required('Name is required'),
+  name: yup.string('Введите ваше Имя').required('Имя обязательное'),
   email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .string('Введите ваш email')
+    .email('Введите правильный email')
+    .required('Email обязательный'),
   password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
+    .string('Введите пароль')
+    .min(8, 'Пароль должен быть длинее 8 символов')
+    .required('Пароль обязательный'),
 });
 
 const RegistrationForm = () => {
@@ -48,9 +48,9 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      name: 'name',
-      email: 'abc@gmail.com',
-      password: '123456789',
+      name: '',
+      email: '',
+      password: '',
     },
     validationSchema: validationSchema,
 
@@ -123,7 +123,7 @@ const RegistrationForm = () => {
             </div>
           </NavLink>{' '}
           <div className={styles.button}>
-            <Button text="Registartion" type="submit" customType="primary" />
+            <Button text="Регистрация" type="submit" customType="primary" />
           </div>
         </div>
       </form>

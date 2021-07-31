@@ -57,3 +57,6 @@
     margin-bottom: 71px;
   }
 }
+.button:disabled {
+  color: grey;
+}

@@ -13,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   input: {
     width: 289,
-    // height: 35.5,
+
     '@media (min-width: 768px)': {
       width: 240,
     },
@@ -28,13 +28,13 @@ const useStyles = makeStyles({
 
 const validationSchema = yup.object({
   email: yup
-    .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .string('Введите ваш email')
+    .email('Введите правильный email')
+    .required('Email обязательный'),
   password: yup
-    .string('Enter your password')
-    .min(8, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
+    .string('Введите пароль')
+    .min(8, 'Пароль должен быть длинее 8 символов')
+    .required('Пароль обязательный'),
 });
 
 const LoginForm = () => {
@@ -42,17 +42,17 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: 'abc@gmail.com',
-      password: '123456789',
+      email: '',
+      password: '',
     },
     validationSchema: validationSchema,
 
-    onSubmit: values => {
+    onSubmit: (values, { resetForm }) => {
       const payload = {
         email: values.email,
         password: values.password,
       };
-
+      resetForm();
       dispatch(login(payload));
     },
   });
@@ -88,18 +88,24 @@ const LoginForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
+
         {/* {formik.touched.password && Boolean(formik.errors.password) ? (
           <div>{formik.errors.password}</div>
         ) : null} */}
-
         <div className={styles.buttons}>
           <div className={styles.button}>
-            <Button text="Вход" type="submit" customType="primary" />
+            <Button
+              text="Вход"
+              type="submit"
+              customType="primary"
+              disabled={!formik.isValid || !formik.dirty}
+              className={styles.button}
+            />
           </div>
 
           <NavLink to={routes.registration}>
             <div className={styles.button}>
-              <Button text="Registartion" type="secondary" />
+              <Button text="Регистрация" type="secondary" />
             </div>
           </NavLink>
         </div>
