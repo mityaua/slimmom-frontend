@@ -13,7 +13,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   input: {
     width: 289,
-    // height: 35.5,
     '@media (min-width: 768px)': {
       width: 240,
     },
@@ -72,11 +71,7 @@ const LoginForm = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        {/* {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null} */}
         <TextField
-          // className={styles.formInput}
           className={`${classes.input} ${classes.passwordInput}`}
           styles={{ color: 'blue' }}
           id="password"
@@ -88,9 +83,6 @@ const LoginForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        {/* {formik.touched.password && Boolean(formik.errors.password) ? (
-          <div>{formik.errors.password}</div>
-        ) : null} */}
 
         <div className={styles.buttons}>
           <div className={styles.button}>

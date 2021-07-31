@@ -121,7 +121,7 @@ const RegistrationForm = () => {
             <div className={styles.button}>
               <Button text="Вход" type="secondary" />
             </div>
-          </NavLink>{' '}
+          </NavLink>
           <div className={styles.button}>
             <Button text="Registartion" type="submit" customType="primary" />
           </div>
