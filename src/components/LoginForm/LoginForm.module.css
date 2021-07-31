@@ -34,7 +34,7 @@
 
 @media screen and (min-width: 768px) {
   .formAuth {
-    padding-top: 191px;
+    margin-top: 157px;
     margin-left: 90px;
     align-items: flex-start;
   }
@@ -52,6 +52,7 @@
 @media screen and (min-width: 1240px) {
   .formAuth {
     margin-left: 115px;
+    margin-top: 95px;
   }
   .formTitle {
     margin-bottom: 71px;

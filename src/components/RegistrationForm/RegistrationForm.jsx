@@ -35,7 +35,7 @@ const validationSchema = yup.object({
   login: yup.string('Введите ваш login').required('login обязательный'),
   password: yup
     .string('Введите пароль')
-    .min(8, 'Пароль должен быть длинее 8 символов')
+    .min(6, 'Пароль должен быть длинее 6 символов')
     .required('Пароль обязательный'),
 });
 
