@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 import {
   dayInfoRequest,
   dayInfoSuccess,
@@ -33,8 +35,10 @@ export const addProduct = (date, productId, weight) => async dispatch => {
   try {
     const { data } = await axios.post('/day', product);
     dispatch(addProductSuccess(data));
+    toast.success('😋 Продукт успешно добавлен');
   } catch (error) {
     dispatch(addProductError(error.message));
+    toast.error(error.message);
   }
 };
 
@@ -45,8 +49,10 @@ export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
       data: { dayId: dayId, eatenProductId: eatenProductId },
     });
     dispatch(deleteProductSuccess(data));
+    toast.info('👌 Продукт успешно удален');
   } catch (error) {
     console.log(error);
     dispatch(deleteProductError(error.message));
+    toast.error(error.message);
   }
 };
