@@ -12,6 +12,10 @@ import {
   dailyCaloriesAuth,
 } from '../../redux/dailyCalories/dailyCalories_operation';
 import { getIsAuthenticated } from '../../redux/auth/auth_selector';
+import {
+  getDailyCalories,
+  getNotAllowedProducts,
+} from '../../redux/dailyCalories/dailyCalories_selector';
 import { getUserId } from '../../redux/user/user_selector';
 import styles from './DailyCaloriesForm.module.css';
 import { NavLink } from 'react-router-dom';
@@ -21,16 +25,19 @@ const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const IsAuthenticated = useSelector(getIsAuthenticated);
+  const calories = useSelector(getDailyCalories);
+  const notAllowedProducts = useSelector(getNotAllowedProducts);
 
   const body = document.querySelector('body');
 
   const toggleModal = () => {
+    console.log(notAllowedProducts)
     if (body.classList.contains(styles.hidden)) {
       body.classList.remove(styles.hidden);
     } else {
       body.classList.add(styles.hidden);
     }
-    setModal(!modal);
+    setModal(!modal);    
   };
 
   const handleSubmit = (values, userId) => {
@@ -227,16 +234,18 @@ const DailyCaloriesForm = () => {
             Ваша рекомендуемая суточная норма калорий составляет
           </h1>
           <p className={styles.modal_caloriesNumber}>
-            2800<span className={styles.modal_calories}> ккал</span>
+            {calories}
+            <span className={styles.modal_calories}> ккал</span>
           </p>
           <h2 className={styles.modal_subTitle}>
             Продукты, которые вам не рекомендуется употреблять
           </h2>
           <ul className={styles.modal_list}>
-            <li className={styles.modal_el}>1. Мучные продукты</li>
-            <li className={styles.modal_el}>2. Молоко</li>
-            <li className={styles.modal_el}>3. Красное мясо</li>
-            <li className={styles.modal_el}>4. Копчености</li>
+            {notAllowedProducts ? notAllowedProducts.map(product => (
+              <li className={styles.modal_el} id={product}>
+                {product}
+              </li>
+            )) : <li className={styles.modal_el}>Кушать можно все</li>}
           </ul>
           <div className={styles.modal_button}>
             <NavLink to={routes.registration}>
