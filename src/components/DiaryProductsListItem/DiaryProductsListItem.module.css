@@ -44,6 +44,15 @@
   transform: scale(1.1);
 }
 
+.disabled {
+  color: rgba(155, 159, 170, 0.2);
+  cursor: auto;
+}
+
+.icon.disabled:hover {
+  color: rgba(155, 159, 170, 0.2);
+}
+
 @media (max-width: 767px) {
   .calories span {
     font-size: 11px;

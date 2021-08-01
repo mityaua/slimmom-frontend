@@ -51,6 +51,7 @@ const DiaryAddProductForm = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const currentDate = useSelector(date);
+  const today = new Date().toISOString().split('T')[0];
 
   const formik = useFormik({
     initialValues: {
@@ -61,7 +62,6 @@ const DiaryAddProductForm = () => {
 
     onSubmit: (values, { resetForm }) => {
       const productWeight = values.productWeight;
-      const today = new Date().toISOString().split('T')[0];
       if (currentDate === today) {
         dispatch(addProduct(currentDate, selectedData, productWeight));
         resetForm({ values: '' });
@@ -121,6 +121,7 @@ const DiaryAddProductForm = () => {
             formik.touched.productName && Boolean(formik.errors.productName)
           }
           helperText={formik.touched.productName && formik.errors.productName}
+          disabled={currentDate !== today}
         />
         <TextField
           className={`${classes.input} ${classes.weightInput}`}
@@ -136,8 +137,14 @@ const DiaryAddProductForm = () => {
           helperText={
             formik.touched.productWeight && formik.errors.productWeight
           }
+          disabled={currentDate !== today}
         />
-        <Button customType="primary" type="submit" className="smallFromTablet">
+        <Button
+          customType="primary"
+          type="submit"
+          className="smallFromTablet"
+          disabled={currentDate !== today}
+        >
           <span className={styles.hiddenIcon}>
             <AddIcon />
           </span>

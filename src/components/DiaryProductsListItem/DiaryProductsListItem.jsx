@@ -10,12 +10,15 @@ const DiaryProductsListItem = ({ product: { _id, title, weight, kcal } }) => {
   const dayId = useSelector(dateId);
   const currentDate = useSelector(date);
 
+  const today = new Date().toISOString().split('T')[0];
+
   const handleClick = async () => {
-    const today = new Date().toISOString().split('T')[0];
     if (currentDate === today) {
       dispatch(deleteProduct(dayId, _id));
     }
   };
+
+  const disabledIcon = currentDate === today ? null : styles.disabled;
 
   return (
     <>
@@ -25,7 +28,10 @@ const DiaryProductsListItem = ({ product: { _id, title, weight, kcal } }) => {
         <div className={styles.calories}>
           {kcal} <span>ккал</span>
         </div>
-        <CloseIcon className={styles.icon} onClick={handleClick} />
+        <CloseIcon
+          className={`${styles.icon} ${disabledIcon}`}
+          onClick={handleClick}
+        />
       </li>
     </>
   );
