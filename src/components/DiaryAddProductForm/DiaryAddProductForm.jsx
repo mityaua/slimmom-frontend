@@ -59,10 +59,13 @@ const DiaryAddProductForm = () => {
     },
     validationSchema: validationSchema,
 
-    onSubmit: values => {
+    onSubmit: (values, { resetForm }) => {
       const productWeight = values.productWeight;
-      // dispatch(addProduct('2021-08-01', '5d51694802b2373622ff553b', 100)); // productId ???
-      dispatch(addProduct(currentDate, selectedData, productWeight));
+      const today = new Date().toISOString().split('T')[0];
+      if (currentDate === today) {
+        dispatch(addProduct(currentDate, selectedData, productWeight));
+        resetForm({ values: '' });
+      }
     },
   });
 
@@ -92,6 +95,11 @@ const DiaryAddProductForm = () => {
   const handleChangeSelect = ({ target: { value } }) => {
     setSelectedData(value);
   };
+
+  useEffect(() => {
+    setSearchProductRes([]);
+    formik.resetForm();
+  }, [currentDate]);
 
   return (
     <div className={styles.diaryAddProductForm}>
