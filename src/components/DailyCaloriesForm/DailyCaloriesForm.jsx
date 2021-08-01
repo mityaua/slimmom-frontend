@@ -2,23 +2,15 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-} from '@material-ui/core';
 
 import Button from '../Button';
 import Modal from '../Modal';
 import routes from '../../routes';
 
-import { fetchDailyCalories } from '../../redux/dailyCalories/dailyCalories_operation';
+import { dailyCalories } from '../../redux/dailyCalories/dailyCalories_operation';
 import { getIsAuthenticated } from '../../redux/auth/auth_selector';
-import { getDailyCalories } from '../../redux/dailyCalories/dailyCalories_selector';
+import { getDailyRate } from '../../redux/dailyCalories/dailyCalories_selector';
 import styles from './DailyCaloriesForm.module.css';
-import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 
 const DailyCaloriesForm = () => {
@@ -37,10 +29,9 @@ const DailyCaloriesForm = () => {
 
   const handleSubmit = values => {
     values.bloodType = Number(values.bloodType);
-    dispatch(fetchDailyCalories(values));
-    setTimeout(() => {
+    console.log(values)
+    dispatch(dailyCalories(values));
       toggleModal();
-    }, 1000);
   };
 
   const validationsSchema = yup.object().shape({
@@ -162,59 +153,24 @@ const DailyCaloriesForm = () => {
                       {errors.desiredWeight}
                     </p>
                   )}
-                  <FormControl component="fieldset">
-                    <StyleFormLabel component="legend">
-                      Группа крови *
-                    </StyleFormLabel>
-                    <RadioGroup
-                      row
-                      aria-label="position"
-                      name="bloodType"
-                      defaultValue="top"
-                    >
-                      <div className={styles.radioButton}>
-                        <FormControlLabel
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value="1"
-                          control={<StyleRadio />}
-                          label="1"
-                        />
-                      </div>
-                      <div className={styles.radioButton}>
-                        <FormControlLabel
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value="2"
-                          control={<StyleRadio />}
-                          label="2"
-                        />
-                      </div>
-                      <div className={styles.radioButton}>
-                        <FormControlLabel
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value="3"
-                          control={<StyleRadio />}
-                          label="3"
-                        />
-                      </div>
-                      <div className={styles.radioButton}>
-                        <FormControlLabel
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value="4"
-                          control={<StyleRadio />}
-                          label="4"
-                        />
-                      </div>
-                      {touched.bloodType && errors.bloodType && (
+
+<div className={styles.radioButtonContainer}>
+	
+	<h3>Группа крови *</h3>
+	
+  <ul className={styles.radioButtonList}>
+  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="1" id="1-radio-button"/>
+  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="2" id="2-radio-button"/>
+  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="3" id="3-radio-button"/>
+  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="4" id="4-radio-button"/>
+  {touched.bloodType && errors.bloodType && (
                         <p className={styles.caloriesFormError}>
                           {errors.bloodType}
                         </p>
                       )}
-                    </RadioGroup>
-                  </FormControl>
+</ul>
+</div>
+
                 </div>
               </div>
               <div className={styles.form_button}>
@@ -237,7 +193,7 @@ const DailyCaloriesForm = () => {
             Ваша рекомендуемая суточная норма калорий составляет
           </h1>
           <p className={styles.modal_caloriesNumber}>
-          2800<span className={styles.modal_calories}> ккал</span>
+            2800<span className={styles.modal_calories}> ккал</span>
           </p>
           <h2 className={styles.modal_subTitle}>
             Продукты, которые вам не рекомендуется употреблять
@@ -264,29 +220,6 @@ const DailyCaloriesForm = () => {
   );
 };
 
-const StyleRadio = withStyles({
-  root: {
-    '&$checked': {
-      color: '#FC842D',
-    },
-  },
-  checked: {},
-})(props => <Radio {...props} />);
-
-const StyleFormLabel = withStyles({
-  root: {
-    fontFamily: 'Verdana',
-    fontWeight: 'bold',
-    fontSize: '14px',
-    lineHeight: '1.2',
-    color: '#9B9FAA',
-    '&$focused': {
-      color: '#9B9FAA',
-    },
-  },
-  focused: {},
-})(props => <FormLabel {...props} />);
-
 const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
     {label}
@@ -298,6 +231,23 @@ const InputField = ({ label, type, value, name, onChange, onBlur }) => (
       onBlur={onBlur}
     />
   </label>
+);
+
+const RadioButton = ({ name, value, id, onChange, onBlur }) => (
+  <li>
+  <input
+  type="radio"
+  value={value}
+  name={name}
+  id={id}
+  onChange={onChange}
+  onBlur={onBlur}
+  />
+  <label htmlFor={id}>
+    {value}
+  </label>
+  <div className={styles.check}><div className={styles.inside}></div></div>
+  </li>
 );
 
 export default DailyCaloriesForm;

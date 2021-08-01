@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { fetchDailyCaloriesSuccess } from './dailyCalories_action';
+import { dailyCaloriesSuccess } from './dailyCalories_action';
 
-const userCalories = createReducer([], {
-  [fetchDailyCaloriesSuccess]: (_, { payload }) => payload,
+const dailyRate = createReducer([], {
+  [dailyCaloriesSuccess]: (_, { payload }) => payload,
 });
 
-export default userCalories;
+export default dailyRate;
