@@ -11,7 +11,7 @@ import {
   deleteProductError,
 } from './day_action';
 
-axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com/';
+axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com';
 
 // Операция получения информации по определённому дню
 export const getDay = (id, date) => async dispatch => {
@@ -19,32 +19,34 @@ export const getDay = (id, date) => async dispatch => {
   dispatch(dayInfoRequest());
 
   try {
-    const response = await axios.post('day/info', info);
+    const response = await axios.post('/day/info', info);
     dispatch(dayInfoSuccess(response.data));
   } catch (error) {
     dispatch(dayInfoError(error.message));
   }
 };
 
-export const addContact = (date, productId, weight) => async dispatch => {
+export const addProduct = (date, productId, weight) => async dispatch => {
   const product = { date, productId, weight };
   dispatch(addProductRequest());
 
   try {
-    const response = await axios.post('/day', product);
-    dispatch(addProductSuccess(response));
+    const { data } = await axios.post('/day', product);
+    dispatch(addProductSuccess(data));
   } catch (error) {
     dispatch(addProductError(error.message));
   }
 };
 
-export const deleteContact = (dayId, productId) => async dispatch => {
-  const product = { dayId, productId };
+export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
   dispatch(deleteProductRequest());
   try {
-    const response = await axios.delete(`/day`, product);
-    dispatch(deleteProductSuccess(response));
+    const { data } = await axios.delete('/day', {
+      data: { dayId: dayId, eatenProductId: eatenProductId },
+    });
+    dispatch(deleteProductSuccess(data));
   } catch (error) {
+    console.log(error);
     dispatch(deleteProductError(error.message));
   }
 };

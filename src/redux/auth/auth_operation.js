@@ -16,7 +16,7 @@ import {
   getCurrentUserSuccess,
   getCurrentUserError,
 } from './auth_action';
-axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com/';
+axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com';
 
 const token = {
   set(token) {
@@ -32,8 +32,7 @@ export const register = payload => async dispatch => {
   dispatch(registerRequest());
   try {
     const response = await axios.post('/auth/signup', payload);
-    token.set(response.data.token);
-    console.log('response.data', response.data);
+    token.set(response.data.accessToken);
     dispatch(registerSuccess(response.data));
   } catch (err) {
     dispatch(registerError(err.message));

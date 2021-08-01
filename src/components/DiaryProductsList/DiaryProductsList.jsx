@@ -37,9 +37,11 @@ const DiaryProductsList = () => {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.container}>
-        {products.map(product => (
-          <DiaryProductsListItem key={product._id} product={product} />
-        ))}
+        {products.length > 0
+          ? products.map(product => (
+              <DiaryProductsListItem key={product._id} product={product} />
+            ))
+          : []}
       </ul>
     </div>
   );

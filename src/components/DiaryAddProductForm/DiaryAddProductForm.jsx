@@ -1,14 +1,15 @@
+import { useState, useEffect } from 'react';
 import styles from './DiaryAddProductForm.module.css';
 import { makeStyles } from '@material-ui/core/styles';
-// import Container from '../Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '../Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import AddIcon from '@material-ui/icons/Add';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/day/day_operation';
+import { addProduct } from '../../redux/day/day_operation';
 import { date } from '../../redux/day/day_selector';
+import axios from 'axios';
 
 const useStyles = makeStyles({
   input: {
@@ -59,15 +60,39 @@ const DiaryAddProductForm = () => {
     validationSchema: validationSchema,
 
     onSubmit: values => {
-      const payload = {
-        productName: values.productName,
-        productWeight: values.productWeight,
-      };
-
-      console.log(payload);
-      // dispatch(addContact(currentDate, productId, values.productWeight)); // productId ???
+      const productWeight = values.productWeight;
+      // dispatch(addProduct('2021-08-01', '5d51694802b2373622ff553b', 100)); // productId ???
+      dispatch(addProduct(currentDate, selectedData, productWeight));
     },
   });
+
+  const [searchProductRes, setSearchProductRes] = useState([]);
+
+  const { productName, productWeight } = formik.values;
+
+  useEffect(() => {
+    if (productName.length >= 3) {
+      fetchData(productName);
+    }
+  }, [productName]);
+
+  const fetchData = async name => {
+    const { data } = await axios.get(`/products?search=${name}`);
+    setSearchProductRes(data);
+  };
+
+  const [selectedData, setSelectedData] = useState(searchProductRes[0] || '');
+
+  useEffect(() => {
+    if (searchProductRes.length) {
+      setSelectedData(searchProductRes[0]._id);
+    }
+  }, [searchProductRes]);
+
+  const handleChangeSelect = ({ target: { value } }) => {
+    setSelectedData(value);
+  };
+
   return (
     <div className={styles.diaryAddProductForm}>
       <form
@@ -80,7 +105,7 @@ const DiaryAddProductForm = () => {
           className={`${classes.input} ${classes.nameInput}`}
           id="productName"
           name="productName"
-          value={formik.values.productName}
+          value={productName}
           placeholder="Введите название продукта"
           onChange={formik.handleChange}
           autoComplete="off"
@@ -93,7 +118,7 @@ const DiaryAddProductForm = () => {
           className={`${classes.input} ${classes.weightInput}`}
           id="productWeight"
           name="productWeight"
-          value={formik.values.productWeight}
+          value={productWeight}
           placeholder="Граммы"
           onChange={formik.handleChange}
           autoComplete="off"
@@ -111,6 +136,19 @@ const DiaryAddProductForm = () => {
           <span className={styles.hiddenText}>Добавить</span>
         </Button>
       </form>
+      {searchProductRes.length > 0 && (
+        <select
+          className={styles.selectProduct}
+          // value={selectedData}
+          onChange={handleChangeSelect}
+        >
+          {searchProductRes.map(({ title, _id }) => (
+            <option key={_id} value={_id}>
+              {title.ru}
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 };

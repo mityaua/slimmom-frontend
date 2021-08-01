@@ -14,13 +14,12 @@ import {
   getCurrentUserSuccess,
   getCurrentUserError,
 } from '../auth/auth_action';
+// Нужно также подумать
 
-const initial = { name: null, login: null }; // Нужно также подумать
-
-const user = createReducer(initial, {
-  [registerSuccess]: (_, { payload }) => payload.user, //  Здесь нужно подумать под бек
+const user = createReducer(null, {
+  [registerSuccess]: (_, { payload }) => payload, //  Здесь нужно подумать под бек
   [loginSuccess]: (_, { payload }) => payload, // Здесь нужно подумать под бек, убрал user
-  [logoutSuccess]: () => initial,
+  [logoutSuccess]: () => null,
   [getCurrentUserSuccess]: (_, { payload }) => payload, //  Здесь нужно подумать под бек
 });
 
