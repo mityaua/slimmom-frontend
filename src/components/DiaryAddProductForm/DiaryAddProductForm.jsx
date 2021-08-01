@@ -83,7 +83,7 @@ const DiaryAddProductForm = () => {
   }, [productName]);
 
   const fetchData = async name => {
-    const { data } = await axios.get(`/products?=${name}`);
+    const { data } = await axios.get(`/products?search=${name}`);
     console.log(data);
     return data.map(({ title }) => title.ru);
   };
