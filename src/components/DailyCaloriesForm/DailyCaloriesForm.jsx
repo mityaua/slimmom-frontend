@@ -31,7 +31,6 @@ const DailyCaloriesForm = () => {
   const body = document.querySelector('body');
 
   const toggleModal = () => {
-    console.log(notAllowedProducts);
     if (body.classList.contains(styles.hidden)) {
       body.classList.remove(styles.hidden);
     } else {
@@ -48,7 +47,7 @@ const DailyCaloriesForm = () => {
     } else {
       dispatch(dailyCalories(values));
     }
-    console.log(userId);
+    
     if (!IsAuthenticated) {
       toggleModal();
     }
@@ -254,7 +253,7 @@ const DailyCaloriesForm = () => {
           <ul className={styles.modal_list}>
             {notAllowedProducts ? (
               notAllowedProducts.map(product => (
-                <li className={styles.modal_el} id={product}>
+                <li className={styles.modal_el} key={product} id={product}>
                   {product}
                 </li>
               ))

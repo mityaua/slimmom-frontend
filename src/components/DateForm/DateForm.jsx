@@ -1,7 +1,6 @@
 import { useState, forwardRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
-// import subDays from 'date-fns/subDays';
 import ruRU from 'date-fns/locale/ru';
 
 import { getDay } from '../../redux/day/day_operation';
@@ -18,7 +17,7 @@ const DateForm = () => {
   const [startDate, setStartDate] = useState(new Date());
   const userId = useSelector(getUserId); // ID юзера
   const days = useSelector(getDays); // Масив дней из юзера
-  const includeDays = days?.map(day => new Date(day.date)); // массив дней юзера в нужном формате + проверка (нужен дин.рендер)
+  const includeDays = days?.map(day => new Date(day.date)); // массив дней юзера в нужном формате
 
   useEffect(() => {
     dispatch(getDay(userId, startDate.toISOString().split('T')[0]));
