@@ -7,13 +7,17 @@ import Button from '../Button';
 import Modal from '../Modal';
 import routes from '../../routes';
 
-import { dailyCalories } from '../../redux/dailyCalories/dailyCalories_operation';
+import {
+  dailyCalories,
+  dailyCaloriesAuth,
+} from '../../redux/dailyCalories/dailyCalories_operation';
 import { getIsAuthenticated } from '../../redux/auth/auth_selector';
-import { getDailyRate } from '../../redux/dailyCalories/dailyCalories_selector';
+import { getUserId } from '../../redux/user/user_selector';
 import styles from './DailyCaloriesForm.module.css';
 import { NavLink } from 'react-router-dom';
 
 const DailyCaloriesForm = () => {
+  const userId = useSelector(getUserId);
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const IsAuthenticated = useSelector(getIsAuthenticated);
@@ -29,10 +33,16 @@ const DailyCaloriesForm = () => {
     setModal(!modal);
   };
 
-  const handleSubmit = values => {
+  const handleSubmit = (values, userId) => {
     values.bloodType = Number(values.bloodType);
-    console.log(values);
-    dispatch(dailyCalories(values));
+
+    if (userId) {
+      dispatch(dailyCaloriesAuth(values, userId));
+    } else {
+      dispatch(dailyCalories(values));
+    }
+    console.log(userId);
+
     toggleModal();
   };
 
@@ -87,7 +97,7 @@ const DailyCaloriesForm = () => {
           }}
           validateOnBlur
           onSubmit={values => {
-            handleSubmit(values);
+            handleSubmit(values, userId);
           }}
           validationSchema={validationsSchema}
         >
