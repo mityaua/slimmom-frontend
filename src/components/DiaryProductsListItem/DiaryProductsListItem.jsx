@@ -2,15 +2,15 @@ import React from 'react';
 import styles from './DiaryProductsListItem.module.css';
 import CloseIcon from '@material-ui/icons/Close';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/day/day_operation';
+import { deleteProduct } from '../../redux/day/day_operation';
 import { dateId } from '../../redux/day/day_selector';
 
 const DiaryProductsListItem = ({ product: { _id, title, weight, kcal } }) => {
   const dispatch = useDispatch();
   const dayId = useSelector(dateId);
 
-  const handleClick = () => {
-    dispatch(deleteContact(dayId, _id));
+  const handleClick = async () => {
+    dispatch(deleteProduct(dayId, _id));
   };
 
   return (

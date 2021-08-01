@@ -1,5 +1,6 @@
 .diaryAddProductForm {
   margin-top: 40px;
+  position: relative;
 }
 
 .form {
@@ -9,6 +10,11 @@
 
 .hiddenText {
   display: none;
+}
+
+.selectProduct {
+  position: absolute;
+  top: 49px;
 }
 
 @media screen and (max-width: 767px) {
