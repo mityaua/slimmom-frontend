@@ -32,6 +32,10 @@
   margin-bottom: 0;
 }
 
+.button_disabled {
+  background-color: grey;
+  margin-bottom: 20px;
+}
 @media screen and (min-width: 768px) {
   .formAuth {
     margin-top: 157px;
@@ -49,6 +53,9 @@
     margin-right: 30px;
   }
 }
+.button_disabled {
+  margin-right: 30px;
+}
 @media screen and (min-width: 1240px) {
   .formAuth {
     margin-left: 115px;
@@ -57,7 +64,4 @@
   .formTitle {
     margin-bottom: 71px;
   }
-}
-.button:disabled {
-  color: grey;
 }
