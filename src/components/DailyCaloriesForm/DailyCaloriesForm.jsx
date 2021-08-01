@@ -18,20 +18,22 @@ const DailyCaloriesForm = () => {
   const [modal, setModal] = useState(false);
   const IsAuthenticated = useSelector(getIsAuthenticated);
 
-  const body = document.querySelector('body')  
+  const body = document.querySelector('body');
 
-  const toggleModal = () => {    
+  const toggleModal = () => {
     if (body.classList.contains(styles.hidden)) {
-      body.classList.remove(styles.hidden)
-    } else { body.classList.add(styles.hidden) }
-    setModal(!modal)
+      body.classList.remove(styles.hidden);
+    } else {
+      body.classList.add(styles.hidden);
+    }
+    setModal(!modal);
   };
 
   const handleSubmit = values => {
     values.bloodType = Number(values.bloodType);
-    console.log(values)
+    console.log(values);
     dispatch(dailyCalories(values));
-      toggleModal();
+    toggleModal();
   };
 
   const validationsSchema = yup.object().shape({
@@ -154,33 +156,55 @@ const DailyCaloriesForm = () => {
                     </p>
                   )}
 
-<div className={styles.radioButtonContainer}>
-	
-	<h3>Группа крови *</h3>
-	
-  <ul className={styles.radioButtonList}>
-  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="1" id="1-radio-button"/>
-  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="2" id="2-radio-button"/>
-  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="3" id="3-radio-button"/>
-  <RadioButton onChange={handleChange} onBlur={handleBlur} name="bloodType" value="4" id="4-radio-button"/>
-  {touched.bloodType && errors.bloodType && (
+                  <div className={styles.radioButtonContainer}>
+                    <h3>Группа крови *</h3>
+
+                    <ul className={styles.radioButtonList}>
+                      <RadioButton
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="bloodType"
+                        value="1"
+                        id="1-radio-button"
+                      />
+                      <RadioButton
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="bloodType"
+                        value="2"
+                        id="2-radio-button"
+                      />
+                      <RadioButton
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="bloodType"
+                        value="3"
+                        id="3-radio-button"
+                      />
+                      <RadioButton
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="bloodType"
+                        value="4"
+                        id="4-radio-button"
+                      />
+                      {touched.bloodType && errors.bloodType && (
                         <p className={styles.caloriesFormError}>
                           {errors.bloodType}
                         </p>
                       )}
-</ul>
-</div>
-
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div className={styles.form_button}>
-              <Button
-                disabled={!isValid || !dirty}
-                onClick={handleSubmit}
-                type="submit"
-                text="Похудеть"
-                customType="primary"
-              />
+                <Button
+                  disabled={!isValid || !dirty}
+                  onClick={handleSubmit}
+                  type="submit"
+                  text="Похудеть"
+                  customType="primary"
+                />
               </div>
             </form>
           )}
@@ -235,18 +259,18 @@ const InputField = ({ label, type, value, name, onChange, onBlur }) => (
 
 const RadioButton = ({ name, value, id, onChange, onBlur }) => (
   <li>
-  <input
-  type="radio"
-  value={value}
-  name={name}
-  id={id}
-  onChange={onChange}
-  onBlur={onBlur}
-  />
-  <label htmlFor={id}>
-    {value}
-  </label>
-  <div className={styles.check}><div className={styles.inside}></div></div>
+    <input
+      type="radio"
+      value={value}
+      name={name}
+      id={id}
+      onChange={onChange}
+      onBlur={onBlur}
+    />
+    <label htmlFor={id}>{value}</label>
+    <div className={styles.check}>
+      <div className={styles.inside}></div>
+    </div>
   </li>
 );
 

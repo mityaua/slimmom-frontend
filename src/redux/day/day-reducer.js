@@ -20,11 +20,12 @@ const dayInfo = createReducer(initial, {
   [addProductSuccess]: (state, { payload }) => ({
     ...state,
     eatenProducts: payload.eatenProducts,
-  }), // формат ответа бекенда при удалении?????
-  // [deleteProductSuccess]: (state, { payload }) => ({
-  //   ...state,
-  //   eatenProducts: payload.eatenProducts,
-  // }),
+  }),
+  [deleteProductSuccess]: (state, { payload }) => ({
+    ...state,
+    eatenProducts: payload.eatenProducts,
+    daySummary: payload.updatedDayData,
+  }),
 });
 
 const error = createReducer(null, {
