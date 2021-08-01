@@ -20,11 +20,13 @@ export const dailyCalories = payload => async dispatch => {
   }
 };
 
-export const dailyCaloriesAuth = payload => async dispatch => {
+export const dailyCaloriesAuth = (values, userId) => async dispatch => {
   dispatch(dailyCaloriesAuthRequest);
   try {
-    const response = await axios.post(`/daily-rate/{$userId}`, payload);
-    dispatch(dailyCaloriesAuthSuccess(response.data));
+    console.log(userId);
+    const response = await axios.post(`/daily-rate/${userId}`, values);
+    console.log(response.data);
+    dispatch(dailyCaloriesSuccess(response.data));
   } catch (err) {
     dispatch(dailyCaloriesAuthError(err.message));
   }
