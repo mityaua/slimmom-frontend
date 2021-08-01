@@ -39,11 +39,12 @@ export const addProduct = (date, productId, weight) => async dispatch => {
 };
 
 export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
-  const product = { dayId, eatenProductId };
   dispatch(deleteProductRequest());
   try {
-    console.log(product);
-    const { data } = await axios.delete('/day', product);
+    const data = await axios.delete('day', {
+      data: { dayId: dayId, eatenProductId: eatenProductId },
+    });
+    console.log(data.json);
     dispatch(deleteProductSuccess(data));
   } catch (error) {
     console.log(error);
