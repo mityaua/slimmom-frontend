@@ -61,37 +61,36 @@ const DiaryAddProductForm = () => {
 
     onSubmit: values => {
       const productWeight = values.productWeight;
-
-      dispatch(addProduct('2021-08-01', '5d51694802b2373622ff553b', 100)); // productId ???
-      // dispatch(addProduct(currentDate, productId, productWeight));
+      // dispatch(addProduct('2021-08-01', '5d51694802b2373622ff553b', 100)); // productId ???
+      dispatch(addProduct(currentDate, selectedData, productWeight));
     },
   });
 
-  const [searchProductRes, setSearchProductRes] = useState([
-    'Бургер',
-    'Шашлык',
-    'Пицца',
-  ]);
+  const [searchProductRes, setSearchProductRes] = useState([]);
 
   const { productName, productWeight } = formik.values;
 
   useEffect(() => {
     if (productName.length >= 3) {
-      const products = fetchData(productName);
-      setSearchProductRes(products);
+      fetchData(productName);
     }
   }, [productName]);
 
   const fetchData = async name => {
     const { data } = await axios.get(`/products?search=${name}`);
-    console.log(data);
-    return data.map(({ title }) => title.ru);
+    setSearchProductRes(data);
   };
 
-  const [selectData, setSelectData] = useState(searchProductRes[0] || '');
+  const [selectedData, setSelectedData] = useState(searchProductRes[0] || '');
+
+  useEffect(() => {
+    if (searchProductRes.length) {
+      setSelectedData(searchProductRes[0]._id);
+    }
+  }, [searchProductRes]);
 
   const handleChangeSelect = ({ target: { value } }) => {
-    setSelectData(value);
+    setSelectedData(value);
   };
 
   return (
@@ -137,15 +136,15 @@ const DiaryAddProductForm = () => {
           <span className={styles.hiddenText}>Добавить</span>
         </Button>
       </form>
-      {searchProductRes.length > 0 && searchProductRes.length < 10 && (
+      {searchProductRes.length > 0 && (
         <select
           className={styles.selectProduct}
-          value={selectData}
+          // value={selectedData}
           onChange={handleChangeSelect}
         >
-          {searchProductRes.map(product => (
-            <option key={product} value={product}>
-              {product}
+          {searchProductRes.map(({ title, _id }) => (
+            <option key={_id} value={_id}>
+              {title.ru}
             </option>
           ))}
         </select>
