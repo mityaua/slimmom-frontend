@@ -11,7 +11,7 @@ import {
   deleteProductError,
 } from './day_action';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com';
 
 // Операция получения информации по определённому дню
 export const getDay = (id, date) => async dispatch => {
