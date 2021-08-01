@@ -1,8 +1,5 @@
 @import '../../utils/variables.css';
 
-/* .loginForm {
- 
-} */
 .formAuth {
   display: flex;
   flex-direction: column;
@@ -49,6 +46,7 @@
     margin-right: 30px;
   }
 }
+
 @media screen and (min-width: 1240px) {
   .formAuth {
     margin-left: 115px;
@@ -57,7 +55,4 @@
   .formTitle {
     margin-bottom: 71px;
   }
-}
-.button:disabled {
-  color: grey;
 }

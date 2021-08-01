@@ -57,8 +57,9 @@ const RegistrationForm = () => {
         login: values.login,
         password: values.password,
       };
-      resetForm();
+
       dispatch(register(payload));
+      resetForm({ values: '' });
     },
   });
 
@@ -67,7 +68,6 @@ const RegistrationForm = () => {
       <form className={styles.formAuth} onSubmit={formik.handleSubmit}>
         <h2 className={styles.formTitle}>Регистрация</h2>
         <TextField
-          // className={styles.formInput}
           styles={{ color: 'blue' }}
           className={`${classes.input} ${classes.nameInput}`}
           id="name"
@@ -78,27 +78,20 @@ const RegistrationForm = () => {
           error={formik.touched.name && Boolean(formik.errors.name)}
           helperText={formik.touched.name && formik.errors.name}
         />
-        {/* {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
-        ) : null} */}
+
         <TextField
-          // className={styles.formInput}
           styles={{ color: 'blue' }}
           className={`${classes.input} ${classes.loginInput}`}
           id="login"
           name="login"
-          // label="Логин *"
           placeholder="Логин *"
           value={formik.values.login}
           onChange={formik.handleChange}
           error={formik.touched.login && Boolean(formik.errors.login)}
           helperText={formik.touched.login && formik.errors.login}
         />
-        {/* {formik.touched.login && formik.errors.login ? (
-          <div>{formik.errors.login}</div>
-        ) : null} */}
+
         <TextField
-          // className={styles.formInput}
           className={`${classes.input} ${classes.passwordInput}`}
           styles={{ color: 'blue' }}
           id="password"
@@ -110,9 +103,6 @@ const RegistrationForm = () => {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
-        {/* {formik.touched.password && Boolean(formik.errors.password) ? (
-          <div>{formik.errors.password}</div>
-        ) : null} */}
         <div className={styles.buttons}>
           <NavLink to={routes.login}>
             <div className={styles.button}>
@@ -120,7 +110,12 @@ const RegistrationForm = () => {
             </div>
           </NavLink>
           <div className={styles.button}>
-            <Button text="Регистрация" type="submit" customType="primary" />
+            <Button
+              text="Регистрация"
+              type="submit"
+              customType="primary"
+              disabled={formik.isSubmitting || !formik.dirty}
+            />
           </div>
         </div>
       </form>

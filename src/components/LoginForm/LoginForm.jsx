@@ -48,8 +48,9 @@ const LoginForm = () => {
         login: values.login,
         password: values.password,
       };
-      resetForm();
+
       dispatch(login(payload));
+      resetForm({ values: '' });
     },
   });
 
@@ -87,8 +88,7 @@ const LoginForm = () => {
               text="Вход"
               type="submit"
               customType="primary"
-              disabled={!formik.isValid || !formik.dirty}
-              className={styles.button}
+              disabled={formik.isSubmitting || !formik.dirty}
             />
           </div>
 
