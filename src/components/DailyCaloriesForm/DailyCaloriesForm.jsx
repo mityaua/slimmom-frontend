@@ -47,8 +47,10 @@ const DailyCaloriesForm = () => {
     } else {
       dispatch(dailyCalories(values));
     }
-
-    toggleModal();
+    
+    if (!IsAuthenticated) {
+      toggleModal();
+    }
   };
 
   const validationsSchema = yup.object().shape({
@@ -101,8 +103,9 @@ const DailyCaloriesForm = () => {
             bloodType: '',
           }}
           validateOnBlur
-          onSubmit={values => {
+          onSubmit={(values, actions) => {
             handleSubmit(values, userId);
+            actions.resetForm();
           }}
           validationSchema={validationsSchema}
         >
@@ -120,57 +123,66 @@ const DailyCaloriesForm = () => {
               <h2>{heading()}</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
-                  <InputField
-                    label="Рост *"
-                    type="number"
-                    name={'height'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.height}
-                  />
-                  {touched.height && errors.height && (
-                    <p className={styles.caloriesFormError}>{errors.height}</p>
-                  )}
-                  <InputField
-                    label="Возраст *"
-                    type="number"
-                    name={'age'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.age}
-                  />
-                  {touched.age && errors.age && (
-                    <p className={styles.caloriesFormError}>{errors.age}</p>
-                  )}
-                  <InputField
-                    label="Текущий вес *"
-                    type="number"
-                    name={'currentWeight'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.currentWeight}
-                  />
-                  {touched.currentWeight && errors.currentWeight && (
-                    <p className={styles.caloriesFormError}>
-                      {errors.currentWeight}
-                    </p>
-                  )}
+                  <div className={styles.labelContainer}>
+                    <InputField
+                      label="Рост *"
+                      type="number"
+                      name={'height'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.height}
+                    />
+                    {touched.height && errors.height && (
+                      <p className={styles.caloriesFormError}>
+                        {errors.height}
+                      </p>
+                    )}
+                  </div>
+                  <div className={styles.labelContainer}>
+                    <InputField
+                      label="Возраст *"
+                      type="number"
+                      name={'age'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.age}
+                    />
+                    {touched.age && errors.age && (
+                      <p className={styles.caloriesFormError}>{errors.age}</p>
+                    )}
+                  </div>
+                  <div className={styles.labelContainer}>
+                    <InputField
+                      label="Текущий вес *"
+                      type="number"
+                      name={'currentWeight'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.currentWeight}
+                    />
+                    {touched.currentWeight && errors.currentWeight && (
+                      <p className={styles.caloriesFormError}>
+                        {errors.currentWeight}
+                      </p>
+                    )}
+                  </div>
                 </div>
                 <div className={styles.formContainerRight}>
-                  <InputField
-                    label="Желаемый вес *"
-                    type="number"
-                    name={'desiredWeight'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.desiredWeight}
-                  />
-                  {touched.desiredWeight && errors.desiredWeight && (
-                    <p className={styles.caloriesFormError}>
-                      {errors.desiredWeight}
-                    </p>
-                  )}
-
+                  <div className={styles.labelContainer}>
+                    <InputField
+                      label="Желаемый вес *"
+                      type="number"
+                      name={'desiredWeight'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.desiredWeight}
+                    />
+                    {touched.desiredWeight && errors.desiredWeight && (
+                      <p className={styles.caloriesFormError}>
+                        {errors.desiredWeight}
+                      </p>
+                    )}
+                  </div>
                   <div className={styles.radioButtonContainer}>
                     <h3>Группа крови *</h3>
 
@@ -203,12 +215,12 @@ const DailyCaloriesForm = () => {
                         value="4"
                         id="4-radio-button"
                       />
-                      {touched.bloodType && errors.bloodType && (
-                        <p className={styles.caloriesFormError}>
-                          {errors.bloodType}
-                        </p>
-                      )}
                     </ul>
+                    {touched.bloodType && errors.bloodType && (
+                      <p className={styles.caloriesFormError}>
+                        {errors.bloodType}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
