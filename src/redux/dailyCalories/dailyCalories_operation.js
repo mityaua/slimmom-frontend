@@ -4,7 +4,6 @@ import {
   dailyCaloriesSuccess,
   dailyCaloriesError,
   dailyCaloriesAuthRequest,
-  dailyCaloriesAuthSuccess,
   dailyCaloriesAuthError,
 } from './dailyCalories_action';
 
