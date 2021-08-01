@@ -1,2 +1,2 @@
-export const getDailyRate = state => state.dailyRate;
-export const getNotAllowedProducts = state => state.notAllowedProducts;
+export const getDailyCalories = state => state.dailyCalories.dailyRate;
+export const getNotAllowedProducts = state => state.dailyCalories.notAllowedProducts;

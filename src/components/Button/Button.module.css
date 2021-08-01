@@ -16,6 +16,22 @@
   color: #ffffff;
   background-color: var(--color-active);
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  transition: var(--transition);
+}
+
+.primary:hover {
+  transform: scale(1.05);
+  transition: var(--transition);
+}
+
+.primary:disabled {
+  background-color: var(--color-disabled);
+  cursor: auto;
+}
+
+.primary:disabled:hover {
+  transform: scale(1);
+  transition: all 250ms linear;
 }
 
 .secondary {

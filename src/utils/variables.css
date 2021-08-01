@@ -1,7 +1,9 @@
 :root {
   --color-white: #ffffff;
   --color-active: #fc842d;
+  --color-disabled: rgba(252, 132, 45, 0.5);
   --sideBarBackground: #f0f1f3;
   --mainText: #212121;
   --subText: #9b9faa;
+  --transition: all 250ms linear;
 }
