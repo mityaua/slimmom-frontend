@@ -11,7 +11,7 @@ import {
   deleteProductError,
 } from './day_action';
 
-axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:4040';
 
 // Операция получения информации по определённому дню
 export const getDay = (id, date) => async dispatch => {
@@ -39,11 +39,12 @@ export const addProduct = (date, productId, weight) => async dispatch => {
 };
 
 export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
-  const product = { dayId, eatenProductId };
   dispatch(deleteProductRequest());
   try {
-    console.log(product);
-    const { data } = await axios.delete('/day', product);
+    const data = await axios.delete('day', {
+      data: { dayId: dayId, eatenProductId: eatenProductId },
+    });
+    console.log(data.json);
     dispatch(deleteProductSuccess(data));
   } catch (error) {
     console.log(error);
