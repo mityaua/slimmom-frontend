@@ -1,0 +1,10 @@
+.avatar {
+  opacity: 1;
+  transition: opacity 250ms linear;
+}
+
+.avatar:hover {
+  opacity: 0.9;
+  transition: opacity 250ms linear;
+  cursor: pointer;
+}
