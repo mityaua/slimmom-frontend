@@ -50,8 +50,7 @@ const LoginForm = () => {
       };
 
       dispatch(login(payload));
-      resetForm();
-      // console.log('resetForm', resetForm);
+      resetForm({ values: '' });
     },
   });
 
@@ -84,13 +83,7 @@ const LoginForm = () => {
         />
 
         <div className={styles.buttons}>
-          <div
-            className={
-              // formik.isSubmitting || !formik.dirty
-              //   ? styles.button_disabled :
-              styles.button
-            }
-          >
+          <div className={styles.button}>
             <Button
               text="Вход"
               type="submit"

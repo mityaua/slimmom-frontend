@@ -59,7 +59,7 @@ const RegistrationForm = () => {
       };
 
       dispatch(register(payload));
-      resetForm();
+      resetForm({ values: '' });
     },
   });
 
