@@ -7,7 +7,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import AddIcon from '@material-ui/icons/Add';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/day/day_operation';
+import { addProduct } from '../../redux/day/day_operation';
 import { date } from '../../redux/day/day_selector';
 
 const useStyles = makeStyles({
@@ -64,8 +64,8 @@ const DiaryAddProductForm = () => {
         productWeight: values.productWeight,
       };
 
-      console.log(payload);
-      // dispatch(addContact(currentDate, productId, values.productWeight)); // productId ???
+      // console.log(payload);
+      dispatch(addProduct('2021-08-01', '5d51694802b2373622ff553b', 100)); // productId ???
     },
   });
   return (
