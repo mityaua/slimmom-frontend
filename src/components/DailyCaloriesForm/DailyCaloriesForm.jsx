@@ -31,13 +31,12 @@ const DailyCaloriesForm = () => {
   const body = document.querySelector('body');
 
   const toggleModal = () => {
-    console.log(notAllowedProducts)
     if (body.classList.contains(styles.hidden)) {
       body.classList.remove(styles.hidden);
     } else {
       body.classList.add(styles.hidden);
     }
-    setModal(!modal);    
+    setModal(!modal);
   };
 
   const handleSubmit = (values, userId) => {
@@ -48,7 +47,6 @@ const DailyCaloriesForm = () => {
     } else {
       dispatch(dailyCalories(values));
     }
-    console.log(userId);
 
     toggleModal();
   };
@@ -241,11 +239,15 @@ const DailyCaloriesForm = () => {
             Продукты, которые вам не рекомендуется употреблять
           </h2>
           <ul className={styles.modal_list}>
-            {notAllowedProducts ? notAllowedProducts.map(product => (
-              <li className={styles.modal_el} id={product}>
-                {product}
-              </li>
-            )) : <li className={styles.modal_el}>Кушать можно все</li>}
+            {notAllowedProducts ? (
+              notAllowedProducts.map(product => (
+                <li className={styles.modal_el} key={product} id={product}>
+                  {product}
+                </li>
+              ))
+            ) : (
+              <li className={styles.modal_el}>Кушать можно все</li>
+            )}
           </ul>
           <div className={styles.modal_button}>
             <NavLink to={routes.registration}>
