@@ -40,9 +40,19 @@
 .caloriesForm input[type='number'] {
   -moz-appearance: textfield;
 }
+.caloriesForm input {
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+}
 .caloriesForm input::-webkit-scrollbar-thumb {
   color: transparent;
 }
+
 .formContainerF {
   margin-bottom: 30px;
 }
@@ -52,8 +62,9 @@
 
 .caloriesFormError {
   font-family: Verdana;
-  font-size: 10px;
-  line-height: 1.2;
+  font-weight: normal;
+  font-size: 0.75rem;
+  line-height: 1.6;
   color: red;
 }
 .radioButtonContainer {
@@ -83,7 +94,7 @@
   position: relative;
   float: left;
   width: 100%;
-  height: 80px;
+  height: 60px;
 }
 .radioButtonList li input[type='radio'] {
   position: absolute;
@@ -164,7 +175,9 @@ input[type='radio']:checked ~ label {
   .formContainerRight {
     width: 50%;
   }
-
+  .labelContainer {
+    margin-bottom: 30px;
+  }
   .caloriesForm input {
     width: 85%;
   }
@@ -176,13 +189,34 @@ input[type='radio']:checked ~ label {
   .radioButton:not(:last-child) {
     margin-right: 16px;
   }
+  .modal_title {
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .form_button {
+    float: right;
+    margin-right: 80px;
+  }
+  .modal_caloriesNumber {
+    margin-bottom: 12px;
+  }
+  .modal_closeBtn {
+    width: 12px;
+    left: auto;
+    right: 24.17px;
+    top: 24.17px;
+    background-image: url('../../images/bg-pictures/mobile/close.svg');
+    background-color: white;
+  }
 }
 
 @media (min-width: 1280px) {
   .caloriesForm {
     width: 745px;
     height: 695px;
-    padding: 137px 25px 110px 115px;
+    padding: 110px 25px 110px 115px;
   }
   .formContainerMain {
     max-width: 745px;
@@ -234,12 +268,10 @@ input[type='radio']:checked ~ label {
   letter-spacing: 0.04em;
   color: var(--subText);
   margin-bottom: 10px;
-  list-style: decimal;
 }
 
 .modal_list {
   margin-bottom: 40px;
-  padding-left: 20px;
 }
 
 .modal_button {
@@ -259,31 +291,6 @@ input[type='radio']:checked ~ label {
   background-image: url('../../images/bg-pictures/mobile/arrow.svg');
   background-repeat: no-repeat;
   cursor: pointer;
-}
-
-@media screen and (min-width: 768px) {
-  .modal_title {
-    font-size: 26px;
-    line-height: 32px;
-    text-align: center;
-    margin-bottom: 22px;
-  }
-  .form_button {
-    float: right;
-    margin-right: 80px;
-  }
-  .modal_caloriesNumber {
-    margin-bottom: 12px;
-  }
-
-  .modal_closeBtn {
-    width: 12px;
-    left: auto;
-    right: 24.17px;
-    top: 24.17px;
-    background-image: url('../../images/bg-pictures/mobile/close.svg');
-    background-color: white;
-  }
 }
 
 .hidden {
