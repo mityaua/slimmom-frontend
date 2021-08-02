@@ -99,6 +99,7 @@ const DiaryAddProductForm = () => {
   useEffect(() => {
     setSearchProductRes([]);
     formik.resetForm();
+    // eslint-disable-next-line
   }, [currentDate]);
 
   return (
