@@ -6,6 +6,7 @@ import {
   dailyCaloriesAuthRequest,
   dailyCaloriesAuthError,
 } from './dailyCalories_action';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com/';
 
@@ -14,8 +15,8 @@ export const dailyCalories = payload => async dispatch => {
   try {
     const response = await axios.post('/daily-rate', payload);
     dispatch(dailyCaloriesSuccess(response.data));
-  } catch (err) {
-    dispatch(dailyCaloriesError(err.message));
+  } catch (error) {
+    dispatch(dailyCaloriesError(error.message));
   }
 };
 
@@ -26,7 +27,9 @@ export const dailyCaloriesAuth = (values, userId) => async dispatch => {
     const response = await axios.post(`/daily-rate/${userId}`, values);
     console.log(response.data);
     dispatch(dailyCaloriesSuccess(response.data));
-  } catch (err) {
-    dispatch(dailyCaloriesAuthError(err.message));
+    toast.success('😋 Данные обновлены');
+  } catch (error) {
+    dispatch(dailyCaloriesAuthError(error.message));
+    toast.error(error.message);
   }
 };

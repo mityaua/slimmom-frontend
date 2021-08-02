@@ -65,6 +65,8 @@ const DiaryAddProductForm = () => {
       if (currentDate === today) {
         dispatch(addProduct(currentDate, selectedData, productWeight));
         resetForm({ values: '' });
+        setSearchProductRes([]);
+        setSelectedData('');
       }
     },
   });

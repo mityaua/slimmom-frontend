@@ -16,6 +16,7 @@ import {
   getCurrentUserSuccess,
   getCurrentUserError,
 } from './auth_action';
+import { reset } from '../day/day_action';
 axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com';
 
 const token = {
@@ -60,6 +61,7 @@ export const logOut = () => async dispatch => {
     await axios.post('/auth/logout');
     token.unset();
     dispatch(logoutSuccess());
+    dispatch(reset());
   } catch (error) {
     dispatch(logoutError(error.message));
     toast.error(error.message);

@@ -15,8 +15,9 @@ import {
   getKcalConsumed,
   getDailyRate,
   getPercentsOfDailyRate,
-  getNotAllowedProductsAll
+  getNotAllowedProductsAll,
 } from '../../redux/day/day_selector';
+import { date } from '../../redux/day/day_selector';
 
 import AddIcon from '@material-ui/icons/Add';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
@@ -29,8 +30,11 @@ const DiaryPage = () => {
   const dailyRate = useSelector(getDailyRate);
   const percentsOfDailyRate = useSelector(getPercentsOfDailyRate);
   const notAllowedProductsAll = useSelector(getNotAllowedProductsAll);
-  
+
   const dispatch = useDispatch();
+  const today = new Date().toISOString().split('T')[0];
+  const currentDate = useSelector(date);
+
   const [mobileFormIsVisible, setMobileFormIsVisible] = useState(false);
   const handleClick = () => {
     setMobileFormIsVisible(prev => !prev);
@@ -57,6 +61,7 @@ const DiaryPage = () => {
                   customType="primary"
                   className="small"
                   onClick={handleClick}
+                  disabled={currentDate !== today}
                 >
                   <AddIcon />
                 </Button>
@@ -68,7 +73,7 @@ const DiaryPage = () => {
               dailyRate={dailyRate}
               percentsOfDailyRate={percentsOfDailyRate}
               notAllowedProductsAll={notAllowedProductsAll}
-               />
+            />
           </>
         ) : (
           <>
