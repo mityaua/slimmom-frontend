@@ -11,6 +11,7 @@ import {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductError,
+  reset,
 } from './day_action';
 
 axios.defaults.baseURL = 'https://slimmom-backend-fs26.herokuapp.com';
@@ -55,4 +56,8 @@ export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
     dispatch(deleteProductError(error.message));
     toast.error(error.message);
   }
+};
+
+export const resetDayInfo = () => dispatch => {
+  dispatch(reset());
 };

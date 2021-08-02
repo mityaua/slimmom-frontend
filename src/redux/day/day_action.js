@@ -15,3 +15,5 @@ export const deleteProductSuccess = createAction(
   'products/deleteProductSuccess',
 );
 export const deleteProductError = createAction('products/deleteProductError');
+
+export const reset = createAction('products/resetDayInfo');
