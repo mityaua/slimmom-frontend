@@ -31,6 +31,20 @@
   margin-bottom: 40px;
 }
 
+.rightSideBar_product_list {
+  /* width: 270px; */
+  max-height: 112px;
+  overflow-y: scroll;
+}
+
+.rightSideBar_product_item {
+  display: inline;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: var(--subText);
+}
+
 @media screen and (min-width: 768px) {
   .flexBox {
     display: flex;
