@@ -51,7 +51,11 @@ const DiaryAddProductForm = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const currentDate = useSelector(date);
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date(
+    new Date().getTime() - new Date().getTimezoneOffset() * 60000,
+  )
+    .toISOString()
+    .split('T')[0]; // Текущий день с учётом временных зон, мать их
 
   const formik = useFormik({
     initialValues: {
