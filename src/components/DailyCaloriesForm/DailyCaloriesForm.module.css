@@ -174,6 +174,7 @@ input[type='radio']:checked ~ label {
   font-weight: bold;
   color: #fc842d;
 }
+
 @media (min-width: 768px) {
   .caloriesForm {
     width: 100%;
@@ -190,9 +191,11 @@ input[type='radio']:checked ~ label {
   .formContainerRight {
     width: 50%;
   }
+
   .labelContainer {
     margin-bottom: 30px;
   }
+
   .caloriesForm input {
     width: 85%;
   }
@@ -201,29 +204,14 @@ input[type='radio']:checked ~ label {
     font-size: 30px;
     line-height: 1.2;
   }
+
   .radioButton:not(:last-child) {
     margin-right: 16px;
   }
-  .modal_title {
-    font-size: 26px;
-    line-height: 32px;
-    text-align: center;
-    margin-bottom: 22px;
-  }
+
   .form_button {
     float: right;
     margin-right: 80px;
-  }
-  .modal_caloriesNumber {
-    margin-bottom: 12px;
-  }
-  .modal_closeBtn {
-    width: 12px;
-    left: auto;
-    right: 24.17px;
-    top: 24.17px;
-    background-image: url('../../images/bg-pictures/mobile/close.svg');
-    background-color: white;
   }
 }
 
@@ -283,10 +271,12 @@ input[type='radio']:checked ~ label {
   letter-spacing: 0.04em;
   color: var(--subText);
   margin-bottom: 10px;
+  list-style: decimal;
 }
 
 .modal_list {
   margin-bottom: 40px;
+  padding-left: 20px;
 }
 
 .modal_button {
@@ -306,6 +296,31 @@ input[type='radio']:checked ~ label {
   background-image: url('../../images/bg-pictures/mobile/arrow.svg');
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .modal_title {
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .form_button {
+    float: right;
+    margin-right: 80px;
+  }
+  .modal_caloriesNumber {
+    margin-bottom: 12px;
+  }
+
+  .modal_closeBtn {
+    width: 12px;
+    left: auto;
+    right: 24.17px;
+    top: 24.17px;
+    background-image: url('../../images/bg-pictures/mobile/close.svg');
+    background-color: white;
+  }
 }
 
 .hidden {

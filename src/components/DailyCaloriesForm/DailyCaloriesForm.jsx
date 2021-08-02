@@ -47,7 +47,7 @@ const DailyCaloriesForm = () => {
     } else {
       dispatch(dailyCalories(values));
     }
-    
+
     if (!IsAuthenticated) {
       toggleModal();
     }
@@ -263,7 +263,12 @@ const DailyCaloriesForm = () => {
           </ul>
           <div className={styles.modal_button}>
             <NavLink to={routes.registration}>
-              <Button text="Начать худеть" customType="primary" type="button" />
+              <Button
+                text="Начать худеть"
+                customType="primary"
+                type="button"
+                onClick={toggleModal}
+              />
             </NavLink>
           </div>
           <button
