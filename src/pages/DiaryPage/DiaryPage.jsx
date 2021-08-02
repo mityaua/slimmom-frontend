@@ -29,6 +29,7 @@ const DiaryPage = () => {
   const kcalConsumed = useSelector(getKcalConsumed);
   const dailyRate = useSelector(getDailyRate);
   const percentsOfDailyRate = useSelector(getPercentsOfDailyRate);
+  
   const notAllowedProductsAll = useSelector(getNotAllowedProductsAll);
 
   const dispatch = useDispatch();
