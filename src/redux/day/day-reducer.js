@@ -11,6 +11,7 @@ import {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductError,
+  reset,
 } from './day_action';
 
 const initial = { daySummary: {}, _id: '', eatenProducts: [], date: '' };
@@ -26,6 +27,7 @@ const dayInfo = createReducer(initial, {
     eatenProducts: payload.eatenProducts,
     daySummary: payload.updatedDayData,
   }),
+  [reset]: (_, { payload }) => initial,
 });
 
 const error = createReducer(null, {
