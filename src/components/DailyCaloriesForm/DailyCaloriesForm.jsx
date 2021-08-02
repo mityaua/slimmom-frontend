@@ -75,7 +75,7 @@ const DailyCaloriesForm = () => {
     desiredWeight: yup
       .number()
       .typeError('Должно быть числом')
-      .min(50, 'Минимальное значение 45 кг')
+      .min(45, 'Минимальное значение 45 кг')
       .max(
         yup.ref('currentWeight'),
         'Максимальное значение не может быть больше текущего',
