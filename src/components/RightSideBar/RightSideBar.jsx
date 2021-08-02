@@ -23,7 +23,7 @@ const RightSideBar = ({ kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate, 
               </li>
               <li className={styles.rightSideBar_el}>
                 <span className={styles.rightSideBar_text}>n% от нормы</span>
-                <span className={styles.rightSideBar_text}>{percentsOfDailyRate ? percentsOfDailyRate : '0'} ккал</span>
+                <span className={styles.rightSideBar_text}>{percentsOfDailyRate ? Math.floor(percentsOfDailyRate) : '0'} %</span>
               </li>
             </ul>
           </div>
