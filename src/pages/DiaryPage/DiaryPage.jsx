@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../../components/Header';
 import DateForm from '../../components/DateForm';
@@ -10,6 +10,7 @@ import DiaryProductsList from '../../components/DiaryProductsList';
 import Button from '../../components/Button';
 
 import { getUserInfo } from '../../redux/user/user_operation';
+import { date } from '../../redux/day/day_selector';
 
 import AddIcon from '@material-ui/icons/Add';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
@@ -18,6 +19,9 @@ import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
   const dispatch = useDispatch();
+  const today = new Date().toISOString().split('T')[0];
+  const currentDate = useSelector(date);
+
   const [mobileFormIsVisible, setMobileFormIsVisible] = useState(false);
   const handleClick = () => {
     setMobileFormIsVisible(prev => !prev);
@@ -44,6 +48,7 @@ const DiaryPage = () => {
                   customType="primary"
                   className="small"
                   onClick={handleClick}
+                  disabled={currentDate !== today}
                 >
                   <AddIcon />
                 </Button>
