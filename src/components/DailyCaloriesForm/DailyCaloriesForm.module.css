@@ -249,6 +249,8 @@ input[type='radio']:checked ~ label {
 
 @media (min-width: 1280px) {
   .caloriesForm {
+    height: auto;
+    min-height: auto;
     width: 745px;
     padding: 80px 25px 110px 115px;
   }
