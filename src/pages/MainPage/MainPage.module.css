@@ -18,7 +18,7 @@
 
     background-size: 308px 303px, 491px 431px, 602px 531px, 521px 563px;
     background-position: right 24px bottom 168px, right 0 bottom 0,
-      right 166px bottom 0, right 0 bottom -4px;
+      right 166px bottom -50px, right 0 bottom -4px;
 
     background-repeat: no-repeat;
   }
