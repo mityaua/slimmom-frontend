@@ -83,7 +83,7 @@ const DiaryPage = () => {
                   <AddIcon />
                 </Button>
               </div>
-              {currentDate !== today ? (
+              {!dailyRate ? (
                 <h3 className={styles.notification}>
                   Что бы выбрать продукт нужно заполнить данные в Калькуляторе
                 </h3>
