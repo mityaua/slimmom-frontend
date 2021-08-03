@@ -169,19 +169,22 @@ const DiaryAddProductForm = () => {
           <span className={styles.hiddenText}>Добавить</span>
         </Button>
       </form>
-      {searchProductRes.length > 0 && (
-        <select
-          className={styles.selectProduct}
-          // value={selectedData}
-          onChange={handleChangeSelect}
-        >
-          {searchProductRes.map(({ title, _id }) => (
-            <option key={_id} value={_id}>
-              {title.ru}
-            </option>
-          ))}
-        </select>
-      )}
+      {!selectedDataText
+        ? searchProductRes.length > 0 && (
+            <select
+              size={`${searchProductRes.length}`}
+              className={styles.selectProduct}
+              // value={selectedData}
+              onChange={handleChangeSelect}
+            >
+              {searchProductRes.map(({ title, _id }) => (
+                <option key={_id} value={_id}>
+                  {title.ru}
+                </option>
+              ))}
+            </select>
+          )
+        : ''}
     </div>
   );
 };

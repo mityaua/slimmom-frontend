@@ -1,35 +1,9 @@
 import { useSelector } from 'react-redux';
 import DiaryProductsListItem from '../DiaryProductsListItem';
-import styles from './DiaryProductsList.module.css';
+
 import { eatenProducts } from '../../redux/day/day_selector';
 
-// const mockProducts = [
-//   {
-//     title: 'Баклажан',
-//     weight: 100,
-//     kcal: 320,
-//   },
-//   {
-//     title: 'Мясо птицы',
-//     weight: 100,
-//     kcal: 320,
-//   },
-//   {
-//     title: 'Хлеб',
-//     weight: 100,
-//     kcal: 320,
-//   },
-//   {
-//     title: 'Орех',
-//     weight: 100,
-//     kcal: 320,
-//   },
-//   {
-//     title: 'Мясо свинное',
-//     weight: 100,
-//     kcal: 320,
-//   },
-// ];
+import styles from './DiaryProductsList.module.css';
 
 const DiaryProductsList = () => {
   const products = useSelector(eatenProducts);

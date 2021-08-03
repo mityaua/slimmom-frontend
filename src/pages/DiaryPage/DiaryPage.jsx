@@ -92,12 +92,30 @@ const DiaryPage = () => {
                   ''
                 )}
               </div>
-              <RightSideBar
-                kcalLeft={kcalLeft}
-                kcalConsumed={kcalConsumed}
-                dailyRate={dailyRate}
-                percentsOfDailyRate={percentsOfDailyRate}
-                notAllowedProductsAll={notAllowedProductsAll}
+              {!dailyRate ? (
+                <h3 className={styles.notification}>
+                  Чтобы добавить продукты в список - заполните форму на странице
+                  Калькулятора
+                </h3>
+              ) : (
+                ''
+              )}
+            </div>
+            <RightSideBar
+              kcalLeft={kcalLeft}
+              kcalConsumed={kcalConsumed}
+              dailyRate={dailyRate}
+              percentsOfDailyRate={percentsOfDailyRate}
+              notAllowedProductsAll={notAllowedProductsAll}
+            />
+          </>
+        ) : (
+          <>
+            <div className={styles.exampleBox}>
+              <DiaryAddProductForm />
+              <KeyboardBackspaceIcon
+                className={styles.backButton}
+                onClick={handleClick}
               />
             </>
           ) : (
