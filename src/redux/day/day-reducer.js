@@ -21,6 +21,7 @@ const dayInfo = createReducer(initial, {
   [addProductSuccess]: (state, { payload }) => ({
     ...state,
     eatenProducts: payload.eatenProducts,
+    // daySummary: payload.updatedDayData,
   }),
   [deleteProductSuccess]: (state, { payload }) => ({
     ...state,
