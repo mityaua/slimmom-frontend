@@ -63,7 +63,7 @@ const RightSideBar = ({
               Нерекомендуемые продукты
             </h4>
             <ul className={styles.rightSideBar_product_list}>
-              {notAllowedProductsAll === null ? (
+              {notAllowedProductsAll.length !== 0 ? (
                 notAllowedProductsAll ? (
                   notAllowedProductsAll.map(product => (
                     <li
