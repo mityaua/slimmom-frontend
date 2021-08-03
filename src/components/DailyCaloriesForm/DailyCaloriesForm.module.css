@@ -204,6 +204,11 @@ input[type='radio']:checked ~ label {
   font-weight: bold;
   color: #fc842d;
 }
+.form_button {
+  display: flex;
+  justify-content: center;
+  margin-left: 50px;
+}
 
 @media (min-width: 768px) {
   .caloriesForm {
