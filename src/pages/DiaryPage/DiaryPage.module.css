@@ -2,10 +2,12 @@
   position: relative;
   padding: 40px 15px 60px;
 }
+
 .isHidddenTablet {
   display: flex;
   justify-content: center;
 }
+
 .isHidddenMobile {
   display: none;
 }
@@ -16,11 +18,13 @@
   top: -30px;
   left: 15px;
 }
+
 .notification {
   margin-top: 20px;
   min-width: 300px;
   max-width: 500px;
-  color: red;
+  color: #fc842d;
+  font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {
