@@ -52,7 +52,7 @@ const CalculatorPage = () => {
     document.title = 'Калькулятор | SlimMom';
     dispatch(getUserInfo());
     dispatch(getDay(userId, today));
-  }, [dispatch, userId, today, notAllowedProductsAll]);
+  }, [dispatch, userId, today]);
 
   return (
     <>
