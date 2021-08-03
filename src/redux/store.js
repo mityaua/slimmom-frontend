@@ -14,18 +14,6 @@ const authConfig = {
   whitelist: ['token'],
 };
 
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-//   logger,
-// ];
-
-// const rootReducer = combineReducers({ contacts: contactsReducer });
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const store = configureStore({
   reducer: {
     auth: persistReducer(authConfig, authReducer),

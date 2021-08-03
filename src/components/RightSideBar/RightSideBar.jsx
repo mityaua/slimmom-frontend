@@ -1,5 +1,9 @@
-import styles from './RightSideBar.module.css';
+import { useSelector } from 'react-redux';
 import Container from '../Container';
+
+import { date } from '../../redux/day/day_selector';
+
+import styles from './RightSideBar.module.css';
 
 const RightSideBar = ({
   kcalLeft,
@@ -8,21 +12,15 @@ const RightSideBar = ({
   percentsOfDailyRate,
   notAllowedProductsAll,
 }) => {
-  const today = new Date(
-    new Date().getTime() - new Date().getTimezoneOffset() * 60000,
-  )
-    .toISOString()
-    .split('T')[0]; // Текущий день с учётом временных зон, мать их
-  const formatToday = today.split('-').reverse().join('.'); // Формат текущего дня под формат макета
+  const currentDay = useSelector(date);
+  const today = currentDay.split('-').reverse().join('.'); // Текущий день c привязкой ко смене даты в календаре
 
   return (
     <aside className={styles.rightSideBar}>
       <Container>
         <div className={styles.flexBox}>
           <div>
-            <h4 className={styles.rightSideBar_title}>
-              Сводка за {formatToday}
-            </h4>
+            <h4 className={styles.rightSideBar_title}>Сводка за {today}</h4>
             <ul className={styles.rightSideBar_list}>
               <li className={styles.rightSideBar_el}>
                 <span className={styles.rightSideBar_text}>Осталось</span>
