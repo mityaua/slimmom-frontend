@@ -34,19 +34,24 @@ select:-webkit-autofill:focus {
 }
 
 .caloriesForm label {
+  /*  */
+  display: block;
+  padding-top: 5px;
+  height: 25px;
+  /*  */
+}
+/*  */
+.caloriesForm .labelText {
   font-family: Verdana;
   font-weight: bold;
+  cursor: text;
   font-size: 14px;
   line-height: 1.2;
   color: #9b9faa;
+  transform: translateY(-20px);
+  transition: all 0.3s;
 }
-.caloriesForm input {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: rgba(0, 0, 0, 0);
-  outline: 0;
-}
+/*  */
 .caloriesForm input[type='number']::-webkit-inner-spin-button,
 .caloriesForm input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -58,14 +63,35 @@ select:-webkit-autofill:focus {
   -moz-appearance: textfield;
 }
 .caloriesForm input {
-  font-family: 'Verdana', sans-serif;
-  font-style: normal;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: transparent;
+  outline: 0;
   font-weight: 700;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   letter-spacing: 0.04em;
   color: #9b9faa;
+  /*  */
+  transition: all 0.3s;
+  /*  */
 }
+/*  */
+.caloriesForm input:focus ~ .labelText {
+  font-size: 12px;
+  transform: translateY(-35px);
+}
+.caloriesForm input:valid ~ .labelText {
+  font-size: 12px;
+  transform: translateY(-35px);
+}
+/*  */
+
+.labelContainer {
+  margin-bottom: 20px;
+}
+
 .caloriesForm input::-webkit-scrollbar-thumb {
   color: transparent;
 }
@@ -180,7 +206,7 @@ input[type='radio']:checked ~ label {
 @media (min-width: 768px) {
   .caloriesForm {
     width: 100%;
-    padding: 100px 70px 60px 80px;
+    padding: 80px 70px 60px 80px;
   }
 
   .formContainerMain {
@@ -221,7 +247,7 @@ input[type='radio']:checked ~ label {
   .caloriesForm {
     width: 745px;
     height: 695px;
-    padding: 110px 25px 110px 115px;
+    padding: 90px 25px 110px 115px;
   }
   .formContainerMain {
     max-width: 745px;

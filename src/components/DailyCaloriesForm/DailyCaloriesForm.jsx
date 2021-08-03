@@ -284,14 +284,15 @@ const DailyCaloriesForm = () => {
 
 const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
-    {label}
     <input
+      required
       type={type}
       value={value}
       name={name}
       onChange={onChange}
       onBlur={onBlur}
     />
+    <div className={styles.labelText}>{label}</div>
   </label>
 );
 
