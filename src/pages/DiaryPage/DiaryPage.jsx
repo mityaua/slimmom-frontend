@@ -33,7 +33,11 @@ const DiaryPage = () => {
   const notAllowedProductsAll = useSelector(getNotAllowedProductsAll);
 
   const dispatch = useDispatch();
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date(
+    new Date().getTime() - new Date().getTimezoneOffset() * 60000,
+  )
+    .toISOString()
+    .split('T')[0]; // Текущий день с учётом временных зон, мать их
   const currentDate = useSelector(date);
 
   const [mobileFormIsVisible, setMobileFormIsVisible] = useState(false);

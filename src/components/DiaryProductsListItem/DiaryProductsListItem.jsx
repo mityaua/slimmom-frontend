@@ -10,7 +10,11 @@ const DiaryProductsListItem = ({ product: { _id, title, weight, kcal } }) => {
   const dayId = useSelector(dateId);
   const currentDate = useSelector(date);
 
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date(
+    new Date().getTime() - new Date().getTimezoneOffset() * 60000,
+  )
+    .toISOString()
+    .split('T')[0]; // Текущий день с учётом временных зон, мать их
 
   const handleClick = async () => {
     if (currentDate === today) {

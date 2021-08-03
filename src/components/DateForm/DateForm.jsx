@@ -15,13 +15,22 @@ import { ReactComponent as CalendarIcon } from '../../images/bg-pictures/mobile/
 const DateForm = () => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(new Date());
+
   const userId = useSelector(getUserId); // ID юзера
-  const days = useSelector(getDays); // Масив дней из юзера
+  const days = useSelector(getDays); // масив дней из юзера
+
   const includeDays = days?.map(day => new Date(day.date)); // массив дней юзера в нужном формате
 
+  // Текущий день с учётом временных зон, мать их
+  const isoDateTime = new Date(
+    startDate.getTime() - startDate.getTimezoneOffset() * 60000,
+  )
+    .toISOString()
+    .split('T')[0];
+
   useEffect(() => {
-    dispatch(getDay(userId, startDate.toISOString().split('T')[0]));
-  }, [dispatch, startDate, userId]);
+    dispatch(getDay(userId, isoDateTime));
+  }, [dispatch, startDate, isoDateTime, userId]);
 
   registerLocale('ru-RU', ruRU);
 

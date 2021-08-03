@@ -132,11 +132,13 @@ const DailyCaloriesForm = () => {
                       onBlur={handleBlur}
                       value={values.height}
                     />
-                    {touched.height && errors.height && (
-                      <p className={styles.caloriesFormError}>
-                        {errors.height}
-                      </p>
-                    )}
+                    <div className={styles.caloriesFormErrorContainer}>
+                      {touched.height && errors.height && (
+                        <p className={styles.caloriesFormError}>
+                          {errors.height}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   <div className={styles.labelContainer}>
                     <InputField
@@ -147,9 +149,11 @@ const DailyCaloriesForm = () => {
                       onBlur={handleBlur}
                       value={values.age}
                     />
-                    {touched.age && errors.age && (
-                      <p className={styles.caloriesFormError}>{errors.age}</p>
-                    )}
+                    <div className={styles.caloriesFormErrorContainer}>
+                      {touched.age && errors.age && (
+                        <p className={styles.caloriesFormError}>{errors.age}</p>
+                      )}
+                    </div>
                   </div>
                   <div className={styles.labelContainer}>
                     <InputField
@@ -160,11 +164,13 @@ const DailyCaloriesForm = () => {
                       onBlur={handleBlur}
                       value={values.currentWeight}
                     />
-                    {touched.currentWeight && errors.currentWeight && (
-                      <p className={styles.caloriesFormError}>
-                        {errors.currentWeight}
-                      </p>
-                    )}
+                    <div className={styles.caloriesFormErrorContainer}>
+                      {touched.currentWeight && errors.currentWeight && (
+                        <p className={styles.caloriesFormError}>
+                          {errors.currentWeight}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className={styles.formContainerRight}>
@@ -177,11 +183,13 @@ const DailyCaloriesForm = () => {
                       onBlur={handleBlur}
                       value={values.desiredWeight}
                     />
-                    {touched.desiredWeight && errors.desiredWeight && (
-                      <p className={styles.caloriesFormError}>
-                        {errors.desiredWeight}
-                      </p>
-                    )}
+                    <div className={styles.caloriesFormErrorContainer}>
+                      {touched.desiredWeight && errors.desiredWeight && (
+                        <p className={styles.caloriesFormError}>
+                          {errors.desiredWeight}
+                        </p>
+                      )}
+                    </div>
                   </div>
                   <div className={styles.radioButtonContainer}>
                     <h3>Группа крови *</h3>
@@ -216,11 +224,13 @@ const DailyCaloriesForm = () => {
                         id="4-radio-button"
                       />
                     </ul>
-                    {touched.bloodType && errors.bloodType && (
-                      <p className={styles.caloriesFormError}>
-                        {errors.bloodType}
-                      </p>
-                    )}
+                    <div className={styles.caloriesFormErrorContainer}>
+                      {touched.bloodType && errors.bloodType && (
+                        <p className={styles.caloriesFormError}>
+                          {errors.bloodType}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -284,14 +294,15 @@ const DailyCaloriesForm = () => {
 
 const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
-    {label}
     <input
+      required
       type={type}
       value={value}
       name={name}
       onChange={onChange}
       onBlur={onBlur}
     />
+    <div className={styles.labelText}>{label}</div>
   </label>
 );
 
