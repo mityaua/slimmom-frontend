@@ -26,7 +26,7 @@
 
 @media screen and (min-width: 1280px) {
   .mainPage {
-    height: 850px;
+    height: 100vh;
 
     background-image: url('../../images/bg-pictures/desktop/leaves_main.png'),
       url('../../images/bg-pictures/desktop/banana.png'),
@@ -34,9 +34,10 @@
       url('../../images/bg-pictures/desktop/stain.svg');
 
     background-size: 746px 820px, 715px 510px, 386px 379px, 715px 849px;
-    background-position: right 195px bottom 30px, right -247px bottom 442px,
-      right -27px bottom 5px, right -113px bottom -33px;
-
+    background-position: right 195px top 0px, right -247px bottom 502px,
+      right -8px bottom 85px, right -113px top 70px;
+    /*       background-position: right 0 top 183px, right -205px top 340px,
+      right 208px top -26px, right 0 top 0px; */
     background-repeat: no-repeat;
   }
 }

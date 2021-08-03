@@ -19,6 +19,7 @@
 
 @media screen and (min-width: 768px) {
   .exampleBox {
+    height: 47vh;
     padding: 100px 87px 61px 92px;
     margin-bottom: 0;
   }

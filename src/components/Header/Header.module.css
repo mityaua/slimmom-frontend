@@ -45,6 +45,7 @@
   }
 
   .coloredBg {
+    height: 16vh;
     background-image: linear-gradient(to right, #ffffff 58%, #f0f1f3 42%);
   }
 }

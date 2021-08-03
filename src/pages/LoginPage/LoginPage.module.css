@@ -35,7 +35,7 @@
 
 @media screen and (min-width: 1280px) {
   .loginPage {
-    height: 850px;
+    height: 100vh;
 
     background-image: url('../../images/bg-pictures/desktop/strawberry.png'),
       url('../../images/bg-pictures/desktop/banana.png'),

@@ -51,6 +51,7 @@
     justify-content: space-between;
   }
   .rightSideBar {
+    height: 47vh;
     padding: 91px 87px;
     background-image: url('../../images/bg-pictures/tablet/sideBarLeaves768_1x.png');
     background-repeat: no-repeat;
@@ -69,6 +70,7 @@
 
 @media screen and (min-width: 1280px) {
   .rightSideBar {
+    height: 84vh;
     width: 42%;
     display: block;
     padding: 137px 175px 162px 90px;
