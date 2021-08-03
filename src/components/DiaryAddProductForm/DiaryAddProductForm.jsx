@@ -71,6 +71,7 @@ const DiaryAddProductForm = () => {
         resetForm({ values: '' });
         setSearchProductRes([]);
         setSelectedData('');
+        setSelectedDataText('');
       }
     },
   });
@@ -91,6 +92,9 @@ const DiaryAddProductForm = () => {
   };
 
   const [selectedData, setSelectedData] = useState(searchProductRes[0] || '');
+  const [selectedDataText, setSelectedDataText] = useState('');
+
+  // const [selectedData, setSelectedData] = useState({ title: '', id: '' });
 
   useEffect(() => {
     if (searchProductRes.length) {
@@ -98,8 +102,15 @@ const DiaryAddProductForm = () => {
     }
   }, [searchProductRes]);
 
-  const handleChangeSelect = ({ target: { value } }) => {
-    setSelectedData(value);
+  // const handleChangeSelect = ({ target: { value } }) => {
+  //   setSelectedData(value);
+  // };
+
+  const handleChangeSelect = ({ target }) => {
+    console.log('text       ' + target.options[target.selectedIndex].text);
+    console.log('value      ' + target.value);
+    setSelectedData(target.value);
+    setSelectedDataText(target.options[target.selectedIndex].text);
   };
 
   useEffect(() => {
@@ -120,7 +131,7 @@ const DiaryAddProductForm = () => {
           className={`${classes.input} ${classes.nameInput}`}
           id="productName"
           name="productName"
-          value={productName}
+          value={selectedDataText || productName}
           placeholder="Введите название продукта"
           onChange={formik.handleChange}
           autoComplete="off"
