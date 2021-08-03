@@ -51,7 +51,7 @@
     justify-content: space-between;
   }
   .rightSideBar {
-    height: 47vh;
+    height: 47vmax;
     padding: 91px 87px;
     background-image: url('../../images/bg-pictures/tablet/sideBarLeaves768_1x.png');
     background-repeat: no-repeat;
