@@ -23,7 +23,10 @@ select:-webkit-autofill:focus {
   padding: 40px 65px 60px 15px;
   font-family: Verdana, Arial, sans-serif;
 }
-
+.form_button {
+  width: 100%;
+  text-align: center;
+}
 .caloriesForm h2 {
   font-family: Verdana;
   font-weight: bold;
@@ -204,11 +207,6 @@ input[type='radio']:checked ~ label {
   font-weight: bold;
   color: #fc842d;
 }
-.form_button {
-  display: flex;
-  justify-content: center;
-  margin-left: 50px;
-}
 
 @media (min-width: 768px) {
   .caloriesForm {
@@ -217,7 +215,10 @@ input[type='radio']:checked ~ label {
     width: 100%;
     padding: 70px 70px 60px 80px;
   }
-
+  .form_button {
+    width: 100%;
+    text-align: right;
+  }
   .formContainerMain {
     display: flex;
     width: 100%;
@@ -244,11 +245,6 @@ input[type='radio']:checked ~ label {
 
   .radioButton:not(:last-child) {
     margin-right: 16px;
-  }
-
-  .form_button {
-    float: right;
-    margin-right: 80px;
   }
 }
 
@@ -343,10 +339,7 @@ input[type='radio']:checked ~ label {
     text-align: center;
     margin-bottom: 22px;
   }
-  .form_button {
-    float: right;
-    margin-right: 80px;
-  }
+
   .modal_caloriesNumber {
     margin-bottom: 12px;
   }
