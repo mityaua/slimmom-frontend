@@ -14,13 +14,12 @@ import {
   getCurrentUserSuccess,
   getCurrentUserError,
 } from '../auth/auth_action';
-// Нужно также подумать
 
 const user = createReducer(null, {
-  [registerSuccess]: (_, { payload }) => payload, //  Здесь нужно подумать под бек
-  [loginSuccess]: (_, { payload }) => payload, // Здесь нужно подумать под бек, убрал user
+  [registerSuccess]: (_, { payload }) => payload,
+  [loginSuccess]: (_, { payload }) => payload,
   [logoutSuccess]: () => null,
-  [getCurrentUserSuccess]: (_, { payload }) => payload, //  Здесь нужно подумать под бек
+  [getCurrentUserSuccess]: (_, { payload }) => payload,
 });
 
 const token = createReducer(null, {
