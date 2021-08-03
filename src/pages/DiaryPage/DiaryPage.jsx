@@ -10,6 +10,13 @@ import DiaryProductsList from '../../components/DiaryProductsList';
 import Button from '../../components/Button';
 
 import { getUserInfo } from '../../redux/user/user_operation';
+import {
+  getKcalLeft,
+  getKcalConsumed,
+  getDailyRate,
+  getPercentsOfDailyRate,
+  getNotAllowedProductsAll,
+} from '../../redux/day/day_selector';
 import { date } from '../../redux/day/day_selector';
 
 import AddIcon from '@material-ui/icons/Add';
@@ -18,6 +25,13 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
+  const kcalLeft = useSelector(getKcalLeft);
+  const kcalConsumed = useSelector(getKcalConsumed);
+  const dailyRate = useSelector(getDailyRate);
+  const percentsOfDailyRate = useSelector(getPercentsOfDailyRate);
+  
+  const notAllowedProductsAll = useSelector(getNotAllowedProductsAll);
+
   const dispatch = useDispatch();
   const today = new Date(
     new Date().getTime() - new Date().getTimezoneOffset() * 60000,
@@ -58,7 +72,13 @@ const DiaryPage = () => {
                 </Button>
               </div>
             </div>
-            <RightSideBar />
+            <RightSideBar
+              kcalLeft={kcalLeft}
+              kcalConsumed={kcalConsumed}
+              dailyRate={dailyRate}
+              percentsOfDailyRate={percentsOfDailyRate}
+              notAllowedProductsAll={notAllowedProductsAll}
+            />
           </>
         ) : (
           <>
