@@ -1,7 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Container from '../Container';
-
+import { getSideBarDailyCalories } from '../../redux/dailyCalories/dailyCalories_selector';
 import { date } from '../../redux/day/day_selector';
+import { getUserInfo } from '../../redux/user/user_operation';
 
 import styles from './RightSideBar.module.css';
 
@@ -12,8 +14,15 @@ const RightSideBar = ({
   percentsOfDailyRate,
   notAllowedProductsAll,
 }) => {
+  const dispatch = useDispatch();
+  const kcal = useSelector(getSideBarDailyCalories);
   const currentDay = useSelector(date);
   const today = currentDay.split('-').reverse().join('.'); // Текущий день c привязкой ко смене даты в календаре
+
+  // Если изменились показатели юзера - запрашиваем юзера и обновляет стейт (в итоге обновляем продукты в сайдбаре)
+  useEffect(() => {
+    dispatch(getUserInfo());
+  }, [dispatch, kcal]);
 
   return (
     <aside className={styles.rightSideBar}>
