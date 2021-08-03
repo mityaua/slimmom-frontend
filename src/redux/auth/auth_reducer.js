@@ -33,7 +33,18 @@ const error = createReducer(null, {
   [loginError]: (_, { payload }) => payload,
   [logoutError]: (_, { payload }) => payload,
   [getCurrentUserError]: (_, { payload }) => payload,
-  // Обнулять ошибку
+
+  [registerRequest]: () => false,
+  [registerRequest]: () => false,
+
+  [loginRequest]: () => false,
+  [loginSuccess]: () => false,
+
+  [logoutRequest]: () => false,
+  [logoutSuccess]: () => false,
+
+  [getCurrentUserRequest]: () => false,
+  [getCurrentUserSuccess]: () => false,
 });
 
 const isLogged = createReducer(false, {

@@ -17,7 +17,7 @@ import {
 const initial = { daySummary: {}, _id: '', eatenProducts: [], date: '' };
 
 const dayInfo = createReducer(initial, {
-  [dayInfoSuccess]: (_, { payload }) => payload, // Проверить
+  [dayInfoSuccess]: (_, { payload }) => payload,
   [addProductSuccess]: (state, { payload }) => ({
     ...state,
     eatenProducts: payload.eatenProducts,
@@ -35,6 +35,15 @@ const error = createReducer(null, {
   [dayInfoError]: (_, { payload }) => payload,
   [addProductError]: (_, { payload }) => payload,
   [deleteProductError]: (_, { payload }) => payload,
+
+  [dayInfoRequest]: () => null,
+  [dayInfoSuccess]: () => null,
+
+  [addProductRequest]: () => null,
+  [addProductSuccess]: () => null,
+
+  [deleteProductRequest]: () => null,
+  [deleteProductSuccess]: () => null,
 });
 
 // Cостояние спиннера при запросах
@@ -42,9 +51,11 @@ const isLoading = createReducer(false, {
   [dayInfoRequest]: () => true,
   [dayInfoSuccess]: () => false,
   [dayInfoError]: () => false,
+
   [addProductRequest]: () => true,
   [addProductSuccess]: () => false,
   [addProductError]: () => false,
+
   [deleteProductRequest]: () => true,
   [deleteProductSuccess]: () => false,
   [deleteProductError]: () => false,
