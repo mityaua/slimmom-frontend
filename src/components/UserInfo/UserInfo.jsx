@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserNickName } from '../../redux/user/user_selector';
 import { logOut } from '../../redux/auth/auth_operation';
 
-// import UserAvatar from '../UserAvatar';
+import UserAvatar from '../UserAvatar';
 
 import styles from './UserInfo.module.css';
 
@@ -13,7 +13,11 @@ const UserInfo = () => {
 
   return (
     <div className={styles.userInfo}>
-      {/* <UserAvatar name={Nickname} size={'50px'} /> */}
+      <div className={styles.userAvatarBlock}>
+        <div className={styles.userAvatar}>
+          <UserAvatar name={Nickname} size={'40px'} />
+        </div>
+      </div>
       <span className={styles.userNickname}>{Nickname}</span>
       <button className={styles.button} type="button" onClick={onLogout}>
         Выйти
