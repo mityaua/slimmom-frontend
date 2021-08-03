@@ -16,6 +16,12 @@
   top: -30px;
   left: 15px;
 }
+.notification {
+  margin-top: 20px;
+  min-width: 300px;
+  max-width: 500px;
+  color: red;
+}
 
 @media screen and (min-width: 768px) {
   .exampleBox {
@@ -24,6 +30,9 @@
     padding: 70px 87px 61px 92px;
     margin-bottom: 0;
     margin-top: 30px;
+  }
+  .notification {
+    margin-top: 0;
   }
   .isHidddenTablet {
     display: none;
