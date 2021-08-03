@@ -34,6 +34,7 @@
   }
 
   .flexContainer {
+    height: 16vh;
     padding: 123px 115px 0 90px;
     justify-content: start;
     align-items: baseline;
@@ -45,7 +46,6 @@
   }
 
   .coloredBg {
-    height: 16vh;
     background-image: linear-gradient(to right, #ffffff 58%, #f0f1f3 42%);
   }
 }

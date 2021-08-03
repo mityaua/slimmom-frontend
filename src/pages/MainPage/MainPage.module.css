@@ -34,8 +34,8 @@
       url('../../images/bg-pictures/desktop/stain.svg');
 
     background-size: 746px 820px, 715px 510px, 386px 379px, 715px 849px;
-    background-position: right 195px top 0px, right -247px bottom 502px,
-      right -8px bottom 85px, right -113px top 70px;
+    background-position: right 195px top 0px, right -247px top -50px,
+      right -8px top 470px, right -113px top 70px;
     /*       background-position: right 0 top 183px, right -205px top 340px,
       right 208px top -26px, right 0 top 0px; */
     background-repeat: no-repeat;
