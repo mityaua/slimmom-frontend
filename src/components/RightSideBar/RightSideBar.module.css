@@ -33,6 +33,8 @@
 
 .rightSideBar_product_list {
   /* width: 270px; */
+  /* display: flex;
+  flex-direction: column; */
   max-height: 112px;
   overflow-y: scroll;
 }

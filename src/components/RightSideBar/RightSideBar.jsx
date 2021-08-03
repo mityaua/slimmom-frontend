@@ -63,15 +63,25 @@ const RightSideBar = ({
               Нерекомендуемые продукты
             </h4>
             <ul className={styles.rightSideBar_product_list}>
-              {notAllowedProductsAll ? (
-                notAllowedProductsAll.map(product => (
-                  <li
-                    className={styles.rightSideBar_product_item}
-                    key={product}
-                  >
-                    {product},{' '}
+              {notAllowedProductsAll === null ? (
+                notAllowedProductsAll ? (
+                  notAllowedProductsAll.map(product => (
+                    <li
+                      className={styles.rightSideBar_product_item}
+                      key={product}
+                    >
+                      {notAllowedProductsAll[
+                        notAllowedProductsAll.length - 1
+                      ] !== product
+                        ? `${product}, `
+                        : `${product}`}
+                    </li>
+                  ))
+                ) : (
+                  <li className={styles.rightSideBar_text}>
+                    Здесь будет отображаться Ваш рацион
                   </li>
-                ))
+                )
               ) : (
                 <li className={styles.rightSideBar_text}>
                   Здесь будет отображаться Ваш рацион
