@@ -30,6 +30,7 @@
 @media (min-width: 1280px) {
   .header {
     border-bottom: 0;
+    background-color: var(--color-white);
     padding: 0;
   }
 

@@ -6,6 +6,10 @@
     display: flex;
   }
   .formContainer {
+    background-color: var(--color-white);
     width: 58%;
+  }
+  .background {
+    background-color: var(--sideBarBackground);
   }
 }

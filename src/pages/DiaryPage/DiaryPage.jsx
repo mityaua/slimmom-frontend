@@ -62,54 +62,56 @@ const DiaryPage = () => {
 
   return (
     <>
-      <Header coloredBg />
-      <div className={styles.flexBox}>
-        {!mobileFormIsVisible ? (
-          <>
-            <div className={styles.exampleBox}>
-              <DateForm />
-              <div className={styles.isHidddenMobile}>
-                <DiaryAddProductForm />
-              </div>
+      <div className={styles.background}>
+        <Header coloredBg />
+        <div className={styles.flexBox}>
+          {!mobileFormIsVisible ? (
+            <>
+              <div className={styles.exampleBox}>
+                <DateForm />
+                <div className={styles.isHidddenMobile}>
+                  <DiaryAddProductForm />
+                </div>
 
-              <DiaryProductsList />
-              <div className={styles.isHidddenTablet}>
-                <Button
-                  customType="primary"
-                  className="small"
-                  onClick={handleClick}
-                  disabled={currentDate !== today}
-                >
-                  <AddIcon />
-                </Button>
+                <DiaryProductsList />
+                <div className={styles.isHidddenTablet}>
+                  <Button
+                    customType="primary"
+                    className="small"
+                    onClick={handleClick}
+                    disabled={currentDate !== today}
+                  >
+                    <AddIcon />
+                  </Button>
+                </div>
+                {!dailyRate ? (
+                  <h3 className={styles.notification}>
+                    Что бы выбрать продукт нужно заполнить данные в Калькуляторе
+                  </h3>
+                ) : (
+                  ''
+                )}
               </div>
-              {!dailyRate ? (
-                <h3 className={styles.notification}>
-                  Что бы выбрать продукт нужно заполнить данные в Калькуляторе
-                </h3>
-              ) : (
-                ''
-              )}
-            </div>
-            <RightSideBar
-              kcalLeft={kcalLeft}
-              kcalConsumed={kcalConsumed}
-              dailyRate={dailyRate}
-              percentsOfDailyRate={percentsOfDailyRate}
-              notAllowedProductsAll={notAllowedProductsAll}
-            />
-          </>
-        ) : (
-          <>
-            <div className={styles.exampleBox}>
-              <DiaryAddProductForm />
-              <KeyboardBackspaceIcon
-                className={styles.backButton}
-                onClick={handleClick}
+              <RightSideBar
+                kcalLeft={kcalLeft}
+                kcalConsumed={kcalConsumed}
+                dailyRate={dailyRate}
+                percentsOfDailyRate={percentsOfDailyRate}
+                notAllowedProductsAll={notAllowedProductsAll}
               />
-            </div>
-          </>
-        )}
+            </>
+          ) : (
+            <>
+              <div className={styles.exampleBox}>
+                <DiaryAddProductForm />
+                <KeyboardBackspaceIcon
+                  className={styles.backButton}
+                  onClick={handleClick}
+                />
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );

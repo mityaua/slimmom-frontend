@@ -56,23 +56,25 @@ const CalculatorPage = () => {
 
   return (
     <>
-      <Header coloredBg />
-      <div className={styles.flexBox}>
-        <div className={styles.formContainer}>
-          <DailyCaloriesForm />
-        </div>
+      <div className={styles.background}>
+        <Header coloredBg />
+        <div className={styles.flexBox}>
+          <div className={styles.formContainer}>
+            <DailyCaloriesForm />
+          </div>
 
-        <RightSideBar
-          kcalLeft={sideBarDailyCalories ? sideBarDailyCalories : kcalLeft}
-          kcalConsumed={
-            sideBarEatenCalories ? sideBarEatenCalories : kcalConsumed
-          }
-          dailyRate={sideBarDailyRate ? sideBarDailyRate : dailyRate}
-          percentsOfDailyRate={
-            sideBarPercents ? sideBarPercents : percentsOfDailyRate
-          }
-          notAllowedProductsAll={notAllowedProductsAll}
-        />
+          <RightSideBar
+            kcalLeft={sideBarDailyCalories ? sideBarDailyCalories : kcalLeft}
+            kcalConsumed={
+              sideBarEatenCalories ? sideBarEatenCalories : kcalConsumed
+            }
+            dailyRate={sideBarDailyRate ? sideBarDailyRate : dailyRate}
+            percentsOfDailyRate={
+              sideBarPercents ? sideBarPercents : percentsOfDailyRate
+            }
+            notAllowedProductsAll={notAllowedProductsAll}
+          />
+        </div>
       </div>
     </>
   );
