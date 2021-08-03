@@ -6,13 +6,17 @@ import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import RightSideBar from '../../components/RightSideBar';
 
 import { getUserInfo } from '../../redux/user/user_operation';
-import { getNotAllowedProductsAll } from '../../redux/user/user_selector';
+import {
+  getUserId,
+  getNotAllowedProductsAll,
+} from '../../redux/user/user_selector';
 import {
   getKcalLeft,
   getKcalConsumed,
   getDailyRate,
   getPercentsOfDailyRate,
 } from '../../redux/day/day_selector';
+import { getDay } from '../../redux/day/day_operation';
 import {
   getSideBarDailyCalories,
   getSideBarEatenCalories,
@@ -35,12 +39,20 @@ const CalculatorPage = () => {
   const sideBarDailyRate = useSelector(getSideBarDailyRate);
   const sideBarPercents = useSelector(getSideBarPercents);
 
+  const userId = useSelector(getUserId); // ID юзера
+  const today = new Date(
+    new Date().getTime() - new Date().getTimezoneOffset() * 60000,
+  )
+    .toISOString()
+    .split('T')[0]; // Текущий день с учётом временных зон, мать их
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     document.title = 'Калькулятор | SlimMom';
     dispatch(getUserInfo());
-  }, [dispatch]);
+    dispatch(getDay(userId, today));
+  }, [dispatch, userId, today]);
 
   return (
     <>
