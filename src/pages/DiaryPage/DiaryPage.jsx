@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Header from '../../components/Header';
 import DateForm from '../../components/DateForm';
@@ -22,6 +23,7 @@ import {
 import AddIcon from '@material-ui/icons/Add';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
+import { motivation } from '../../utils/motivation';
 import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
@@ -44,10 +46,20 @@ const DiaryPage = () => {
   const handleClick = () => {
     setMobileFormIsVisible(prev => !prev);
   };
+
   useEffect(() => {
     document.title = 'Дневник | SlimMom';
     dispatch(getUserInfo());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (kcalLeft < 0 && currentDate === today) {
+      toast.warn(
+        `🐷 ${motivation[Math.floor(Math.random() * motivation.length)]}`,
+      );
+    }
+  }, [kcalLeft, today, currentDate]);
+
   return (
     <>
       <Header coloredBg />
