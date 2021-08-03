@@ -19,7 +19,7 @@
 
 @media screen and (min-width: 768px) {
   .exampleBox {
-    padding: 100px 87px 61px 92px;
+    padding: 70px 87px 61px 92px;
     margin-bottom: 0;
   }
   .isHidddenTablet {
@@ -35,7 +35,7 @@
     display: flex;
   }
   .exampleBox {
-    padding: 137px 30px 60px 115px;
+    padding: 80px 30px 60px 115px;
     width: 58%;
   }
 }
