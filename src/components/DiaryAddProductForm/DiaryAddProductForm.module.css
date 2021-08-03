@@ -22,9 +22,11 @@
     flex-direction: column;
     align-items: center;
   }
+
   .hiddenText {
     display: block;
   }
+
   .hiddenIcon {
     display: none;
   }

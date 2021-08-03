@@ -83,6 +83,13 @@ const DiaryPage = () => {
                   <AddIcon />
                 </Button>
               </div>
+              {!dailyRate ? (
+                <h3 className={styles.notification}>
+                  Что бы выбрать продукт нужно заполнить данные в Калькуляторе
+                </h3>
+              ) : (
+                ''
+              )}
             </div>
             <RightSideBar
               kcalLeft={kcalLeft}
