@@ -5,8 +5,8 @@ export const dateId = state => state.day.dayInfo._id;
 // sideBar
 
 export const getKcalLeft = state => state.day.dayInfo.daySummary.kcalLeft;
-export const getKcalConsumed = state => state.day.dayInfo.daySummary.kcalConsumed;
+export const getKcalConsumed = state =>
+  state.day.dayInfo.daySummary.kcalConsumed;
 export const getDailyRate = state => state.day.dayInfo.daySummary.dailyRate;
-export const getPercentsOfDailyRate = state => state.day.dayInfo.daySummary.percentsOfDailyRate;
-
-export const getNotAllowedProductsAll = state => state.user.userInfo.userData.notAllowedProductsAll;
+export const getPercentsOfDailyRate = state =>
+  state.day.dayInfo.daySummary.percentsOfDailyRate;

@@ -4,19 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import RightSideBar from '../../components/RightSideBar';
+
 import { getUserInfo } from '../../redux/user/user_operation';
+import { getNotAllowedProductsAll } from '../../redux/user/user_selector';
 import {
   getKcalLeft,
   getKcalConsumed,
   getDailyRate,
   getPercentsOfDailyRate,
-  getNotAllowedProductsAll
 } from '../../redux/day/day_selector';
 import {
   getSideBarDailyCalories,
   getSideBarEatenCalories,
   getSideBarDailyRate,
-  getSideBarPercents
+  getSideBarPercents,
 } from '../../redux/dailyCalories/dailyCalories_selector';
 
 import styles from './CalculatorPage.module.css';
@@ -51,9 +52,13 @@ const CalculatorPage = () => {
 
         <RightSideBar
           kcalLeft={sideBarDailyCalories ? sideBarDailyCalories : kcalLeft}
-          kcalConsumed={sideBarEatenCalories ? sideBarEatenCalories : kcalConsumed}
+          kcalConsumed={
+            sideBarEatenCalories ? sideBarEatenCalories : kcalConsumed
+          }
           dailyRate={sideBarDailyRate ? sideBarDailyRate : dailyRate}
-          percentsOfDailyRate={sideBarPercents ? sideBarPercents : percentsOfDailyRate}
+          percentsOfDailyRate={
+            sideBarPercents ? sideBarPercents : percentsOfDailyRate
+          }
           notAllowedProductsAll={notAllowedProductsAll}
         />
       </div>
