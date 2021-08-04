@@ -3,8 +3,11 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../Button/Button';
-import TextField from '@material-ui/core/TextField';
+import { TextField, InputAdornment, IconButton } from '@material-ui/core';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { register } from '../../redux/auth/auth_operation';
 import routes from '../../routes';
 import { NavLink } from 'react-router-dom';
@@ -40,6 +43,9 @@ const validationSchema = yup.object({
 });
 
 const RegistrationForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -97,11 +103,25 @@ const RegistrationForm = () => {
           id="password"
           name="password"
           placeholder="Пароль *"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
+          InputProps={{
+            // <-- This is where the toggle button is added.
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <div className={styles.buttons}>
           <NavLink to={routes.login}>
