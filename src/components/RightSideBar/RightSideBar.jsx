@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Container from '../Container';
-// import { getSideBarDailyCalories } from '../../redux/dailyCalories/dailyCalories_selector';
+import { getSideBarDailyCalories } from '../../redux/dailyCalories/dailyCalories_selector';
 import { date } from '../../redux/day/day_selector';
 import { getUserInfo } from '../../redux/user/user_operation';
-import { getKcalLeft } from '../../redux/day/day_selector';
 
 import styles from './RightSideBar.module.css';
 
@@ -16,7 +15,7 @@ const RightSideBar = ({
   notAllowedProductsAll,
 }) => {
   const dispatch = useDispatch();
-  const kcal = useSelector(getKcalLeft);
+  const kcal = useSelector(getSideBarDailyCalories);
   const currentDay = useSelector(date);
   const today = currentDay.split('-').reverse().join('.'); // Текущий день c привязкой ко смене даты в календаре
 
