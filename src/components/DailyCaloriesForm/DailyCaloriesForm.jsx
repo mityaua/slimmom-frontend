@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { Formik } from 'formik';
+import { PersistFormikValues } from 'formik-persist-values';
 
 import Button from '../Button';
 import Modal from '../Modal';
@@ -105,7 +106,7 @@ const DailyCaloriesForm = () => {
           validateOnBlur
           onSubmit={(values, actions) => {
             handleSubmit(values, userId);
-            actions.resetForm();
+            // actions.resetForm();
           }}
           validationSchema={validationsSchema}
         >
@@ -234,6 +235,7 @@ const DailyCaloriesForm = () => {
                   </div>
                 </div>
               </div>
+
               <div className={styles.form_button}>
                 <Button
                   disabled={!isValid || !dirty}
@@ -243,6 +245,8 @@ const DailyCaloriesForm = () => {
                   customType="primary"
                 />
               </div>
+
+              <PersistFormikValues name="calc-form" ignoreValues="bloodType" />
             </form>
           )}
         </Formik>
