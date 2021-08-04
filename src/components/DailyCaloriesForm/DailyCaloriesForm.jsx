@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import { PersistFormikValues } from 'formik-persist-values';
 
 import Button from '../Button';
@@ -41,7 +41,7 @@ const DailyCaloriesForm = () => {
   };
 
   const handleSubmit = (values, userId) => {
-    values.bloodType = Number(values.bloodType);
+    localStorage.setItem('bloodType', values.bloodType);
 
     if (userId) {
       dispatch(dailyCaloriesAuth(values, userId));
@@ -52,6 +52,12 @@ const DailyCaloriesForm = () => {
     if (!IsAuthenticated) {
       toggleModal();
     }
+  };
+
+  const isChecked = () => {
+    const store = localStorage.getItem('bloodType');
+    console.log(typeof store);
+    return store;
   };
 
   const validationsSchema = yup.object().shape({
@@ -101,7 +107,7 @@ const DailyCaloriesForm = () => {
             age: '',
             currentWeight: '',
             desiredWeight: '',
-            bloodType: '',
+            bloodType: `${isChecked()}`,
           }}
           validateOnBlur
           onSubmit={(values, actions) => {
@@ -298,7 +304,7 @@ const DailyCaloriesForm = () => {
 
 const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
-    <input
+    <Field
       required
       type={type}
       value={value}
@@ -312,7 +318,7 @@ const InputField = ({ label, type, value, name, onChange, onBlur }) => (
 
 const RadioButton = ({ name, value, id, onChange, onBlur }) => (
   <li>
-    <input
+    <Field
       type="radio"
       value={value}
       name={name}
