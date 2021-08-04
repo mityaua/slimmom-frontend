@@ -87,6 +87,7 @@ const DiaryAddProductForm = () => {
     if (productName.length >= 3) {
       setT(setTimeout(() => fetchData(productName), 500));
     }
+    // eslint-disable-next-line
   }, [productName]);
 
   const fetchData = async name => {
