@@ -20,6 +20,7 @@
 .date:focus {
   opacity: 0.7;
   transition: opacity 250ms linear;
+  fill: #fc842d;
 }
 
 @media screen and (min-width: 768px) {
@@ -33,11 +34,11 @@
   opacity: 1;
   transition: opacity 250ms linear;
   cursor: pointer;
+  fill: #9b9faa;
 }
 
 .icon:hover,
 .icon:focus {
   opacity: 0.7;
   transition: opacity 250ms linear;
-  color: #fc842d;
 }
