@@ -24,7 +24,7 @@ select:-webkit-autofill:focus {
   font-family: Verdana, Arial, sans-serif;
 }
 .form_button {
-  width: 100%;
+  margin-left: 50px;
   text-align: center;
 }
 .caloriesForm h2 {
@@ -216,7 +216,7 @@ input[type='radio']:checked ~ label {
     padding: 70px 70px 60px 80px;
   }
   .form_button {
-    width: 100%;
+    margin-left: 0;
     text-align: right;
   }
   .formContainerMain {

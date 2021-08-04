@@ -97,21 +97,13 @@ const DiaryAddProductForm = () => {
   const [selectedData, setSelectedData] = useState(searchProductRes[0] || '');
   const [selectedDataText, setSelectedDataText] = useState('');
 
-  // const [selectedData, setSelectedData] = useState({ title: '', id: '' });
-
   useEffect(() => {
     if (searchProductRes.length) {
       setSelectedData(searchProductRes[0]._id);
     }
   }, [searchProductRes]);
 
-  // const handleChangeSelect = ({ target: { value } }) => {
-  //   setSelectedData(value);
-  // };
-
   const handleChangeSelect = ({ target }) => {
-    console.log('text       ' + target.options[target.selectedIndex].text);
-    console.log('value      ' + target.value);
     setSelectedData(target.value);
     setSelectedDataText(target.options[target.selectedIndex].text);
   };
@@ -134,7 +126,7 @@ const DiaryAddProductForm = () => {
           className={`${classes.input} ${classes.nameInput}`}
           id="productName"
           name="productName"
-          value={selectedDataText || productName}
+          value={selectedDataText ? selectedDataText : productName}
           placeholder="Введите название продукта"
           onChange={formik.handleChange}
           autoComplete="off"
@@ -177,11 +169,10 @@ const DiaryAddProductForm = () => {
             <select
               size={`${searchProductRes.length}`}
               className={styles.selectProduct}
-              // value={selectedData}
               onChange={handleChangeSelect}
             >
-              <option value="" selected disabled hidden>
-                Выберете подходящий продукт
+              <option className={styles.optionStyle} disabled>
+                Выберите подходящий продукт
               </option>
               {searchProductRes.map(({ title, _id }) => (
                 <option title={title.ru} key={_id} value={_id}>

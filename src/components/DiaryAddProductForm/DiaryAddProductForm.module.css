@@ -23,7 +23,10 @@
 
   overflow-y: scroll;
 }
-
+.optionStyle {
+  color: grey;
+  text-align: center;
+}
 @media screen and (min-width: 768px) {
   .selectProduct {
     width: 70%;
@@ -41,6 +44,12 @@
   overflow: hidden;
 
   transition: all 250ms linear;
+}
+.selectProduct > option:first-child:hover {
+  background-color: white;
+  color: grey;
+  opacity: 80%;
+  cursor: default;
 }
 
 /* Опция при ховере */
