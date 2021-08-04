@@ -49,6 +49,7 @@ const DateForm = () => {
       <span>
         <CalendarIcon
           alt="Выбор даты на календаре"
+          title="Нажмите для выбора даты"
           width="18px"
           height="20px"
           className={styles.icon}
