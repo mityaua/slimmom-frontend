@@ -80,9 +80,12 @@ const DiaryAddProductForm = () => {
 
   const { productName, productWeight } = formik.values;
 
+  const [t, setT] = useState(null);
   useEffect(() => {
+    if (t) clearTimeout(t);
+
     if (productName.length >= 3) {
-      fetchData(productName);
+      setT(setTimeout(() => fetchData(productName), 500));
     }
   }, [productName]);
 

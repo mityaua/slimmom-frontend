@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import RightSideBar from '../../components/RightSideBar';
+import Loader from '../../components/Loader';
 
 import { getUserInfo } from '../../redux/user/user_operation';
 import {
@@ -22,11 +23,14 @@ import {
   getSideBarEatenCalories,
   getSideBarDailyRate,
   getSideBarPercents,
+  getLoading,
 } from '../../redux/dailyCalories/dailyCalories_selector';
 
 import styles from './CalculatorPage.module.css';
 
 const CalculatorPage = () => {
+  const isLoading = useSelector(getLoading);
+
   const kcalLeft = useSelector(getKcalLeft);
   const kcalConsumed = useSelector(getKcalConsumed);
   const dailyRate = useSelector(getDailyRate);
@@ -74,6 +78,8 @@ const CalculatorPage = () => {
           notAllowedProductsAll={notAllowedProductsAll}
         />
       </div>
+
+      {isLoading && <Loader />}
     </>
   );
 };

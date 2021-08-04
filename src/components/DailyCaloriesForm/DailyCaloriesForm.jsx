@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
-import { Formik } from 'formik';
+import { Formik, Field, Form } from 'formik';
+import { PersistFormikValues } from 'formik-persist-values';
 
 import Button from '../Button';
 import Modal from '../Modal';
@@ -40,8 +41,7 @@ const DailyCaloriesForm = () => {
   };
 
   const handleSubmit = (values, userId) => {
-    values.bloodType = Number(values.bloodType);
-
+    localStorage.setItem('bloodType', values.bloodType);
     if (userId) {
       dispatch(dailyCaloriesAuth(values, userId));
     } else {
@@ -51,6 +51,14 @@ const DailyCaloriesForm = () => {
     if (!IsAuthenticated) {
       toggleModal();
     }
+  };
+
+  const isChecked = () => {
+    const store = localStorage.getItem('bloodType');
+    if (store) {
+      return store;
+    }
+    return '';
   };
 
   const validationsSchema = yup.object().shape({
@@ -100,12 +108,16 @@ const DailyCaloriesForm = () => {
             age: '',
             currentWeight: '',
             desiredWeight: '',
-            bloodType: '',
+            bloodType: `${isChecked()}`,
           }}
           validateOnBlur
           onSubmit={(values, actions) => {
             handleSubmit(values, userId);
-            actions.resetForm();
+            if (IsAuthenticated) {
+              localStorage.removeItem('bloodType');
+              localStorage.removeItem('calc-form');
+              actions.resetForm();
+            }
           }}
           validationSchema={validationsSchema}
         >
@@ -119,7 +131,7 @@ const DailyCaloriesForm = () => {
             handleSubmit,
             dirty,
           }) => (
-            <form className={styles.caloriesForm} onSubmit={handleSubmit}>
+            <Form className={styles.caloriesForm} onSubmit={handleSubmit}>
               <h2>{heading()}</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
@@ -234,6 +246,7 @@ const DailyCaloriesForm = () => {
                   </div>
                 </div>
               </div>
+
               <div className={styles.form_button}>
                 <Button
                   disabled={!isValid || !dirty}
@@ -243,7 +256,9 @@ const DailyCaloriesForm = () => {
                   customType="primary"
                 />
               </div>
-            </form>
+
+              <PersistFormikValues name="calc-form" ignoreValues="bloodType" />
+            </Form>
           )}
         </Formik>
       </div>
@@ -294,7 +309,7 @@ const DailyCaloriesForm = () => {
 
 const InputField = ({ label, type, value, name, onChange, onBlur }) => (
   <label>
-    <input
+    <Field
       required
       type={type}
       value={value}
@@ -308,7 +323,7 @@ const InputField = ({ label, type, value, name, onChange, onBlur }) => (
 
 const RadioButton = ({ name, value, id, onChange, onBlur }) => (
   <li>
-    <input
+    <Field
       type="radio"
       value={value}
       name={name}

@@ -31,12 +31,14 @@
 
 .icon {
   opacity: 1;
-  transition: opacity 250ms linear;
+  transition: all 250ms linear;
   cursor: pointer;
+  fill: #9b9faa;
 }
 
 .icon:hover,
 .icon:focus {
   opacity: 0.7;
-  transition: opacity 250ms linear;
+  transition: all 250ms linear;
+  fill: #fc842d;
 }
