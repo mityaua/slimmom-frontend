@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
-import { Formik, Field } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import { PersistFormikValues } from 'formik-persist-values';
 
 import Button from '../Button';
@@ -117,7 +117,6 @@ const DailyCaloriesForm = () => {
               localStorage.removeItem('bloodType');
               localStorage.removeItem('calc-form');
               actions.resetForm();
-              isChecked();
             }
           }}
           validationSchema={validationsSchema}
@@ -132,7 +131,7 @@ const DailyCaloriesForm = () => {
             handleSubmit,
             dirty,
           }) => (
-            <form className={styles.caloriesForm} onSubmit={handleSubmit}>
+            <Form className={styles.caloriesForm} onSubmit={handleSubmit}>
               <h2>{heading()}</h2>
               <div className={styles.formContainerMain}>
                 <div className={styles.formContainerLeft}>
@@ -259,7 +258,7 @@ const DailyCaloriesForm = () => {
               </div>
 
               <PersistFormikValues name="calc-form" ignoreValues="bloodType" />
-            </form>
+            </Form>
           )}
         </Formik>
       </div>
