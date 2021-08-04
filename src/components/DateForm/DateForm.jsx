@@ -9,7 +9,7 @@ import { getUserId, getDays } from '../../redux/user/user_selector';
 import styles from './DateForm.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { ReactComponent as CalendarIcon } from '../../images/bg-pictures/mobile/calender.svg';
+import { ReactComponent as CalendarIcon } from '../../images/bg-pictures/mobile/calender-1.svg';
 
 // Компонент выбора даты на календаре
 const DateForm = () => {
