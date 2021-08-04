@@ -177,6 +177,9 @@ const DiaryAddProductForm = () => {
               // value={selectedData}
               onChange={handleChangeSelect}
             >
+              <option value="" selected disabled hidden>
+                Выберете подходящий продукт
+              </option>
               {searchProductRes.map(({ title, _id }) => (
                 <option title={title.ru} key={_id} value={_id}>
                   {title.ru}
