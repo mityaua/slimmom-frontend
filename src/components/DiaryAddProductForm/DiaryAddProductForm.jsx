@@ -178,7 +178,7 @@ const DiaryAddProductForm = () => {
               onChange={handleChangeSelect}
             >
               {searchProductRes.map(({ title, _id }) => (
-                <option key={_id} value={_id}>
+                <option title={title.ru} key={_id} value={_id}>
                   {title.ru}
                 </option>
               ))}

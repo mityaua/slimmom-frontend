@@ -18,7 +18,23 @@
   top: 70px;
   left: 0;
   width: 70%;
-  height: 100px;
+  height: 150px;
+}
+
+.selectProduct > option {
+  padding: 5px 5px;
+  transition: all 250ms linear;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.selectProduct > option:hover {
+  background-color: var(--color-active);
+  color: white;
+  cursor: pointer;
+  transition: all 250ms linear;
+  overflow: visible;
 }
 
 @media screen and (max-width: 767px) {
