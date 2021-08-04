@@ -42,7 +42,6 @@ const DailyCaloriesForm = () => {
 
   const handleSubmit = (values, userId) => {
     localStorage.setItem('bloodType', values.bloodType);
-
     if (userId) {
       dispatch(dailyCaloriesAuth(values, userId));
     } else {
@@ -56,8 +55,10 @@ const DailyCaloriesForm = () => {
 
   const isChecked = () => {
     const store = localStorage.getItem('bloodType');
-    console.log(typeof store);
-    return store;
+    if (store) {
+      return store;
+    }
+    return '';
   };
 
   const validationsSchema = yup.object().shape({
@@ -112,7 +113,12 @@ const DailyCaloriesForm = () => {
           validateOnBlur
           onSubmit={(values, actions) => {
             handleSubmit(values, userId);
-            // actions.resetForm();
+            if (IsAuthenticated) {
+              localStorage.removeItem('bloodType');
+              localStorage.removeItem('calc-form');
+              actions.resetForm();
+              isChecked();
+            }
           }}
           validationSchema={validationsSchema}
         >
