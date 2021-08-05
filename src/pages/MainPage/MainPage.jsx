@@ -13,8 +13,6 @@ import styles from './MainPage.module.css';
 const MainPage = () => {
   const isLoading = useSelector(getLoading);
 
-  console.log(isLoading);
-
   useEffect(() => {
     document.title = 'SlimMom | Худей эффективно!';
   }, []);
