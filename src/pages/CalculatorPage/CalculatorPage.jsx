@@ -25,6 +25,7 @@ import {
   getSideBarPercents,
   getLoading,
 } from '../../redux/dailyCalories/dailyCalories_selector';
+import { dailyCaloriesAuth } from '../../redux/dailyCalories/dailyCalories_operation';
 
 import styles from './CalculatorPage.module.css';
 
@@ -57,6 +58,33 @@ const CalculatorPage = () => {
     dispatch(getUserInfo());
     dispatch(getDay(userId, today));
   }, [dispatch, userId, today]);
+
+  useEffect(() => {
+    const age = localStorage.getItem('age');
+    const currentWeight = localStorage.getItem('currentWeight');
+    const desiredWeight = localStorage.getItem('desiredWeight');
+    const height = localStorage.getItem('height');
+    const blood = localStorage.getItem('blood');
+
+    if (
+      age !== null &&
+      currentWeight !== null &&
+      desiredWeight !== null &&
+      height !== null &&
+      blood !== null
+    ) {
+      const values = {
+        age: Number(age),
+        currentWeight: Number(currentWeight),
+        desiredWeight: Number(desiredWeight),
+        height: Number(height),
+        bloodType: Number(blood),
+      };
+
+      dispatch(dailyCaloriesAuth(values, userId));
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

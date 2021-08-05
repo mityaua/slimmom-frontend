@@ -42,6 +42,13 @@ const DailyCaloriesForm = () => {
 
   const handleSubmit = (values, userId) => {
     localStorage.setItem('bloodType', values.bloodType);
+
+    localStorage.setItem('age', values.age);
+    localStorage.setItem('currentWeight', values.currentWeight);
+    localStorage.setItem('desiredWeight', values.desiredWeight);
+    localStorage.setItem('height', values.height);
+    localStorage.setItem('blood', values.bloodType);
+
     if (userId) {
       dispatch(dailyCaloriesAuth(values, userId));
     } else {
