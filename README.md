@@ -46,8 +46,9 @@ of us by visiting our pages on LinkedIn:
 
 - [Vita Khutorianska - Developer](https://www.linkedin.com/in/%D0%B2%D0%B8%D1%82%D0%B0-%D1%85%D1%83%D1%82%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F-ba1a8b218/)
 
-- [Ivan Kuchvara - Developer](..)
+- [Ivan Kuchvara - Developer](www.linkedin.com/in/ivan-kuchvara)
 - [Anton Sannykov - Developer](https://www.linkedin.com/in/anton-sannykov-3b00ba137)
+- [Sergey Glazyrin - Developer](https://www.linkedin.com/in/sgcruiser/)
 
 ![:octocat:](https://github.githubassets.com/images/icons/emoji/octocat.png ':octocat:')
 You can also see our work on Github:
@@ -67,6 +68,7 @@ You can also see our work on Github:
 
 - [Ivan Kuchvara - Developer](https://github.com/Kuchvara)
 - [Anton Sannykov - Developer](https://github.com/AntonSann)
+- [Sergey Glazyrin - Developer](https://github.com/sgcruiser)
 
 ---
 
@@ -117,6 +119,7 @@ You can also see our work on Github:
 
 - [Ivan Kuchvara - Developer](..)
 - [Anton Sannykov - Developer](https://www.linkedin.com/in/anton-sannykov-3b00ba137)
+- [Sergey Glazyrin - Developer](https://www.linkedin.com/in/sgcruiser/)
 
 ![:octocat:](https://github.githubassets.com/images/icons/emoji/octocat.png ':octocat:')Так
 же Вы посмотреть наши работы на Github:
@@ -136,3 +139,4 @@ You can also see our work on Github:
 
 - [Ivan Kuchvara - Developer](https://github.com/Kuchvara)
 - [Anton Sannykov - Developer](https://github.com/AntonSann)
+- [Sergey Glazyrin - Developer](https://github.com/sgcruiser)
