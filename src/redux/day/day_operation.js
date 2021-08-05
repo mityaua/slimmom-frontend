@@ -52,7 +52,6 @@ export const deleteProduct = (dayId, eatenProductId) => async dispatch => {
     dispatch(deleteProductSuccess(data));
     toast.info('👌 Продукт успешно удален');
   } catch (error) {
-    console.log(error);
     dispatch(deleteProductError(error.message));
     toast.error(error.message);
   }

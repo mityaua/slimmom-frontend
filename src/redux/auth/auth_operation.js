@@ -29,7 +29,6 @@ const token = {
 };
 
 export const register = payload => async dispatch => {
-  console.log('register payload', payload);
   dispatch(registerRequest());
   try {
     const response = await axios.post('/auth/signup', payload);
@@ -42,7 +41,6 @@ export const register = payload => async dispatch => {
 };
 
 export const login = payload => async dispatch => {
-  console.log('login payload', payload);
   dispatch(loginRequest());
 
   try {
