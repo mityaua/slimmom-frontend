@@ -8,3 +8,7 @@
   transition: opacity 250ms linear;
   cursor: pointer;
 }
+
+.avatar__link {
+  color: white;
+}
