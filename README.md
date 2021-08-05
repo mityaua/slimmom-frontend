@@ -1,5 +1,3 @@
-# ⏳ Coming Soon...
-
 **ENG**
 
 ## _Hi!_ 👋
@@ -32,7 +30,7 @@ better companies too. When documentation is easy to create and maintain,
 developers can develop. Writers can write. Sales can sell more effectively. And
 customers can find what they need without having to call up support.
 
-[ℹ**n**](https://emojipedia.org/emoji/%E2%84%B9/) You can learn more about each
+[ℹ\*\*](https://emojipedia.org/emoji/%E2%84%B9/) You can learn more about each
 of us by visiting our pages on LinkedIn:
 
 - [Dmitriy Shukaliuk - Team Lead](https://www.linkedin.com/in/mityaua/)
@@ -46,7 +44,7 @@ of us by visiting our pages on LinkedIn:
 
 - [Vitalii Latka - Developer](https://www.linkedin.com/in/vitalii-latka-602241216/)
 
-- [Vita Khutorianska - Developer](...)
+- [Vita Khutorianska - Developer](https://www.linkedin.com/in/%D0%B2%D0%B8%D1%82%D0%B0-%D1%85%D1%83%D1%82%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F-ba1a8b218/)
 
 - [Ivan Kuchvara - Developer](..)
 - [Anton Sannykov - Developer](https://www.linkedin.com/in/anton-sannykov-3b00ba137)
@@ -60,10 +58,10 @@ You can also see our work on Github:
 
 - [Illya Miroshnichenko - Developer](https://github.com/iliyamiroshnichenko)
 
-- [Viktor Vashchenko - Developer](...)
+- [Viktor Vashchenko - Developer](https://github.com/Viktor-V72)
 - [Maksym Yaryhin - Developer](https://github.com/yarymaks)
 
-- [Vitalii Latka - Developer](...)
+- [Vitalii Latka - Developer](https://github.com/vitaliilatka)
 
 - [Vita Khutorianska - Developer](https://github.com/vita-khutorianska)
 
@@ -101,7 +99,7 @@ You can also see our work on Github:
 более эффективно. ✔️ Клиенты могут найти то, что им нужно, не обращаясь в службу
 поддержки.
 
-[ℹ**n**](https://emojipedia.org/emoji/%E2%84%B9/) Больше о каждом из нас Вы
+[ℹ\*\*](https://emojipedia.org/emoji/%E2%84%B9/) Больше о каждом из нас Вы
 можете узнать, посетив наши странички в LinkedIn:
 
 - [Dmitriy Shukaliuk - Team Lead](https://www.linkedin.com/in/mityaua/)
@@ -115,7 +113,7 @@ You can also see our work on Github:
 
 - [Vitalii Latka - Developer](https://www.linkedin.com/in/vitalii-latka-602241216/)
 
-- [Vita Khutorianska - Developer](...)
+- [Vita Khutorianska - Developer](https://www.linkedin.com/in/%D0%B2%D0%B8%D1%82%D0%B0-%D1%85%D1%83%D1%82%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F-ba1a8b218/)
 
 - [Ivan Kuchvara - Developer](..)
 - [Anton Sannykov - Developer](https://www.linkedin.com/in/anton-sannykov-3b00ba137)
@@ -129,10 +127,10 @@ You can also see our work on Github:
 
 - [Illya Miroshnichenko - Developer](https://github.com/iliyamiroshnichenko)
 
-- [Viktor Vashchenko - Developer](...)
+- [Viktor Vashchenko - Developer](https://github.com/Viktor-V72)
 - [Maksym Yaryhin - Developer](https://github.com/yarymaks)
 
-- [Vitalii Latka - Developer](...)
+- [Vitalii Latka - Developer](https://github.com/vitaliilatka)
 
 - [Vita Khutorianska - Developer](https://github.com/vita-khutorianska)
 
