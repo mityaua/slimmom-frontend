@@ -37,11 +37,13 @@
 .icon {
   color: #9b9faa;
   cursor: pointer;
+  transition: all 250ms linear;
 }
 
 .icon:hover {
-  color: #000;
+  color: var(--color-active);
   transform: scale(1.1);
+  transition: all 250ms linear;
 }
 
 .disabled {
