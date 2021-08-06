@@ -14,7 +14,7 @@
 .backButton {
   position: absolute;
   z-index: 10;
-  top: -30px;
+  top: 90px;
   left: 15px;
 }
 
